@@ -1,0 +1,80 @@
+<div class="wrapper">
+	<sidenav-content></sidenav-content>     
+       <div class="main-panel">
+
+			<navbar-content></navbar-content>
+			
+            <div class="content">
+                <div class="container-fluid">
+
+					<div class="row">
+						<div class="col-md-5">
+							<div class="card">
+								<div class="header">
+									<h4 class="title">Solicitud de transporte</h4>
+									<p class="category dark-label">Según longitud de la ruta</p>
+								</div>
+								<div class="content">
+									<div ng-controller="pieChoferEstadisticController">
+									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
+										<div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="300px"></div>
+									</div>
+									<div class="footer">
+										<div class="stats">
+											<i class="ti-timer"></i> Campaign sent 2 days ago
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-7">
+							<div class="card">
+								<div class="header">
+									<h4 class="title">Solicitud de servicios de transporte en Venezuela</h4>
+									<p class="category dark-label">24 Horas</p>
+								</div>
+								<div class="content">
+									<div ng-controller="hourChoferEstadisticController">
+									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
+										<div zingchart id="chart-2" zc-json="chartData" zc-width="600" zc-height="300px"></div>
+									</div>
+									<div class="footer">
+										<div class="stats">
+											<i class="ti-reload"></i> Updated 3 minutes ago
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="header">
+									<h4 class="title">2018 Traveling</h4> <!--??????-->
+									<p class="category dark-label">Crecimiento de la empresa en el año</p>
+								</div>
+								<div class="content">
+									<div ng-controller="lineChoferEstadisticController">
+									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
+										<div zingchart id="chart-3" zc-json="chartData" zc-width="100%" zc-height="400px"></div>
+									</div>
+									<div class="footer">
+										<div class="stats">
+											<i class="ti-check"></i> Data information certified
+										</div>
+									</div>
+								</div>
+							</div> <!--Termina la tarjeta -->
+						</div> <!--Termina el elemento de 6 de ancho -->
+					</div> <!--Termina la fila row-->
+					
+				</div>
+			</div>
+			<footer-content></footer-content>
+		</div>		
+    </div>  
+

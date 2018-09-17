@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <sidenav-content></sidenav-content>     
+    <div class="main-panel">    
+        <navbar-content></navbar-content>                
+        <div class="content">
+            <div class="container-fluid">     
+                <div class="content">
+                    <div class="container-fluid" ng-controller="listaAutosController as autos">
+                        <div class="col-md-12">
+                            <div class="card card-table">
+                                <div class="header">
+                                    <h4 class="title">Autos asignados</h4>
+                                    <label  class="dark-label">Visualiza todos los autos que se te han asignado para tus viajes</label>
+                                </div>
+                                <!--Deberia tener una flecha para poder desplazarse entre la galería de autos-->
+                                <ul class="galeria-automoviles">
+                                    <li ng-repeat="auto in autos.listaAsignados"> <img src="{{auto.img}}" alt="Imagen random"> <p> {{auto.name}} </p> </li>
+                                    <!--<li> <img src="images/automoviles/1.jpg" alt="Imagen random 1"> <p>Carro 1 </p> </li>
+                                    <li> <img src="images/automoviles/2.jpg" alt="Imagen random 2"> <p>Carro 2 </p> </li>
+                                    <li> <img src="images/automoviles/3.jpg" alt="Imagen random 3"> <p>Carro 3 </p> </li> -->
+                                </ul> 
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="col-md-12">
+                            <div class="card card-table">
+                                <div class="header">
+                                    <h4 class="title">Autos propios</h4>
+                                    <label class="dark-label">Visualiza todos los autos propios que has usado para viajes</label>
+                                </div>
+                                <ul class="galeria-automoviles">
+                                    <li ng-repeat="auto in autos.listaPropios"> <img src="{{auto.img}}" alt="Imagen random"> <p> {{auto.name}} </p> </li>
+                                    <!-- <li> <img src="images/automoviles/4.jpg" alt="Imagen random 1"> <p>Carro 1 </p> </li>
+                                    <li> <img src="images/automoviles/5.jpg" alt="Imagen random 2"> <p>Carro 2 </p> </li>
+                                    <li> <img src="images/automoviles/6.jpg" alt="Imagen random 3"> <p>Carro 3 </p> </li> -->
+                                </ul> 
+                            </div>
+                        </div>
+
+                        <hr>
+                        
+                        <div class="col-md-12">
+                            <div class="card card-table">
+                                <div class="header">
+                                    <h4 class="title">Autos actualmente asignados</h4>
+                                    <label class="dark-label">Visualiza los autos que actualmente puedes usar</label>
+                                </div>
+                                <ul class="galeria-automoviles">
+                                    <li ng-repeat="auto in autos.listaAsignados"> <img src="{{auto.img}}" alt="Imagen random"> <p> {{auto.name}} </p> </li>
+                                    <!-- <li> <img src="images/automoviles/8.jpg" alt="Imagen random 1"> <p>Carro 1 </p> </li>
+                                    <li> <img src="images/automoviles/9.jpg" alt="Imagen random 2"> <p>Carro 2 </p> </li>
+                                    <li> <img src="images/automoviles/10.jpg" alt="Imagen random 3"> <p>Carro 3 </p> </li> -->
+                                </ul> 
+                            </div>
+                        </div>
+                    </div> <!--fin controlador lista de autos-->
+                </div>
+
+            </div> <!--Fin container-fluid-->
+        </div> <!--Fin content-->
+
+        <footer-content></footer-content>
+
+    </div> <!--Fin main-panel -->
+</div>  <!--Fin wrapper-->

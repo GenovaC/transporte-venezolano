@@ -1,0 +1,134 @@
+<div class="modal fade" id="modalChofer1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
+            <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap-->
+                <div class="modal-header"> <!--Boton de cerrar modal-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal Número 1 de Ejemplo</h4>
+                    <h3>Detalles del viaje seleccionado:</h3>
+                </div>
+                <div class="modal-body">
+                        ID del viaje: 1 <br>
+                        Fecha: 05/08/2018 <br>
+                        Hora: 16:30 pm <br>
+                        Nombre del cliente: Dakota Rice <br>
+                        Direccion inicial: Los Olivos Calle Bilbao, Puerto Ordaz, edo. Bolívar <br>
+                        Direccion final: Avenida Baralt, Caracas.  <br>
+                        Número de pasajeros: 3 <br>
+                        Modelo del auto usado: Fiat Palio <br>
+                        Distancia recorrida: 501 km <br>
+                        Precio: 36,738 bs.S <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalChofer2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
+            <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap-->
+                <div class="modal-header"> <!--Boton de cerrar modal-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal Número 2 de Ejemplo</h4>
+                    <h3>Detalles del viaje seleccionado:</h3>
+                </div>
+                <div class="modal-body">
+                        ID del viaje: 6 <br>
+                        Fecha: 05/09/2018 <br>
+                        Hora: 10:30 am <br>
+                        Nombre del cliente: Dakota Rice <br>
+                        Direccion inicial: Los Olivos Calle Bilbao, Puerto Ordaz, edo. Bolívar <br>
+                        Direccion final: Residencias Tumeremo, Villa Bolivia, Puerto Ordaz, edo Bolívar.  <br>
+                        Número de pasajeros: 1 <br>
+                        Modelo del auto usado: Fiat Palio <br>
+                        Distancia recorrida: 2 km <br>
+                        Precio: 19 bs.S <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="wrapper">
+		<sidenav-content></sidenav-content>     
+		<div class="main-panel">    
+			<navbar-content></navbar-content>                
+			<div class="content">
+				<div class="container-fluid"  ng-controller="listaChoferViajesController as viajes">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card card-table">
+								<div class="header">
+									<h4 class="title">Tabla de viajes largos</h4>
+									<p class="category dark-label">Consulta aquí todos los viajes largos que has realizado</p>
+								</div>
+								<div class="content table-responsive table-full-width">
+									
+									<table class="table table-striped ">
+										<thead>
+											<th>Num°</th>
+											<th>Name Client</th>
+											<th>Vehicle</th>
+											<th>Price</th>
+											<th>Origen</th>
+											<th>Destino</th>
+										</thead>
+										<tbody>
+											<tr data-toggle="modal" data-target="#modalChofer1" ng-repeat="viaje in viajes.viajesLargos">
+												<td>{{viaje.id}}</td>
+												<td>{{viaje.cliente}}</td>
+												<td>{{viaje.vehiculo}}</td>
+												<td>{{viaje.precio}}</td>
+												<td>{{viaje.origen}}</td>
+												<td>{{viaje.destino}}</td>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+					</div> <!--fin row-->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card card-plain">
+								<div class="header">
+									<h4 class="title">Tabla de viajes cortos</h4>
+									<p class="category">Consulta todos los taxis que has realizado</p>
+								</div>
+								<div class="content table-responsive table-full-width">
+									<table class="table table-hover table-color">
+										<thead>
+											<th>Num°</th>
+											<th>Name client</th>
+											<th>Vehicle</th>
+											<th>Precio</th>
+											<th>Ciudad</th>
+											<th>Sector origen</th>
+											<th>Sector destino</th>
+										</thead>
+										<tbody>
+											<tr data-toggle="modal" data-target="#modalChofer2" ng-repeat="viaje in viajes.viajesCortos">
+												<td>{{viaje.id}}</td>
+												<td>{{viaje.cliente}}</td>
+												<td>{{viaje.vehiculo}}</td>
+												<td>{{viaje.precio}}</td>
+												<td>{{viaje.ciudad}}</td>
+												<td>{{viaje.origen}}</td>
+												<td>{{viaje.destino}}</td>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+					</div> <!--Fin row-->
+
+				</div> <!--Fin container-fluid-->
+			</div> <!--Fin content-->
+			<footer-content></footer-content>
+		</div> <!--Fin main-panel -->
+	</div>  <!--Fin wrapper-->
+

@@ -1,0 +1,115 @@
+<main class="main body-jumbotron">
+    
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+ <div class="jumbotron"> <!--Asi se llama la plantilla que usé-->
+     
+     <div class="cabecera">              
+       <h1 class="display-3">Título llamativo e interesante</h1>
+       <p> Información ligera sobre la empresa de red de transporte venezolana: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas saepe ea commodi quo veniam, architecto reiciendis nostrum qui voluptatibus laboriosam exercitationem quas quam quia distinctio dicta maiores vel! Placeat aliquid eos libero! Quam repudiandae doloremque libero facere, eius enim aperiam? Veritatis necessitatibus suscipit enim consequuntur? Nisi impedit dignissimos aliquam cum. </p>
+       <p><a class="btn btn-green btn-lg" href="#" role="button">Viaja ahora &raquo;</a></p>
+     </div>
+     <!--Componente lateral para registrar a un usuario-->
+     <aside>
+       <h3>Regístrate</h3>
+       <form class="form-registrar-usuario-main" id="formulario" name="myForm"  novalidate>
+         <div class="registro-datos-personales" >
+             <input class="form-control form-aside" type="text" name="name" placeholder="Nombre" ng-model="nuevo.name" required >
+             <input class="form-control form-aside" type="text" name="apellido" placeholder="Apellido" ng-model="nuevo.lastname" required >
+             <input class="form-control form-aside " type="tel" name="telefono" placeholder="Número de teléfono" ng-model="nuevo.cel" required  >
+             <input class="form-control form-aside " type="text" name="ciudad" placeholder="Ciudad" ng-model="nuevo.city" required >
+         </div>
+         <hr>
+         <div class="registro-datos-personales">
+             <input class="form-control form-aside" type ="email" name="email" placeholder="Correo electrónico" ng-model="nuevo.email" required >
+             <input class="form-control form-aside" type="text" name="usuario" placeholder="Usuario" required >
+             <input class="form-control form-aside" type="password" name="password" placeholder="Crear contraseña" required >
+             <input class="form-control form-aside" type="password" name="repetirPassword" placeholder="Validar contraseña" required >
+         </div>
+         
+           <button class="btn btn-registro-usuario" id="btn-crear-usuario" type="submit">Crear Usuario</button> 
+           
+       </form>
+     </aside> 
+   
+   </div> <!--/Jumbotron-->
+
+ <div class="container">
+   <!-- Primera fila de elementos -->
+   <div class="row-principal">
+     <!-- Columna 1 de elementos -->
+     <div class="col-md-4">
+       <h2 class="titulo-importante">Cómo funciona</h2>
+       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       <p><a class="btn btn-green" href="#" role="button">View details &raquo;</a></p>
+     </div>
+     <!-- Columna 2 de elementos -->
+     <div class="col-md-4">
+       <h2 class="titulo-importante">Quiénes pueden usarlo</h2>
+       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       <p><a class="btn btn-green" href="#" role="button">View details &raquo;</a></p>
+     </div>
+     <!-- Columna 3 de elementos -->
+     <div class="col-md-4">
+       <h2 class="titulo-importante">Precios estimados</h2>
+       <form class="form-main">
+           <input class="form-control form-main-precio" type="text" placeholder="Origen" aria-label="origen">
+           <input class="form-control form-main-precio" type="text" placeholder="Destino" aria-label="destino">
+           <button class="btn btn-consulta-precio" type="submit">Calcular</button>
+       </form>
+     </div>
+   </div> <!--/Row-->
+
+   <hr>
+   <!-- Segunda fila de elementos -->
+   <div class="row-principal">
+     <!-- Columna 1 de elementos -->
+       <div class="col-md-6">
+         <h2 class="titulo-importante">Taxis</h2>
+         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+         <p><a class="btn-principal btn-servicios" href="#" role="button">Toma un taxi &raquo;</a></p>
+       </div>
+       <!-- Columna 2 de elementos -->
+       <div class="col-md-6">
+         <h2 class="titulo-importante">Viajes largos</h2>
+         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn-principal btn-servicios" href="#" role="button">Planifica un viaje &raquo;</a></p>
+       </div>
+   </div> <!-- /Row -->
+
+   <hr>
+   <!-- Tercera fila de elementos -->
+   <div class="row-principal">
+       <!-- Columna 1 de elementos -->
+         <div class="col-md-4">
+           <h2 class="titulo-importante">Conoce a los conductores</h2>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+           <p><a class="btn btn-link btn-green" href="#" role="button">Ver todos &raquo;</a></p>   
+         </div>
+         <!-- Columna 2 de elementos -->
+         <div class="col-md-8" ng-controller="listaChoferesController as choferes">
+            <ul class="galeria-equipo">
+              <li ng-repeat="chofer in choferes.lista"> <img src="{{chofer.img}}" alt="Imagen random"> <p> {{chofer.name}} </p> </li>
+               <!--<li> <img src="images/1.jpg" alt="Imagen random 1"> <p>Chofer 1 </p> </li>
+               <li> <img src="images/2.jpg" alt="Imagen random 2"> <p>Chofer 2 </p> </li>
+               <li> <img src="images/3.jpg" alt="Imagen random 3"> <p>Chofer 3 </p> </li> -->
+           </ul> 
+         </div>
+     </div> <!-- /Row -->
+
+   </div> <!-- /container -->
+
+</main>
+
+
+<footer class="container footer-principal">
+  <div class="autor">
+      <p>Génova Castillo </p>
+  </div>
+  <div class="redes-sociales">
+      <a target="_blank" href="#">Instagram</a>
+      <a target="_blank" href="#">Facebook</a>
+      <a target="_blank" href="#">Twitter</a>
+      <a target="_blank" href="#">cualquier red social</a>
+      <a target="_blank" href="http://www.gmail.com">Gmail</a>
+  </div>
+</footer>

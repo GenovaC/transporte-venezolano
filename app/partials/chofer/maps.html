@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <sidenav-content></sidenav-content>     
+    <div class="main-panel">    
+        <navbar-content></navbar-content>                
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="card card-map">
+                    <div class="header">
+                        <h4 class="title">Google Maps</h4>
+                        <label class="dark-label">Consulta aquí las rutas que quieras</label>
+                    </div>
+                    <div class="map" ng-controller="MapController"> <!--Esto se carga gracias al ejemplo del demo de la plantilla-->
+                        <div id="map"></div>                        
+                    </div>
+                </div>
+
+            </div> <!--Fin container-fluid-->
+        </div> <!--Fin content-->
+        <footer-content></footer-content>
+    </div> <!--Fin main-panel -->
+</div>  <!--Fin wrapper-->

@@ -1,0 +1,215 @@
+  <!--Modal para pedir un taxi-->
+  <div class="modal fade" id="modalTaxi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
+            <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap-->
+                <div class="modal-header"> <!--Boton de cerrar modal-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal Número 2 de Ejemplo</h4>
+                    <h3>Pide un taxi ahora</h3>
+                </div>
+                <div class="modal-body formulario-modal-solicitar-taxi">
+                    <form action="" class="text-center">
+                        <div class="form-group">
+                            <label class="dark-label formulario-modal-label" for="origen-modal-taxi">Origen</label>
+                            <input type="text" class="form-control border-input inputs-modales" id="origen-modal-taxi" placeholder="Direccion origen">
+                        </div>
+                        <div class="form-group">
+                            <label class="dark-label formulario-modal-label" for="destino-modal-taxi">Destino</label>
+                            <input type="text" id="destino-modal-taxi" class="form-control border-input inputs-modales" placeholder="Direccion destino">
+                        </div>
+                        <div class="form-group">
+                            <label class="dark-label formulario-modal-label" for="hora-modal-taxi">Hora</label>
+                            <input type="datetime" id="hora-modal-taxi" class="form-control border-input inputs-modales" placeholder="Hora">
+                        </div>
+                        <div class="form-group">
+                            <label class="dark-label formulario-modal-label" for="fecha-modal-taxi">Fecha</label>
+                            <input type="date" id="fecha-modal-taxi" class="form-control border-input inputs-modales" placeholder="Fecha">
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-info btn-fill btn-wd ">Solicitar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="wrapper">
+    <sidenav-content></sidenav-content>     
+    <div class="main-panel">    
+        <navbar-content></navbar-content>                
+        <div class="content">
+            <div class="container-fluid">    
+                            
+                <div class="row tarjetas">
+                    <div class="col-md-4"> <!--Inicio de una tarjeta que mide 3 columnas?-->
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5"> 
+                                        <div class="icon-big ">
+                                            <img src="images/viajes.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p >Cuánto hemos viajado</p>
+                                            16
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Has solicitado nuestros servicios ** veces
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <img src="images/recorrido.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Cuánto hemos viajado</p>
+                                            23k km
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Con nosotros has recorrido ** km
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <img src="images/espera.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Tiempo esperado</p>
+                                            + 45 min
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> En promedio
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tarjetas">
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Tus viajes</h4>
+                                <p class="category dark-label">Desde que comenzaste a usar **nombre empresa**</p>
+                            </div>
+                            <div class="content">
+                                <div ng-controller="pieUserEstadisticController">
+                                 <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
+                                    <div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="300px"></div>
+                                </div>
+                                <div class="footer">
+                                    <div class="stats">
+                                        <i class="ti-timer"></i>2 days ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Viajes planificados</h4>
+                                <label class="dark-label" >Viajes que partirán cerca de tu ubicación</label>
+                            </div>
+                            <div class="content">
+                                <ul class="list-unstyled team-members">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="avatar">
+                                                    <img src="images/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                Creative Tim
+                                                <br /> Hasta Caracas: 
+                                                <span class="text-success">Disponible</span>
+                                            </div>
+
+                                            <div class="col-xs-3 text-right">
+                                                <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="avatar">
+                                                    <img src="images/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                Flume
+                                                <br />Hasta Maracaibo:
+                                                <span class="text-danger">Lleno</span>
+                                            </div>
+
+                                            <div class="col-xs-3 text-right">
+                                                <btn class="btn btn-sm btn-error btn-icon disabled"><i class="fa fa-envelope"></i></btn>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card card-plain">
+                                <div class="content">
+                                    <div class="row">
+                                        <form action="">
+                                            <div class ="text-center">
+                                                <button type="button" class="btn btn-info btn-fill btn-wd" data-toggle="modal" data-target="#modalTaxi" >Pide un taxi</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="footer">
+                                        <hr />
+                                        <div class="stats">
+                                            <i class="ti-timer"></i> Taxi express 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div> <!--Termina la fila row-->
+
+            </div> <!--Fin container-fluid-->
+        </div> <!--Fin content-->
+        <footer-content></footer-content>
+    </div> <!--Fin main-panel -->
+</div>  <!--Fin wrapper-->
