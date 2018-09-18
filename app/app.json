@@ -7,7 +7,14 @@
       "precio": "20 bs S",
       "origen": "Caracas",
       "destino": "Guanare",
-      "longitud": "Ciudad a otra"
+      "longitud": "Ciudad a otra",
+      "fecha": "16/09/2018",
+      "hora": "07:15",
+      "km": "437",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "2",
@@ -16,7 +23,14 @@
       "precio": "50 bs S",
       "origen": "Maracay",
       "destino": "Merida",
-      "longitud": "Estado a otro"
+      "longitud": "Estado a otro",
+      "fecha": "16/09/2018",
+      "hora": "22:30",
+      "km": "690",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "3",
@@ -25,7 +39,14 @@
       "precio": "25 bs S",
       "origen": "Maturin",
       "destino": "Puerto Ayacucho",
-      "longitud": "Estado a otro"
+      "longitud": "Estado a otro",
+      "fecha": "16/09/2018",
+      "hora": "20:04",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "4",
@@ -34,7 +55,14 @@
       "precio": "50 bs S",
       "origen": "Puerto Ordaz",
       "destino": "Valencia",
-      "longitud": "Estado a otro"
+      "longitud": "Estado a otro",
+      "fecha": "17/09/2018",
+      "hora": "16:00",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "5",
@@ -43,7 +71,14 @@
       "precio": "55 bs S",
       "origen": "El Callao",
       "destino": "Puerto Ordaz",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "17/09/2018",
+      "hora": "15:50",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     }, 
     {
       "id": "6",
@@ -53,7 +88,14 @@
       "ciudad": "Puerto Ordaz",
       "origen": "Alta Vista",
       "destino": "La churuata",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "17/09/2018",
+      "hora": "13:45",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "7",
@@ -63,7 +105,14 @@
       "precio": "50 bs S",
       "origen": "San Félix",
       "destino": "Unare",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "17/09/2018",
+      "hora": "12:08",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "8",
@@ -73,7 +122,14 @@
       "precio": "25 bs S",
       "origen": "Unare",
       "destino": "Castillito",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "18/09/2018",
+      "hora": "10:29",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "9",
@@ -83,7 +139,14 @@
       "precio": "50 bs S",
       "origen": "Alta Vista",
       "destino": "Core 8",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "18/09/2018",
+      "hora": "09:35",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     },
     {
       "id": "10",
@@ -93,7 +156,14 @@
       "precio": "55 bs S",
       "origen": "Castillito",
       "destino": "Las teodokildas",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "18/09/2018",
+      "hora": "08:00",
+      "km": "",
+      "tiempoEspera": "",
+      "direccionInicial": "",
+      "direccionFinal": "",
+      "pasajeros": ""
     }
   ],
   "viajes_usuario": [
