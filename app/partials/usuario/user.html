@@ -2,25 +2,23 @@
     <sidenav-content></sidenav-content>     
     <div class="main-panel">    
         <navbar-content></navbar-content>                
-        <div class="content">
+        <div class="content" ng-controller="userController">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-4 col-md-5">
                         <div class="card card-user">
-                            <div class="image">
-                                <img src="images/background.jpg" alt="..."/>
+                            <div class="image" ng-model="modaleishon.portada">
+                                <img src="{{modaleishon.portada}}" alt="..."/>
                             </div>
                             <div class="content">
-                                <div class="author">
-                                    <img class="avatar border-white" src="images/faces/face-2.jpg" alt="..."/>
+                                <div class="author" ng-model="modaleishon.perfil">
+                                    <img class="avatar border-white" src="{{modaleishon.perfil}}" alt="..."/>
                                     <h4 class="title">Michael Faker<br />
-                                        <a href="#"><small>@michael23</small></a>
+                                        <a href="#" ng-model="modaleishon.user"><small>{{modaleishon.user}}</small></a>
                                     </h4>
                                 </div>
-                                <p class="description text-center">
-                                    "I like the way you work it <br>
-                                    No diggity <br>
-                                    I wanna bag it up"
+                                <p class="description text-center" ng-model="modaleishon.aboutme">
+                                    {{modaleishon.aboutme}}
                                 </p>
                             </div>
                             <hr>
@@ -113,15 +111,15 @@
                                 <form>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="dark-label">Username</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" value="michael23">
+                                            <div class="form-group" >
+                                                <label class="dark-label" ng-model="modaleishon.user" >Username</label>
+                                                <input type="text" class="form-control border-input" placeholder="Username" ng-model="modaleishon.user"  >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label" for="exampleInputEmail1">Correo electrónico</label>
-                                                <input type="email" class="form-control border-input" placeholder="Email">
+                                                <input type="email" class="form-control border-input" placeholder="Email" ng-model="modaleishon.email">
                                             </div>
                                         </div>
                                     </div>
@@ -130,13 +128,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label">Nombre</label>
-                                                <input type="text" class="form-control border-input" placeholder="Name" value="Michael">
+                                                <input type="text" class="form-control border-input" placeholder="Name" ng-model="modaleishon.name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label">Apellido</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
+                                                <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="modaleishon.lastname">
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +143,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">Dirección</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" value="Residencias Tumeremo, Villa Bolivia">
+                                                <input type="text" class="form-control border-input" placeholder="Home Address" ng-model="modaleishon.homeaddress">
                                             </div>
                                         </div>
                                     </div>
@@ -154,19 +152,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Ciudad</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" value="Puerto Ordaz">
+                                                <input type="text" class="form-control border-input" placeholder="City" ng-model="modaleishon.city">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Estado</label>
-                                                <input type="text" class="form-control border-input" placeholder="Estado" value="Bolívar">
+                                                <input type="text" class="form-control border-input" placeholder="Estado" ng-model="modaleishon.state">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">País</label>
-                                                <input type="text" class="form-control border-input" placeholder="Country" value="Venezuela">
+                                                <input type="text" class="form-control border-input" placeholder="Country" ng-model="modaleishon.country">
                                             </div>
                                         </div>
                                     </div>
@@ -175,16 +173,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">About Me</label>
-                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
-                                                    You doubt I'll bother, reading into it
-                                                    I'll probably won't, left to my own devices
-                                                    But that's the difference in our opinions.
+                                                <textarea rows="4" class="form-control border-input" placeholder="Here can be your description" value="Mike" ng-model="modaleishon.aboutme">                                                   
                                                 </textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Actualizar perfil</button>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
@@ -200,13 +195,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="dark-label">Nombre titular</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Nombre y apellido">
+                                                    <input type="text" class="form-control border-input" placeholder="Nombre y apellido" ng-model="modaleishon.fullname">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="dark-label">Banco proveedor</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Banco proveedor">
+                                                        <input type="text" class="form-control border-input" placeholder="Banco proveedor" ng-model="modaleishon.banco">
                                                     </div>
                                                 </div>
                                         </div>
@@ -215,19 +210,19 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="dark-label">Fecha de Vencimiento</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Fecha de vencimiento">
+                                                    <input type="text" class="form-control border-input" placeholder="dd/mm/yyyy" ng-model="modaleishon.fvencimiento">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="dark-label" for="exampleInputEmail1">Número de tarjeta de Crédito</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Sin guiones ni espacios">
+                                                        <input type="text" class="form-control border-input" placeholder="Sin guiones ni espacios" ng-model="modaleishon.creditcard">
                                                     </div>
                                                 </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="dark-label">Código de seguridad</label>
-                                                    <input type="number" class="form-control border-input" placeholder="ZIP Code">
+                                                    <input type="text" class="form-control border-input" placeholder="ZIP Code" ng-model="modaleishon.codesecurity">
                                                 </div>
                                             </div>
                                         </div>

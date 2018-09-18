@@ -45,7 +45,8 @@ var app = angular.module('app', ['ngRoute', 'zingchart-angularjs']);
             })
 
             .when('/perfilU', {
-                templateUrl : 'partials/usuario/user.html'
+                templateUrl : 'partials/usuario/user.html',
+                controller: 'userController'
             })
 
             .when('/perfilC', {

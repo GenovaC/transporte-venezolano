@@ -1,54 +1,31 @@
-<div class="modal fade" id="modalUser1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
-        <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap-->
-            <div class="modal-header"> <!--Boton de cerrar modal-->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Modal Número 1 de Ejemplo</h4>
-                <h3>Detalles del viaje seleccionado:</h3>
-            </div>
-            <div class="modal-body">
-                    ID del viaje: 1 <br>
-                    Fecha: 05/08/2018 <br>
-                    Hora: 16:30 pm <br>
-                    Nombre del chofer: Arturo López <br>
-                    Direccion inicial: Los Olivos Calle Bilbao, Puerto Ordaz, edo. Bolívar <br>
-                    Direccion final: Avenida Baralt, Caracas.  <br>
-                    Número de pasajeros: 3 <br>
-                    Modelo del auto usado: Fiat Palio <br>
-                    Distancia recorrida: 501 km <br>
-                    Precio: 36,738 bs.S <br>
-            </div>
-        </div>
-    </div>
-</div>
+<div ng-controller="listaUsuarioViajesController">
     
-<div class="modal fade" id="modalUser2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
-        <div class="modal-content" ng-controller="listaUsuarioViajesController" >  <!--Aqui hay estilos asociados de bootstrap-->
-            <div class="modal-header"> <!--Boton de cerrar modal-->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Modal Número 2 de Ejemplo</h4>
-                <h3>Detalles del viaje seleccionado:</h3>
-            </div>
-            <div class="modal-body" >
-                    ID del viaje: {{ modaleishon.id }} <br>
-                    Fecha:  <br>
-                    Hora: <br>
-                    Nombre del chofer: {{ modaleishon.chofer }} <br>
-                    Direccion inicial:  <br>
-                    Direccion final:  <br>
-                    Número de pasajeros:  <br>
-                    Modelo del auto usado: {{ modaleishon.vehiculo }} <br>
-                    Distancia recorrida:  <br>
-                    Precio: {{ modaleishon.precio }} <br>
+<div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
+            <div class="modal-content" >  <!--Aqui hay estilos asociados de bootstrap-->
+                <div class="modal-header"> <!--Boton de cerrar modal-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Información sobre tus viajes</h4>
+                    <h3>Detalles del viaje seleccionado:</h3>
+                </div>
+                <div class="modal-body"  >
+                    <p ng-model="modaleishon.id" > ID del viaje: {{modaleishon.id}} </p>                  
+                    <p ng-model="modaleishon.fecha"> Fecha: {{modaleishon.fecha}} </p>    
+                    <p ng-model="modaleishon.hora"> Hora: {{modaleishon.hora}} </p>    
+                    <p ng-model="modaleishon.chofer"> Nombre del chofer: {{ modaleishon.chofer }} </p>    
+                    <p ng-model="modaleishon.direccionInicial"> Direccion inicial: {{modaleishon.direccionInicial}} </p>    
+                    <p ng-model="modaleishon.direccionFinal"> Direccion final: {{modaielshon.direccionFinal}} </p>    
+                    <p ng-model="modaleishon.pasajeros"> Número de pasajeros: {{modaleishon.pasajeros}} </p>    
+                    <p ng-model="modaleishon.vehiculo"> Modelo del auto usado: {{modaleishon.vehiculo}} </p>    
+                    <p ng-model="modaleishon.km"> Distancia recorrida: {{modaleishon.km}} </p> 
+                    <p ng-model="modaleishon.tiempoEspera"> Tiempo de espera: {{modaleishon.tiempoEspera}} </p>    
+                    <p ng-model="modaleishon.precio"> Precio: {{ modaleishon.precio }} </p>    
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 <div class="wrapper">
@@ -56,7 +33,8 @@
     <div class="main-panel">    
         <navbar-content></navbar-content>                
         <div class="content">
-            <div class="container-fluid"  ng-controller="listaUsuarioViajesController">
+            <div class="container-fluid">
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-table">
@@ -65,7 +43,7 @@
                                 <p class="category dark-label">Consulta aquí todos los viajes largos que has hecho con nosotros</p>
                             </div>
                             <div class="content table-responsive table-full-width">
-
+                                
                                 <table class="table table-striped ">
                                     <thead>
                                         <th>Num°</th>
@@ -75,7 +53,7 @@
                                         <th>Destino</th>
                                     </thead>
                                     <tbody>
-                                        <tr data-toggle="modal" data-target="#modalUser1" ng-repeat="viaje in model" ng-click="onViajeUser(viaje.id)">
+                                        <tr data-toggle="modal" data-target="#modalUser" ng-repeat="viaje in model" ng-click="onViajeUser(viaje.id)">
                                             <td>{{viaje.id}}</td>
                                             <td>{{viaje.chofer}}</td>
                                             <td>{{viaje.precio}}</td>
@@ -107,7 +85,7 @@
                                         <th>Sector destino</th>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="viaje in model2" ng-click="onViajeUser(viaje.id)" data-toggle="modal" data-target="#modalUser2" >
+                                        <tr ng-repeat="viaje in model2" ng-click="onViajeUser(viaje.id)" data-toggle="modal" data-target="#modalUser" >
                                             <td>{{viaje.id}}</td>
                                             <td>{{viaje.chofer}}</td>
                                             <td>{{viaje.precio}}</td>
@@ -117,14 +95,16 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div> <!--Fin container-fluid-->
             <footer-content></footer-content>
         </div> <!--Fin content-->
        
     </div> <!--Fin main-panel -->
 </div>  <!--Fin wrapper-->
+
+</div>

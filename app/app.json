@@ -212,5 +212,28 @@
       "img": "images/automoviles/6.jpg",
       "status": "Asignado"
     }
+  ],
+  "usuarios": [
+    {
+      "portada": "images/background.jpg",
+      "perfil": "images/faces/face-2.jpg",
+
+      "name": "Michael",
+      "lastname": "Faker",
+      "email": "michaelfaker@gmail.com",
+      "user": "michael23",
+      "homeaddress": "Alta Vista Sur. Residencias La Churuata. Piso 2. Apartamento 25",
+      "city": "Puerto Ordaz",
+      "state": "Bolivar",
+      "country": "Venezuela",
+      "aboutme": "Nada interesante para decir",
+
+      "fullname": "Michael Faker",
+      "banco": "Banesco",
+      "fvencimiento": "23/03/2020",
+      "creditcard": "5899416802547896",
+      "codesecurity": "2458"
+
+    }
   ]
 }
