@@ -1,8 +1,15 @@
-app.controller('listaChoferesController', function listaChoferesController( ) {
-  var choferes = this;
-  choferes.lista = [
-      {name:'Alberto Amariscua', img: 'images/1.jpg' },
-      {name:'Chofersito 2', img: 'images/2.jpg'},
-      {name:'Petronila Silforosa', img:'images/3.jpg'}
-  ];
-});
+app.controller('listaChoferesController', ['$scope', '$http', function ($scope, $http) {
+ 
+  function cargarData() {
+
+    $http.get('http://localhost:3000/lista_choferes')
+      .then(function (r) {
+          $scope.model = r.data;
+      })
+      .catch(function (r){
+          console.log('Ha ocurrido un error:', r.status, r.data);
+      })
+  }
+  cargarData();
+
+}]);

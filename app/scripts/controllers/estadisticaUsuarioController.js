@@ -1,5 +1,6 @@
-app.controller('pieUserEstadisticController', function($scope) {
-        $scope.myJson = {
+app.controller('pieUserEstadisticController', function ($scope) {
+
+    $scope.myJson = {
             globals: {
                 shadow: false,
                 fontFamily: "Kosugi",
@@ -34,20 +35,20 @@ app.controller('pieUserEstadisticController', function($scope) {
             },
             series: [{
                 text: "Misma ciudad",
-                values: [17],
+                values: [2],
                 backgroundColor: "#d2527f #db0a5b",
             }, {
                 text: "Ciudad a otra",
-                values: [7],
+                values: [9],
                 backgroundColor: "#2ecc71 #00b16a"
             }, {
                 text: "Cancelados",
-                values: [4],
+                values: [5],
                 backgroundColor: "#4183d7 #3a539b "
             }, {
                 text: "Estado a otro",
-                values: [3],
+                values: [6],
                 backgroundColor: "#e9d460 #f5ab35"
             }]
-        }; 
+        } 
     });

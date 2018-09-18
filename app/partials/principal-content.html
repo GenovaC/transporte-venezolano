@@ -86,9 +86,9 @@
            <p><a class="btn btn-link btn-green" href="#" role="button">Ver todos &raquo;</a></p>   
          </div>
          <!-- Columna 2 de elementos -->
-         <div class="col-md-8" ng-controller="listaChoferesController as choferes">
+         <div class="col-md-8" ng-controller="listaChoferesController">
             <ul class="galeria-equipo">
-              <li ng-repeat="chofer in choferes.lista"> <img src="{{chofer.img}}" alt="Imagen random"> <p> {{chofer.name}} </p> </li>
+              <li ng-repeat="chofer in model"> <img src="{{chofer.img}}" alt="Imagen random"> <p> {{chofer.name}} </p> </li>
                <!--<li> <img src="images/1.jpg" alt="Imagen random 1"> <p>Chofer 1 </p> </li>
                <li> <img src="images/2.jpg" alt="Imagen random 2"> <p>Chofer 2 </p> </li>
                <li> <img src="images/3.jpg" alt="Imagen random 3"> <p>Chofer 3 </p> </li> -->

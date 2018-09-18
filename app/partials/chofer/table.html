@@ -55,7 +55,7 @@
 		<div class="main-panel">    
 			<navbar-content></navbar-content>                
 			<div class="content">
-				<div class="container-fluid"  ng-controller="listaChoferViajesController as viajes">
+				<div class="container-fluid" ng-controller="listaChoferViajesController"></div> 
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card card-table">
@@ -75,7 +75,7 @@
 											<th>Destino</th>
 										</thead>
 										<tbody>
-											<tr data-toggle="modal" data-target="#modalChofer1" ng-repeat="viaje in viajes.viajesLargos">
+											<tr data-toggle="modal" data-target="#modalChofer1" ng-repeat="viaje in model" ng-click="onViajeChofer(viaje.id)">
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>
@@ -109,7 +109,7 @@
 											<th>Sector destino</th>
 										</thead>
 										<tbody>
-											<tr data-toggle="modal" data-target="#modalChofer2" ng-repeat="viaje in viajes.viajesCortos">
+											<tr data-toggle="modal" data-target="#modalChofer2" ng-repeat="viaje in model2" ng-click="onViajeChofer(viaje.id)">
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>
@@ -127,8 +127,9 @@
 					</div> <!--Fin row-->
 
 				</div> <!--Fin container-fluid-->
+				<footer-content></footer-content>
 			</div> <!--Fin content-->
-			<footer-content></footer-content>
+			
 		</div> <!--Fin main-panel -->
 	</div>  <!--Fin wrapper-->
 

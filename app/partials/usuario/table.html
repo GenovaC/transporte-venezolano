@@ -26,7 +26,7 @@
     
 <div class="modal fade" id="modalUser2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
-        <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap-->
+        <div class="modal-content" ng-controller="listaUsuarioViajesController" >  <!--Aqui hay estilos asociados de bootstrap-->
             <div class="modal-header"> <!--Boton de cerrar modal-->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -34,17 +34,17 @@
                 <h4 class="modal-title" id="myModalLabel">Modal Número 2 de Ejemplo</h4>
                 <h3>Detalles del viaje seleccionado:</h3>
             </div>
-            <div class="modal-body">
-                    ID del viaje: 6 <br>
-                    Fecha: 05/09/2018 <br>
-                    Hora: 10:30 am <br>
-                    Nombre del chofer: Arturo López <br>
-                    Direccion inicial: Los Olivos Calle Bilbao, Puerto Ordaz, edo. Bolívar <br>
-                    Direccion final: Residencias Tumeremo, Villa Bolivia, Puerto Ordaz, edo Bolívar.  <br>
-                    Número de pasajeros: 1 <br>
-                    Modelo del auto usado: Fiat Palio <br>
-                    Distancia recorrida: 2 km <br>
-                    Precio: 19 bs.S <br>
+            <div class="modal-body" >
+                    ID del viaje: {{ modaleishon.id }} <br>
+                    Fecha:  <br>
+                    Hora: <br>
+                    Nombre del chofer: {{ modaleishon.chofer }} <br>
+                    Direccion inicial:  <br>
+                    Direccion final:  <br>
+                    Número de pasajeros:  <br>
+                    Modelo del auto usado: {{ modaleishon.vehiculo }} <br>
+                    Distancia recorrida:  <br>
+                    Precio: {{ modaleishon.precio }} <br>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="main-panel">    
         <navbar-content></navbar-content>                
         <div class="content">
-            <div class="container-fluid"  ng-controller="listaUsuarioViajesController as viajes">
+            <div class="container-fluid"  ng-controller="listaUsuarioViajesController">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-table">
@@ -75,7 +75,7 @@
                                         <th>Destino</th>
                                     </thead>
                                     <tbody>
-                                        <tr data-toggle="modal" data-target="#modalUser1" ng-repeat="viaje in viajes.viajesLargos">
+                                        <tr data-toggle="modal" data-target="#modalUser1" ng-repeat="viaje in model" ng-click="onViajeUser(viaje.id)">
                                             <td>{{viaje.id}}</td>
                                             <td>{{viaje.chofer}}</td>
                                             <td>{{viaje.precio}}</td>
@@ -107,7 +107,7 @@
                                         <th>Sector destino</th>
                                     </thead>
                                     <tbody>
-                                        <tr data-toggle="modal" data-target="#modalUser2" ng-repeat="viaje in viajes.viajesCortos">
+                                        <tr ng-repeat="viaje in model2" ng-click="onViajeUser(viaje.id)" data-toggle="modal" data-target="#modalUser2" >
                                             <td>{{viaje.id}}</td>
                                             <td>{{viaje.chofer}}</td>
                                             <td>{{viaje.precio}}</td>
@@ -123,7 +123,8 @@
                     </div>
                 </div>
             </div> <!--Fin container-fluid-->
+            <footer-content></footer-content>
         </div> <!--Fin content-->
-        <footer-content></footer-content>
+       
     </div> <!--Fin main-panel -->
 </div>  <!--Fin wrapper-->

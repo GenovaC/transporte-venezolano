@@ -1,18 +1,30 @@
-app.controller('listaChoferViajesController', function() {
-        var viajes = this;
-        viajes.viajesCortos = [
-            {id:'6', cliente: 'Doris Greene', vehiculo: 'Fiat Palio', ciudad: 'Puerto Ordaz',precio: '20 bs S', origen: 'Alta Vista', destino: 'La churuata'},
-            {id:'7', cliente: 'Minerva Hooper', vehiculo: 'Fiat Palio', ciudad: 'Puerto Ordaz',precio: '50 bs S', origen: 'San Felix', destino: 'Unare'},
-            {id:'8', cliente: 'Dakota Rice', vehiculo: 'Toyota Corolla', ciudad: 'Puerto Ordaz',precio: '25 bs S', origen: 'Unare', destino: 'Castillito'},
-            {id:'9', cliente: 'Sage Rodriguez', vehiculo: 'Volkswagen Golf', ciudad: 'Puerto Ordaz',precio: '50 bs S', origen: 'Alta Vista', destino: 'Core 8'},
-            {id:'10', cliente: 'Philip Chaney', vehiculo: 'Ford Escort', ciudad: 'Puerto Ordaz',precio: '55 bs S', origen: 'Castillito', destino: 'Las teodokildas'},
-        ];
+app.controller('listaChoferViajesController', ['$scope', '$http', function ($scope, $http) {
 
-        viajes.viajesLargos = [
-            {id:'1', cliente: 'Doris Greene', vehiculo: 'Fiat Palio', precio: '20 bs S', origen: 'Caracas', destino: 'Guanare'},
-            {id:'2', cliente: 'Minerva Hooper', vehiculo: 'Fiat Palio', precio: '50 bs S', origen: 'Maracay', destino: 'Merida'},
-            {id:'3', cliente: 'Dakota Rice', vehiculo: 'Toyota Corolla', precio: '25 bs S', origen: 'Maturin', destino: 'Puerto Ayacucho'},
-            {id:'4', cliente: 'Sage Rodriguez', vehiculo: 'Volkswagen Golf', precio: '50 bs S', origen: 'Puerto Ordaz', destino: 'Valencia'},
-            {id:'5', cliente: 'Philip Chaney', vehiculo: 'Ford Escort', precio: '55 bs S', origen: 'El Callao', destino: 'Puerot Ordaz'},
-        ];
-    });
+    function cargarData() {
+
+        $http.get('http://localhost:3000/viajes_chofer?longitud=Estado a otro&longitud=Ciudad a otra')        
+        .then(function (r) {
+            $scope.model = r.data;
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+        
+        $http.get('http://localhost:3000/viajes_chofer?longitud=Misma ciudad')
+        .then(function (r1) {
+            $scope.model2 = r1.data;
+            $scope.modaleishon = r1.data[0];
+        })
+        .catch(function (r1){
+            console.log('Ha ocurrido un error:', r1.status, r1.data);
+        })
+    }
+    cargarData();
+
+    $scope.onViajeChofer = function (id) {
+        $http.get('http://localhost:3000/viajes_chofer?id='+id).then(function (rr1) {
+            $scope.modaleishon = rr1.data[0];
+            console.log($scope.model2.length);                
+        })
+    } 
+    }]);
