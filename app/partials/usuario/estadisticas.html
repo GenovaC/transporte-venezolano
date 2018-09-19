@@ -56,14 +56,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p >Cuánto hemos viajado</p>
-                                            {{longitud}}
+                                            {{totalViajes}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i> Has solicitado nuestros servicios ** veces
+                                        <i class="ti-reload"></i> Has solicitado nuestros servicios {{totalViajes}} veces
                                     </div>
                                 </div>
                             </div>
@@ -82,14 +82,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Cuánto hemos viajado</p>
-                                            23k km
+                                            {{totalRecorrido}} km
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-timer"></i> Con nosotros has recorrido ** km
+                                        <i class="ti-timer"></i> Con nosotros has recorrido {{totalRecorrido}} km
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Tiempo esperado</p>
-                                            + 45 min
+                                            + {{totalEsperado/totalViajes}} min
                                         </div>
                                     </div>
                                 </div>
