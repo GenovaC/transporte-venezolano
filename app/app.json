@@ -11,10 +11,10 @@
       "fecha": "16/09/2018",
       "hora": "07:15",
       "km": "437",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "tiempoEspera": "5",
+      "direccionInicial": "Avenida Baralt",
+      "direccionFinal": "Un montensito en Guanare",
+      "pasajeros": "4"
     },
     {
       "id": "2",
@@ -27,10 +27,10 @@
       "fecha": "16/09/2018",
       "hora": "22:30",
       "km": "690",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "tiempoEspera": "15",
+      "direccionInicial": "Escuela militar de aviación",
+      "direccionFinal": "Plaza Bolívar de Mérida",
+      "pasajeros": "3"
     },
     {
       "id": "3",
@@ -42,11 +42,11 @@
       "longitud": "Estado a otro",
       "fecha": "16/09/2018",
       "hora": "20:04",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "966",
+      "tiempoEspera": "8",
+      "direccionInicial": "Universidad Gran Mariscal de Ayacucho",
+      "direccionFinal": "Vilocha Sushi Bar",
+      "pasajeros": "2"
     },
     {
       "id": "4",
@@ -58,11 +58,11 @@
       "longitud": "Estado a otro",
       "fecha": "17/09/2018",
       "hora": "16:00",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "970",
+      "tiempoEspera": "12",
+      "direccionInicial": "C.C. Alta Vista II",
+      "direccionFinal": "Plaza Bolívar",
+      "pasajeros": "3"
     },
     {
       "id": "5",
@@ -71,14 +71,14 @@
       "precio": "55 bs S",
       "origen": "El Callao",
       "destino": "Puerto Ordaz",
-      "longitud": "Misma ciudad",
+      "longitud": "Ciudad a otra",
       "fecha": "17/09/2018",
       "hora": "15:50",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "217",
+      "tiempoEspera": "2",
+      "direccionInicial": "Avenida Atlántico",
+      "direccionFinal": "Terminal de Pasajeros Jhon Corke",
+      "pasajeros": "1"
     }, 
     {
       "id": "6",
@@ -91,11 +91,11 @@
       "longitud": "Misma ciudad",
       "fecha": "17/09/2018",
       "hora": "13:45",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "2.7",
+      "tiempoEspera": "9",
+      "direccionInicial": "Calle Cuchivero, Vigo's Plaza",
+      "direccionFinal": "Calle Millán, Alta Vista Sur",
+      "pasajeros": "1"
     },
     {
       "id": "7",
@@ -108,11 +108,11 @@
       "longitud": "Misma ciudad",
       "fecha": "17/09/2018",
       "hora": "12:08",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "20",
+      "tiempoEspera": "12",
+      "direccionInicial": "Aeropuerto Internacional Manuel Carlos Piar",
+      "direccionFinal": "Inversiones Sofil CA",
+      "pasajeros": "3"
     },
     {
       "id": "8",
@@ -125,11 +125,11 @@
       "longitud": "Misma ciudad",
       "fecha": "18/09/2018",
       "hora": "10:29",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "8.5",
+      "tiempoEspera": "7",
+      "direccionInicial": "Fe y Alegría 'La consolacion'",
+      "direccionFinal": "Avenida Principal Castilloto B.O.D",
+      "pasajeros": "2"
     },
     {
       "id": "9",
@@ -142,11 +142,11 @@
       "longitud": "Misma ciudad",
       "fecha": "18/09/2018",
       "hora": "09:35",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "15.6",
+      "tiempoEspera": "30",
+      "direccionInicial": "Calle Ventuari Restaurante El Portal Grill",
+      "direccionFinal": "Avenida Caracas, CACHAPA EXPRESS",
+      "pasajeros": "3"
     },
     {
       "id": "10",
@@ -159,11 +159,11 @@
       "longitud": "Misma ciudad",
       "fecha": "18/09/2018",
       "hora": "08:00",
-      "km": "",
-      "tiempoEspera": "",
-      "direccionInicial": "",
-      "direccionFinal": "",
-      "pasajeros": ""
+      "km": "20",
+      "tiempoEspera": "21",
+      "direccionInicial": "Avenida Principal de Castilloto, Hotel Embajador",
+      "direccionFinal": "Iglesia de Jesucristo Shekinah",
+      "pasajeros": "1"
     }
   ],
   "viajes_usuario": [
@@ -174,7 +174,14 @@
       "precio": "50 bs S",
       "origen": "Maracay",
       "destino": "Merida",
-      "longitud": "Estado a otro"
+      "longitud": "Estado a otro",
+      "fecha": "16/09/2018",
+      "hora": "07:15",
+      "km": "437",
+      "tiempoEspera": "5",
+      "direccionInicial": "Avenida Baralt",
+      "direccionFinal": "Un montensito en Guanare",
+      "pasajeros": "4"
     },
     {
       "id": "2",
@@ -183,7 +190,14 @@
       "precio": "50 bs S",
       "origen": "Puerto Ordaz",
       "destino": "Valencia",
-      "longitud": "Estado a otro"
+      "longitud": "Estado a otro",
+      "fecha": "17/09/2018",
+      "hora": "16:00",
+      "km": "970",
+      "tiempoEspera": "12",
+      "direccionInicial": "C.C. Alta Vista II",
+      "direccionFinal": "Plaza Bolívar",
+      "pasajeros": "3"
     },
     {
       "id": "3",
@@ -192,7 +206,14 @@
       "precio": "55 bs S",
       "origen": "El Callao",
       "destino": "Puerto Ordaz",
-      "longitud": "Ciudad a otra"
+      "longitud": "Ciudad a otra",
+      "fecha": "17/09/2018",
+      "hora": "15:50",
+      "km": "217",
+      "tiempoEspera": "2",
+      "direccionInicial": "Avenida Atlántico",
+      "direccionFinal": "Terminal de Pasajeros Jhon Corke",
+      "pasajeros": "1"
     }, {
       "id": "4",
       "chofer": "Doris Greene",
@@ -201,7 +222,14 @@
       "ciudad": "Puerto Ordaz",
       "origen": "Alta Vista",
       "destino": "La churuata",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "17/09/2018",
+      "hora": "13:45",
+      "km": "2.7",
+      "tiempoEspera": "9",
+      "direccionInicial": "Calle Cuchivero, Vigo's Plaza",
+      "direccionFinal": "Calle Millán, Alta Vista Sur",
+      "pasajeros": "1"
     },
     {
       "id": "5",
@@ -211,7 +239,14 @@
       "precio": "50 bs S",
       "origen": "San Félix",
       "destino": "Unare",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "17/09/2018",
+      "hora": "12:08",
+      "km": "20",
+      "tiempoEspera": "12",
+      "direccionInicial": "Aeropuerto Internacional Manuel Carlos Piar",
+      "direccionFinal": "Inversiones Sofil CA",
+      "pasajeros": "3"
     },
     {
       "id": "6",
@@ -221,7 +256,14 @@
       "precio": "25 bs S",
       "origen": "Unare",
       "destino": "Castillito",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "18/09/2018",
+      "hora": "10:29",
+      "km": "8.5",
+      "tiempoEspera": "7",
+      "direccionInicial": "Fe y Alegría 'La consolacion'",
+      "direccionFinal": "Avenida Principal Castilloto B.O.D",
+      "pasajeros": "2"
     },
     {
       "id": "7",
@@ -231,7 +273,14 @@
       "precio": "50 bs S",
       "origen": "Alta Vista",
       "destino": "Core 8",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "18/09/2018",
+      "hora": "09:35",
+      "km": "15.6",
+      "tiempoEspera": "30",
+      "direccionInicial": "Calle Ventuari Restaurante El Portal Grill",
+      "direccionFinal": "Avenida Caracas, CACHAPA EXPRESS",
+      "pasajeros": "3"
     },
     {
       "id": "8",
@@ -241,7 +290,14 @@
       "precio": "55 bs S",
       "origen": "Castillito",
       "destino": "Las teodokildas",
-      "longitud": "Misma ciudad"
+      "longitud": "Misma ciudad",
+      "fecha": "18/09/2018",
+      "hora": "08:00",
+      "km": "20",
+      "tiempoEspera": "21",
+      "direccionInicial": "Avenida Principal de Castilloto, Hotel Embajador",
+      "direccionFinal": "Iglesia de Jesucristo Shekinah",
+      "pasajeros": "1"
     }
   ], 
   "lista_choferes": [
@@ -285,13 +341,19 @@
   ],
   "usuarios": [
     {
+      "id": 1,
+      "cliente": "true",
+
       "portada": "images/background.jpg",
       "perfil": "images/faces/face-2.jpg",
 
       "name": "Michael",
       "lastname": "Faker",
       "email": "michaelfaker@gmail.com",
+
       "user": "michael23",
+      "password": "michael23",
+
       "homeaddress": "Alta Vista Sur. Residencias La Churuata. Piso 2. Apartamento 25",
       "city": "Puerto Ordaz",
       "state": "Bolivar",
@@ -304,6 +366,278 @@
       "creditcard": "5899416802547896",
       "codesecurity": "2458"
 
+    }, {
+      "id": 3,
+      "cliente": "true",
+
+      "portada": "images/ciudad-nocturna.jpg",
+      "perfil": "images/faces/face-3.jpg",
+
+      "name": "Adrián",
+      "lastname": "Longart",
+      "email": "adrianlongart@gmail.com",
+
+      "user": "aelr20",
+      "password": "aelr20",
+
+      "homeaddress": "Alta Vista Sur. Residencias La Churuata. Piso 2. Apartamento 25",
+      "city": "Puerto Ordaz",
+      "state": "Bolivar",
+      "country": "Venezuela",
+      "aboutme": "Nada interesante para decir",
+
+      "fullname": "Adrián Longart",
+      "banco": "Provincial",
+      "fvencimiento": "23/03/2020",
+      "creditcard": "5899416802547896",
+      "codesecurity": "2458"
+
     }
-  ]
+  ], 
+  "configuracionTorta": [
+    {
+      "idUsuario": 1,
+        "globals": {
+          "shadow": "false",
+          "fontFamily": "Kosugi",
+          "fontWeight": "100",
+          "fontSize": "13px"
+        },
+        "type": "pie",
+        "backgroundColor": "#fff",
+        "legend": {
+            "layout": "x4",
+            "position": "center",
+            "borderColor": "transparent",
+            "marker": {
+                "borderRadius": "10",
+                "borderColor": "transparent"
+            }
+        },
+        "tooltip": {
+            "text": "%v viajes"
+        },
+        "plot": {
+            "refAngle": "-90",
+            "borderWidth": "0px",
+            "valueBox": {
+                "placement": "in",
+                "text": "%npv %",
+                "fontSize": "15px",
+                "textAlpha": "2"
+            }
+        },
+        "series": [{
+            "text": "Misma ciudad",
+            "values": [5],
+            "backgroundColor": "#d2527f #db0a5b"
+        }, {
+            "text": "Ciudad a otra",
+            "values": [1],
+            "backgroundColor": "#2ecc71 #00b16a"
+        }, {
+            "text": "Estado a otro",
+            "values": [6],
+            "backgroundColor": "#e9d460 #f5ab35"
+      }]
+    }, {
+        "idUsuario": 2,
+        "globals": {
+            "shadow": "false",
+            "fontFamily": "Kosugi",
+            "fontWeight": "100",
+            "fontSize": "13px"
+        },
+
+        "type": "pie",
+        "backgroundColor": "#fff",
+
+        "legend": {
+            "layout": "x4",
+            "position": "center",
+            "borderColor": "transparent",
+            "marker": {
+                "borderRadius": 10,
+                "borderColor": "transparent"
+            }
+        },
+        "tooltip": {
+            "text": "%v viajes"
+        },
+        "plot": {
+            "refAngle": "-90",
+            "borderWidth": "0px",
+            "valueBox": {
+                "placement": "in",
+                "text": "%npv %",
+                "fontSize": "15px",
+                "textAlpha": 2
+            }
+        },
+        "series": [{
+            "text": "Misma ciudad",
+            "values": [5],
+            "backgroundColor": "#2ecc71 #00b16a"           
+        }, {
+            "text": "Ciudad a otra",
+            "values": [2],
+            "backgroundColor": "#4183d7 #3a539b "
+        }, {
+            "text": "Estado a otro",
+            "values": [3],
+            "backgroundColor": "#d2527f #db0a5b"
+        }]
+      }, {
+        "idUsuario": 3,
+        "globals": {
+            "shadow": "false",
+            "fontFamily": "Kosugi",
+            "fontWeight": "100",
+            "fontSize": "13px"
+        },
+
+        "type": "pie",
+        "backgroundColor": "#fff",
+
+        "legend": {
+            "layout": "x4",
+            "position": "center",
+            "borderColor": "transparent",
+            "marker": {
+                "borderRadius": 10,
+                "borderColor": "transparent"
+            }
+        },
+        "tooltip": {
+            "text": "%v viajes"
+        },
+        "plot": {
+            "refAngle": "-90",
+            "borderWidth": "0px",
+            "valueBox": {
+                "placement": "in",
+                "text": "%npv %",
+                "fontSize": "15px",
+                "textAlpha": 2
+            }
+        },
+        "series": [{
+            "text": "Misma ciudad",
+            "values": [10],
+            "backgroundColor": "#2ecc71 #00b16a"           
+        }, {
+            "text": "Ciudad a otra",
+            "values": [10],
+            "backgroundColor": "#4183d7 #3a539b "
+        }, {
+            "text": "Estado a otro",
+            "values": [10],
+            "backgroundColor": "#d2527f #db0a5b"
+        }]
+      }
+      
+    ], "hourEstadistics":  {
+        "type": "bar",  
+        "globals": {
+            "shadow": "false",
+            "fontFamily": "Kosugi",
+            "fontWeight": "100",
+            "fontSize": "13px"
+        },
+        "scaleY":{
+            "values": [
+                5,10,20,30,40,50,60
+            ]
+        },
+        "scaleX":{
+            "values": [
+                "6 am", "8 am", "10 am", "12 m", "2 pm", "4 pm", "6pm", "10 pm", "12 am", "2am", "4 am"
+            ]
+        },
+        "legend": {
+            "layout": "x3",
+            "position": "center",
+            "borderColor": "transparent",
+            "marker": {
+                "borderRadius": 10,
+                "borderColor": "transparent"
+            }
+        }, 
+        "series": [{  
+            "values": [50,31,26,24,22,21,22,20,29,36,49],
+            "text": "Valor largos"
+        }, { 
+            "text": "Viajes cortos",
+            "values": [47,50,42,45,42,31,42,53,16,3,14]
+        }]
+    }, 
+      "lineEstadistics": {
+
+        "backgroundColor": "#FFF",
+          "globals": {
+            "shadow": "false",
+            "fontFamily": "Arial"
+          },
+          "type": "line",
+          "scaleX": {
+            "maxItems": 8,
+            "lineColor": "black",
+            "lineWidth": "1px",
+            "tick": {
+              "lineColor": "black",
+              "lineWidth": "1px"
+            },
+            "item": {
+              "fontColor": "black"
+            },
+            "guide": {
+              "visible": "false"
+            }
+          },
+          "scaleY": {
+            "maxItems": 6,
+            "lineColor": "black",
+            "lineWidth": "1px",
+            "tick": {
+              "lineColor": "black",
+              "lineWidth": "1px"
+            },
+            "guide": {
+              "lineStyle": "solid",
+              "lineColor": "#d2d7d3"
+            },
+            "item": {
+              "fontColor": "black"
+            }
+          },
+          "tooltip": {
+            "visible": "false"
+          },
+          "crosshairX": {
+            "lineColor": "#4d13d1",
+            "scaleLabel": {
+              "backgroundColor": "#fff",
+              "fontColor": "#323232"
+            },
+            "plotLabel": {
+              "backgroundColor": "#fff",
+              "fontColor": "#323232",
+              "text": "%v",
+              "borderColor": "transparent"
+            }
+          },
+          "plot": {
+            "lineWidth": "2px",
+            "lineColor": "#FFF",
+            "aspect": "spline",
+            "marker": {
+              "visible": "false"
+            }
+          },
+          "series": [{
+            "lineWidth": "3px",
+            "lineColor": "#4d13d1",
+            "values": [353,453,461,528,294,346,493,678,619,536,614,756]
+          }]
+      }
 }

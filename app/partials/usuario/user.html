@@ -7,17 +7,17 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-5">
                         <div class="card card-user">
-                            <div class="image" ng-model="modaleishon.portada">
+                            <div class="image">
                                 <img src="{{modaleishon.portada}}" alt="..."/>
                             </div>
                             <div class="content">
-                                <div class="author" ng-model="modaleishon.perfil">
+                                <div class="author" >
                                     <img class="avatar border-white" src="{{modaleishon.perfil}}" alt="..."/>
-                                    <h4 class="title">Michael Faker<br />
-                                        <a href="#" ng-model="modaleishon.user"><small>{{modaleishon.user}}</small></a>
+                                    <h4 class="title">{{modaleishon.name}} {{modaleishon.lastname}}<br />
+                                        <a href="#"><small>{{modaleishon.user}}</small></a>
                                     </h4>
                                 </div>
-                                <p class="description text-center" ng-model="modaleishon.aboutme">
+                                <p class="description text-center">
                                     {{modaleishon.aboutme}}
                                 </p>
                             </div>
@@ -112,7 +112,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group" >
-                                                <label class="dark-label" ng-model="modaleishon.user" >Username</label>
+                                                <label class="dark-label" >Username</label>
                                                 <input type="text" class="form-control border-input" placeholder="Username" ng-model="modaleishon.user"  >
                                             </div>
                                         </div>
@@ -173,7 +173,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">About Me</label>
-                                                <textarea rows="4" class="form-control border-input" placeholder="Here can be your description" value="Mike" ng-model="modaleishon.aboutme">                                                   
+                                                <textarea rows="4" class="form-control border-input" placeholder="Here can be your description" ng-model="modaleishon.aboutme">                                                   
                                                 </textarea>
                                             </div>
                                         </div>

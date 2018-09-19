@@ -1,4 +1,33 @@
-<main class="main body-jumbotron">
+<main class="main body-jumbotron" ng-controller="listaChoferesController">
+
+  <!--Modal para pedir un taxi
+  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document"> <!--Por defecto 600px
+          <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap
+              <div class="modal-header"> <!--Boton de cerrar modal
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">Login</h4>
+                  <h3>Accede a tu cuenta</h3>
+              </div>
+              <div class="modal-body formulario-modal-solicitar-taxi" ng-submit="submit()">
+                  <form action="" class="text-center">
+                      <div class="form-group">
+                          <label class="dark-label formulario-modal-label" for="user-modal">Usuario</label>
+                          <input type="text" ng-model="regObj.user" name="user" class="form-control border-input inputs-modales" id="user-modal" placeholder="Ingrese su usuario">
+                      </div>
+                      <div class="form-group">
+                          <label class="dark-label formulario-modal-label" for="password-modal">Contraseña</label>
+                          <input type="password" ng-model="regObj.password" name="password" id="password-modal" class="form-control border-input inputs-modales" placeholder="Ingrese el password">
+                      </div>
+                      <hr>
+                      <button type="submit" class="btn-principal btn-servicios">Entrar</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div> -->
     
   <!-- Main jumbotron for a primary marketing message or call to action -->
  <div class="jumbotron"> <!--Asi se llama la plantilla que usé-->
@@ -6,7 +35,7 @@
      <div class="cabecera">              
        <h1 class="display-3">Título llamativo e interesante</h1>
        <p> Información ligera sobre la empresa de red de transporte venezolana: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas saepe ea commodi quo veniam, architecto reiciendis nostrum qui voluptatibus laboriosam exercitationem quas quam quia distinctio dicta maiores vel! Placeat aliquid eos libero! Quam repudiandae doloremque libero facere, eius enim aperiam? Veritatis necessitatibus suscipit enim consequuntur? Nisi impedit dignissimos aliquam cum. </p>
-       <p><a class="btn btn-green btn-lg" href="#" role="button">Viaja ahora &raquo;</a></p>
+       <p><a class="btn btn-green btn-lg" href="#" role="button" >Viaja ahora &raquo;</a></p>
      </div>
      <!--Componente lateral para registrar a un usuario-->
      <aside>
@@ -26,7 +55,7 @@
              <input class="form-control form-aside" type="password" name="repetirPassword" placeholder="Validar contraseña" required >
          </div>
          
-           <button class="btn btn-registro-usuario" id="btn-crear-usuario" type="submit">Crear Usuario</button> 
+           <button class="btn btn-registro-usuario" id="btn-crear-usuario" type="submit" data-toggle="modal" data-target="#modalLogin">Crear Usuario</button> 
            
        </form>
      </aside> 
@@ -86,7 +115,7 @@
            <p><a class="btn btn-link btn-green" href="#" role="button">Ver todos &raquo;</a></p>   
          </div>
          <!-- Columna 2 de elementos -->
-         <div class="col-md-8" ng-controller="listaChoferesController">
+         <div class="col-md-8" >
             <ul class="galeria-equipo">
               <li ng-repeat="chofer in model"> <img src="{{chofer.img}}" alt="Imagen random"> <p> {{chofer.name}} </p> </li>
                <!--<li> <img src="images/1.jpg" alt="Imagen random 1"> <p>Chofer 1 </p> </li>

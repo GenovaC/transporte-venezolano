@@ -4,7 +4,7 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
 
         $http.get('http://localhost:3000/viajes_chofer?longitud=Estado a otro&longitud=Ciudad a otra')        
         .then(function (r) {
-            $scope.model = r.data;
+            $scope.model = r.data;   
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -25,7 +25,7 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
         $http.get('http://localhost:3000/viajes_chofer?id='+id)
         .then(function (r) {
             $scope.modaleishon = r.data[0];
-          //  console.log($scope.model2.length);                
+            //  console.log($scope.model2.length);                
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);

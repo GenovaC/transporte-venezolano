@@ -1,8 +1,8 @@
 app.controller('userController', ['$scope', '$http', function ($scope, $http) {
 
-    function cargarData() {
+    function cargarDatosUsuario() {
 
-        $http.get('http://localhost:3000/usuarios')
+        $http.get('http://localhost:3000/usuarios?id=1')
         .then(function (r) {
             $scope.modaleishon = r.data[0];
         })
@@ -11,6 +11,6 @@ app.controller('userController', ['$scope', '$http', function ($scope, $http) {
         })
     }
 
-    cargarData();
+    cargarDatosUsuario();
 
 }]);

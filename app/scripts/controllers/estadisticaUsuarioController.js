@@ -1,54 +1,33 @@
-app.controller('pieUserEstadisticController', function ($scope) {
+app.controller('pieUserEstadisticController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.myJson = {
-            globals: {
-                shadow: false,
-                fontFamily: "Kosugi",
-                fontWeight: "100",
-                fontSize: "13px"
-            },
+    function cargarTortaEstadistica() {
 
-            type: "pie",
-            backgroundColor: "#fff",
-    
-            legend: {
-                layout: "x4",
-                position: "center",
-                borderColor: "transparent",
-                marker: {
-                    borderRadius: 10,
-                    borderColor: "transparent"
-                }
-            },
-            tooltip: {
-                text: "%v viajes"
-            },
-            plot: {
-                refAngle: "-90",
-                borderWidth: "0px",
-                valueBox: {
-                    placement: "in",
-                    text: "%npv %",
-                    fontSize: "15px",
-                    textAlpha: 2,
-                }
-            },
-            series: [{
-                text: "Misma ciudad",
-                values: [2],
-                backgroundColor: "#d2527f #db0a5b",
-            }, {
-                text: "Ciudad a otra",
-                values: [9],
-                backgroundColor: "#2ecc71 #00b16a"
-            }, {
-                text: "Cancelados",
-                values: [5],
-                backgroundColor: "#4183d7 #3a539b "
-            }, {
-                text: "Estado a otro",
-                values: [6],
-                backgroundColor: "#e9d460 #f5ab35"
-            }]
-        } 
-    });
+        $http.get('http://localhost:3000/configuracionTorta?idUsuario=1')
+        .then(function (r) {
+           // $scope.est = r.data;
+           $scope.myJson = r.data[0];
+           //console.log(JSON.stringify($scope.myJson));
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    cargarTortaEstadistica();
+
+    function cargarCifrasEstadisticas() {
+
+        $http.get('http://localhost:3000/viajes_usuario')        
+        .then(function (r) {
+           //$scope.model = r.data;   
+            $scope.longitud = r.data.length;
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    cargarCifrasEstadisticas();
+
+
+}]);
