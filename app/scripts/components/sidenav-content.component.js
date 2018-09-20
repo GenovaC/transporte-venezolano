@@ -1,5 +1,4 @@
 angular.module('app')  
   .component('sidenavContent', {
-     templateUrl: '../partials/sidenav-content.html',
-     controller: 'sidenavController'
+     templateUrl: '../partials/sidenav-content.html'
   });

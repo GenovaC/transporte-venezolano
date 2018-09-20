@@ -1,4 +1,4 @@
-app.controller('listaChoferesController', ['$scope', '$http', function ($scope, $http) {
+app.controller('mainController', ['$scope', '$http', function ($scope, $http) {
  
   function cargarListaChoferes() {
 
@@ -11,8 +11,14 @@ app.controller('listaChoferesController', ['$scope', '$http', function ($scope, 
       })
     }
 
-  cargarListaChoferes();
+    function cargarFecha(){
+        $scope.dt = new Date();
+    }
 
+    cargarListaChoferes();
+    cargarFecha();
+
+  
  /*   $scope.submit = function() {
        var stat="false";
    angular.forEach($scope.mydata, function(item) {

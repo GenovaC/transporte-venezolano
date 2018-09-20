@@ -1,5 +1,5 @@
 // Define the `app` module
-var app = angular.module('app', ['ngRoute', 'zingchart-angularjs']);
+var app = angular.module('app', ['ngRoute', 'zingchart-angularjs', 'checklist-model']);
 
     // configure our routes
     app.config(function($routeProvider) {
@@ -8,7 +8,7 @@ var app = angular.module('app', ['ngRoute', 'zingchart-angularjs']);
             // route for the home page
             .when('/', {
                 templateUrl : 'partials/home.html',
-                controller: 'listaChoferesController'
+                controller: 'mainController'
             })
 
             .when('/principal', {
@@ -46,11 +46,12 @@ var app = angular.module('app', ['ngRoute', 'zingchart-angularjs']);
 
             .when('/perfilU', {
                 templateUrl : 'partials/usuario/user.html',
-                controller: 'userController'
+                controller: 'userPerfilController'
             })
 
             .when('/perfilC', {
-                templateUrl : 'partials/chofer/user.html'
+                templateUrl : 'partials/chofer/user.html',
+                controller: 'choferPerfilController'
             })
 
             .when('/estadisticasU', {

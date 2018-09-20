@@ -1,4 +1,4 @@
-app.controller('userController', ['$scope', '$http', function ($scope, $http) {
+app.controller('userPerfilController', ['$scope', '$http', function ($scope, $http) {
 
     function cargarDatosUsuario() {
 
