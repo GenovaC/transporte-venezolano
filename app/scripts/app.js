@@ -27,7 +27,8 @@ var app = angular.module('app', ['ngRoute', 'zingchart-angularjs', 'checklist-mo
             })
 
             .when('/planificar', {
-                templateUrl : 'partials/usuario/planificar.html'
+                templateUrl : 'partials/usuario/planificar.html',
+                controller: 'planificacionController'
             })
 
             .when('/viajesU', {
@@ -38,10 +39,6 @@ var app = angular.module('app', ['ngRoute', 'zingchart-angularjs', 'checklist-mo
             .when('/viajesC', {
                 templateUrl : 'partials/chofer/table.html',
                 controller: 'listaChoferViajesController'
-            })
-
-            .when('/viajes', {
-                templateUrl : 'partials/table.html'
             })
 
             .when('/perfilU', {

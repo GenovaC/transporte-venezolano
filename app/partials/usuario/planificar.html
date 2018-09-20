@@ -10,25 +10,25 @@
                                 <div class="header">
                                     <h4 class="title">Proporciona datos para el viaje</h4>
                                 </div>
-                                <div class="content">
-                                    <form>
+                                <div class="content" ng-controller="planificacionController">
+                                    <form ng-submit="submitViaje()">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="dark-label">Estado Origen</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Estado Origen" >
+                                                    <input type="text" class="form-control border-input" placeholder="Estado Origen" ng-model="stateOrigen">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="dark-label">Municipio Origen</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Municipio Origen" >
+                                                    <label class="dark-label">Ciudad Origen</label>
+                                                    <input type="text" class="form-control border-input" placeholder="Ciudad Origen" ng-model="cityOrigen">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="dark-label">Ciudad origen</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Ciudad origen" >
+                                                    <label class="dark-label">Hora Salida</label>
+                                                    <input type="text" class="form-control border-input" placeholder="Hora de Salida"ng-model="hora" >
                                                 </div>
                                             </div>
                                         </div>
@@ -37,7 +37,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="dark-label">Dirección origen</label>
-                                                    <input type="text" class="form-control border-input" placeholder="¿A qué dirección te recogemos?">
+                                                    <input type="text" class="form-control border-input" ng-model="direccionOrigen" placeholder="¿A qué dirección te recogemos?">
                                                 </div>
                                             </div>
                                         </div>
@@ -46,19 +46,19 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="dark-label">Estado Destino</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Estado Destino" >
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="dark-label">Municipio Destino</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Municipio Destino" >
+                                                    <input type="text" class="form-control border-input" ng-model="stateDestino" placeholder="Estado Destino" >
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="dark-label">Ciudad Destino</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Ciudad Destino" >
+                                                    <input type="text" class="form-control border-input" ng-model="cityDestino" placeholder="Ciudad Destino" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="dark-label">Fecha Salida</label>
+                                                    <input type="text" class="form-control border-input" ng-model="fecha" placeholder="Fecha Salida" >
                                                 </div>
                                             </div>
                                         </div>
@@ -67,28 +67,34 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="dark-label">Dirección Destino</label>
-                                                    <input type="text" class="form-control border-input" placeholder="¿A qué dirección deseas llegar?">
+                                                    <input type="text" class="form-control border-input" ng-model="direccionDestino" placeholder="¿A qué dirección deseas llegar?">
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="dark-label">Tiempo estimado</label>
-                                                    <input type="text" class="form-control border-input" disabled placeholder="Tiempo estimado" value="5 días">
+                                                    <label class="dark-label">Precio estimado</label>
+                                                    <input type="text" class="form-control border-input" ng-model="precio"  placeholder="Tiempo estimado"  >
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label class="dark-label">Kilómetros</label>
-                                                        <input type="text" class="form-control border-input" disabled placeholder="km" value="100 km">
+                                                        <input type="text" class="form-control border-input" ng-model="km" placeholder="km"  >
                                                     </div>
                                                 </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label class="dark-label">Número de viajeros</label>
-                                                    <input type="text" class="form-control border-input" placeholder="¿Con cuántas personas va a viajar?">
+                                                    <label class="dark-label">Núm de viajeros</label>
+                                                    <input type="text" class="form-control border-input" ng-model="pasajeros" placeholder="¿Con cuántas personas va a viajar?">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="dark-label">Tu nombre</label>
+                                                    <input type="text" class="form-control border-input" ng-model="cliente" placeholder="Ingresa tu nombre">
                                                 </div>
                                             </div>
                                         </div>
