@@ -1,8 +1,8 @@
 app.controller('listaUsuarioViajesController', ['$scope', '$http', function ($scope, $http) {
 
-    function cargarData() {
+    $scope.cargarViajes = function(id) {
 
-        $http.get('http://localhost:3000/viajes?idUsuario=1&longitud=Estado a otro&longitud=Ciudad a otra')
+        $http.get('http://localhost:3000/viajes?idUsuario='+id+'&longitud=Estado a otro&longitud=Ciudad a otra')
         .then(function (r) {
             $scope.model = r.data;
         })
@@ -10,7 +10,7 @@ app.controller('listaUsuarioViajesController', ['$scope', '$http', function ($sc
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
         
-        $http.get('http://localhost:3000/viajes?idUsuario=1&longitud=Misma ciudad')
+        $http.get('http://localhost:3000/viajes?idUsuario='+id+'&longitud=Misma ciudad')
         .then(function (r1) {
             $scope.model2 = r1.data;
         })
@@ -18,8 +18,6 @@ app.controller('listaUsuarioViajesController', ['$scope', '$http', function ($sc
             console.log('Ha ocurrido un error:', r1.status, r1.data);
         })
     }
-
-    cargarData();
 
     $scope.onViajeUser = function (id) {
         $http.get('http://localhost:3000/viajes?id='+id)
@@ -31,4 +29,19 @@ app.controller('listaUsuarioViajesController', ['$scope', '$http', function ($sc
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
     } 
+
+    function cargarClientes() {
+        $http.get('http://localhost:3000/usuarios?cliente=true')
+        .then(function (r) {
+            $scope.clientes = r.data;
+            $scope.myCliente = $scope.clientes[0]; 
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    cargarClientes();
+    
+
     }]);

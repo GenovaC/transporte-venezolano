@@ -11,22 +11,23 @@
      <!--Componente lateral para registrar a un usuario-->
      <aside>
        <h3>Regístrate</h3>
-       <form class="form-registrar-usuario-main" id="formulario" name="myForm"  novalidate>
+       <form class="form-registrar-usuario-main" ng-submit="submitUsuario()" name="myForm" novalidate>
          <div class="registro-datos-personales" >
-             <input class="form-control form-aside" type="text" name="name" placeholder="Nombre" ng-model="nuevo.name" required >
-             <input class="form-control form-aside" type="text" name="apellido" placeholder="Apellido" ng-model="nuevo.lastname" required >
-             <input class="form-control form-aside " type="tel" name="telefono" placeholder="Número de teléfono" ng-model="nuevo.cel" required  >
-             <input class="form-control form-aside " type="text" name="ciudad" placeholder="Ciudad" ng-model="nuevo.city" required >
+             <input class="form-control form-aside" type="text" name="name" placeholder="Nombre" ng-model="name" required >
+             <input class="form-control form-aside" type="text" name="apellido" placeholder="Apellido" ng-model="lastname" required >
+             <input class="form-control form-aside " type="tel" name="telefono" placeholder="Número de teléfono" ng-model="cel" required  >           
          </div>
          <hr>
          <div class="registro-datos-personales">
-             <input class="form-control form-aside" type ="email" name="email" placeholder="Correo electrónico" ng-model="nuevo.email" required >
-             <input class="form-control form-aside" type="text" name="usuario" placeholder="Usuario" required >
-             <input class="form-control form-aside" type="password" name="password" placeholder="Crear contraseña" required >
-             <input class="form-control form-aside" type="password" name="repetirPassword" placeholder="Validar contraseña" required >
+             <input class="form-control form-aside" type ="email" name="email" placeholder="Correo electrónico" ng-model="email" required >
+             <input class="form-control form-aside" type="text" name="usuario" placeholder="Usuario" ng-model="user" required >
+             <input class="form-control form-aside" type="password" name="password" placeholder="Crear contraseña" ng-model="pwd" required >
+             <input class="form-control form-aside" type="password" name="repetirPassword" placeholder="Validar contraseña" ng-model="pwd2" required >
          </div>
-         
-           <button class="btn btn-registro-usuario" id="btn-crear-usuario" type="submit" data-toggle="modal" data-target="#modalLogin">Crear Usuario</button> 
+         <label class="titulo-importante" for="clienteCheckbox">Ser chofer?</label>
+         <input type="checkbox" id="clienteCheckbox" ng-model="cliente" required >
+        
+         <button class="btn btn-registro-usuario" id="btn-crear-usuario" type="submit">Crear Usuario</button> 
            
        </form>
      </aside> 

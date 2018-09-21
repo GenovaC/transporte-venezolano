@@ -1,8 +1,8 @@
 app.controller('listaChoferViajesController', ['$scope', '$http', function ($scope, $http) {
 
-    function cargarData() {
+    $scope.cargarViajes = function(id) {
 
-        $http.get('http://localhost:3000/viajes?idChofer=2&longitud=Estado a otro&longitud=Ciudad a otra')        
+        $http.get('http://localhost:3000/viajes?idChofer='+id+'&longitud=Estado a otro&longitud=Ciudad a otra')        
         .then(function (r) {
             $scope.model = r.data;   
         })
@@ -10,7 +10,7 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
         
-        $http.get('http://localhost:3000/viajes?idChofer=2&longitud=Misma ciudad')
+        $http.get('http://localhost:3000/viajes?idChofer='+id+'&longitud=Misma ciudad')
         .then(function (r1) {
             $scope.model2 = r1.data;
         })
@@ -19,7 +19,6 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
         })
     }
 
-    cargarData();
 
     $scope.onViajeChofer = function (id) {
         $http.get('http://localhost:3000/viajes?id='+id)
@@ -31,4 +30,21 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
     } 
+
+    
+
+    function cargarChoferes() {
+        $http.get('http://localhost:3000/usuarios?cliente=false')
+        .then(function (r) {
+            $scope.choferes = r.data;
+            $scope.myChofer = $scope.choferes[0]; 
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    cargarChoferes();
+    
+
     }]);

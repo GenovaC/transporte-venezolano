@@ -1,12 +1,16 @@
 app.controller('planificacionController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.viaje = {};
-
     $scope.submitViaje= function () {
         // use $.param jQuery function to serialize data from JSON 
          var data = $.param({
 
-            cliente: $scope.cliente,
+            cliente: $scope.myCliente.fullname,            
+            idUsuario: $scope.myCliente.id, 
+
+            vehiculo: "Fiat Palio",             
+            idChofer: $scope.myChofer.id,
+            chofer: $scope.myChofer.fullname,
+
             hora: $scope.hora,
             fecha: $scope.fecha,
             pasajeros: $scope.pasajeros,
@@ -20,7 +24,7 @@ app.controller('planificacionController', ['$scope', '$http', function ($scope, 
             direccionInicial: $scope.direccionOrigen,
             direccionFinal: $scope.direccionDestino,
 
-            /*largoViaje = function(){
+            /* longitud = function(){
 
             if ( ($scope.ciudadOrigen).localeCompare($scope.ciudadDestino) == 0) 
                 return "Misma ciudad"
@@ -29,16 +33,11 @@ app.controller('planificacionController', ['$scope', '$http', function ($scope, 
             if ( ( ($scope.stateOrigen).localeCompare($scope.stateDestino) == 0 )  && 
                  ( ($scope.ciudadOrigen).localeCompare($scope.ciudadDestino) == 0) )
                 return "Ciudad a otra" 
-            },*/
+            }, */
 
              //Esto no esta en el formulario de mi taxi asi que lo pondré por defecto asiii            
              
             longitud: "Estado a otro", //No deberia
-            idUsuario: 1, //Puede cambiar 
-
-             vehiculo: "Fiat Palio",             
-             idChofer: 2,
-             chofer: "Arturo López"
 
          });
      
@@ -52,9 +51,10 @@ app.controller('planificacionController', ['$scope', '$http', function ($scope, 
          .then(function (data, status, headers, config) {
              //$scope.PostDataResponse = data;
              console.log("Se guardo tu información 'satisfactoriamente'");
+             alert("Se guardo tu información 'satisfactoriamente'");
          })
          .catch(function (data, status, header, config) {
-
+            alert("Error");
             console.log("NO guardo tu información");
              /*$scope.ResponseDetails = "Data: " + data +
                  "<hr />status: " + status +
@@ -63,6 +63,31 @@ app.controller('planificacionController', ['$scope', '$http', function ($scope, 
             */
          });
      };
+
+     function cargarDatosUsuario() {
+        $http.get('http://localhost:3000/usuarios?cliente=true')
+        .then(function (r) {
+            $scope.clientes = r.data;
+            $scope.myCliente = $scope.clientes[0]; 
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    function cargarDatosChoferes() {
+        $http.get('http://localhost:3000/usuarios?cliente=false')
+        .then(function (r) {
+            $scope.choferes = r.data;
+            $scope.myChofer = $scope.choferes[0]; 
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    cargarDatosChoferes();
+    cargarDatosUsuario();
        
 
 

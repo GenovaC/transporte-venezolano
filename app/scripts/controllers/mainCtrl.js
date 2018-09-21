@@ -1,6 +1,6 @@
 app.controller('mainController', ['$scope', '$http', function ($scope, $http) {
  
-  function cargarListaChoferes() {
+    function cargarListaChoferes() {
 
     $http.get('http://localhost:3000/lista_choferes')
       .then(function (r) {
@@ -18,6 +18,63 @@ app.controller('mainController', ['$scope', '$http', function ($scope, $http) {
     cargarListaChoferes();
     cargarFecha();
 
+
+    $scope.submitUsuario= function () {
+        
+      //  if (($scope.pwd).localeCompare($scope.pwd2) == 0) {
+                var data = $.param({
+            
+                name: $scope.name,
+                lastname: $scope.lastname,
+                phone: $scope.cel,
+
+                email: $scope.email,
+                user: $scope.user,
+                password: $scope.pwd,
+                cliente: !$scope.cliente,
+
+                fullname: $scope.name + " " + $scope.lastname,
+               
+                portada: "images/ciudad-nocturna.jpg",
+                perfil: "images/faces/face-3.jpg",
+               
+                homeaddress:  "",
+                city:  "",
+                state:  "",
+                country:  "",
+                aboutme:  "",
+                
+                banco:  "",
+                fvencimiento:  "",
+                creditcard:  "",
+                codesecurity: ""
+            });
+        
+            var config = {
+                headers : {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }
+
+            $http.post('http://localhost:3000/usuarios', data, config)
+            .then(function (data, status, headers, config) {
+                //$scope.PostDataResponse = data;
+                console.log("Se guardo tu información 'satisfactoriamente'");
+                alert("Correctamente registrado");
+            })
+            .catch(function (data, status, header, config) {
+
+                console.log("NO guardo tu información");
+                /*$scope.ResponseDetails = "Data: " + data +
+                    "<hr />status: " + status +
+                    "<hr />headers: " + header +
+                    "<hr />config: " + config;
+                */
+               alert("NO se pudo hacer el registro");
+            });
+       // } else alert("Las contraseñas no coinciden");
+     };
+    
   
  /*   $scope.submit = function() {
        var stat="false";
