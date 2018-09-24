@@ -42,6 +42,16 @@ app.controller('listaUsuarioViajesController', ['$scope', '$http', function ($sc
     }
 
     cargarClientes();
+
+    $scope.delete = function (id) {
+        $http.delete('http://localhost:3000/viajes/'+id)
+        .then(function (r) {
+            alert("Eliminado con exito viaje codigo "+id)               
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    } 
     
 
     }]);

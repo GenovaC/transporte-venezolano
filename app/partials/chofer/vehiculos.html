@@ -1,11 +1,41 @@
-<div class="wrapper">
+<div class="wrapper" ng-controller="listaAutosController">
+
+        <div class="modal fade" id="modalAuto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
+                    <div class="modal-content">  <!--Aqui hay estilos asociados de bootstrap-->
+                        <div class="modal-header"> <!--Boton de cerrar modal-->
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Consulta detalles del auto</h4>
+                            <h3>Tus autos</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p > ID del auto: {{modaleishon.id}} </p>                  
+                            <p > Modelo: {{modaleishon.modelo}} </p>    
+                            <p > Propietario: ({{myChofer.id}}) - {{myChofer.fullname}} </p>  
+                            <p > Status: {{modaleishon.status}} </p>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     <sidenav-content></sidenav-content>     
     <div class="main-panel">    
         <navbar-content></navbar-content>                
         <div class="content">
-            <div class="container-fluid">     
+            <div class="container-fluid">   
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <select class="custom-select" ng-model="myChofer" class="dark-label" 
+                        ng-options="chofer.fullname for chofer in choferes" ng-click="cargarVehiculos(myChofer.id)"></select>
+                    </div>  
+                </div>
+                <br>
+
                 <div class="content">
-                    <div class="container-fluid" ng-controller="listaAutosController">
+                    <div class="container-fluid" >
                         <div class="col-md-12">
                             <div class="card card-table">
                                 <div class="header">
@@ -13,47 +43,14 @@
                                     <label  class="dark-label">Visualiza todos los autos que se te han asignado para tus viajes</label>
                                 </div>
                                 <!--Deberia tener una flecha para poder desplazarse entre la galería de autos-->
-                                <ul class="galeria-automoviles">
-                                    <li ng-repeat="auto in asignados"> <img src="{{auto.img}}" alt="Imagen random"> <p> {{auto.name}} </p> </li>
-                                    <!--<li> <img src="images/automoviles/1.jpg" alt="Imagen random 1"> <p>Carro 1 </p> </li>
-                                    <li> <img src="images/automoviles/2.jpg" alt="Imagen random 2"> <p>Carro 2 </p> </li>
-                                    <li> <img src="images/automoviles/3.jpg" alt="Imagen random 3"> <p>Carro 3 </p> </li> -->
+                                <ul class="galeria-automoviles flex-container">
+                                    <li class="flex-item" ng-repeat="auto in model" data-toggle="modal" data-target="#modalAuto" ng-click="onVehicle(auto.id)" > 
+                                        <img src="{{auto.img}}" alt="Imagen random"> </li>
                                 </ul> 
                             </div>
                         </div>
                         
                         <hr>
-                        
-                        <div class="col-md-12">
-                            <div class="card card-table">
-                                <div class="header">
-                                    <h4 class="title">Autos propios</h4>
-                                    <label class="dark-label">Visualiza todos los autos propios que has usado para viajes</label>
-                                </div>
-                                <ul class="galeria-automoviles">
-                                    <li ng-repeat="auto in propios"> <img src="{{auto.img}}" alt="Imagen random"> <p> {{auto.name}} </p> </li>
-                                    <!-- <li> <img src="images/automoviles/4.jpg" alt="Imagen random 1"> <p>Carro 1 </p> </li>
-                                    <li> <img src="images/automoviles/5.jpg" alt="Imagen random 2"> <p>Carro 2 </p> </li>
-                                    <li> <img src="images/automoviles/6.jpg" alt="Imagen random 3"> <p>Carro 3 </p> </li> -->
-                                </ul> 
-                            </div>
-                        </div>
-
-                        <hr>
-                        
-                       <!-- <div class="col-md-12">
-                            <div class="card card-table">
-                                <div class="header">
-                                    <h4 class="title">Autos actualmente asignados</h4>
-                                    <label class="dark-label">Visualiza los autos que actualmente puedes usar</label>
-                                </div>
-                                <ul class="galeria-automoviles">
-                                    <li ng-repeat="auto in actuales"> <img src="{{auto.img}}" alt="Imagen random"> <p> {{auto.name}} </p> </li>
-                                    
-                                </ul> 
-                            </div>
-                        </div> -->
-                        
                     </div> <!--fin controlador lista de autos-->
                 </div>
 

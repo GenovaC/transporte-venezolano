@@ -166,6 +166,33 @@ box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
   background-color: rgba(0, 0, 0, 0.4);    
 }
 
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-item {
+  background: transparent;
+  padding: 5px;
+  width: 300px;
+  margin-top: 10px;
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
 .btn-servicios:hover {
   color: #fff;
   background-color: #2DD881;
@@ -2796,7 +2823,7 @@ textarea.form-control {
 
   .galeria-automoviles {
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row;

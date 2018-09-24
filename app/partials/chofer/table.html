@@ -62,13 +62,15 @@
 											<th>Destino</th>
 										</thead>
 										<tbody>
-											<tr data-toggle="modal" data-target="#modalChofer" ng-repeat="viaje in model" ng-click="onViajeChofer(viaje.id)">
+											<tr ng-repeat="viaje in model" >
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>
 												<td>{{viaje.precio}}</td>
 												<td>{{viaje.origen}}</td>
 												<td>{{viaje.destino}}</td>
+												<td> <button type="button" class="btn btn-dark btn-sm" ng-click="delete(viaje.id)">Eliminar</button> </td>
+                                            <td> <button type="button" data-toggle="modal" data-target="#modalChofer"  class="btn btn-success btn-sm" ng-click="onViajeChofer(viaje.id)">Ver</button> </td>
 											</tr>
 										</tbody>
 									</table>
@@ -96,7 +98,7 @@
 											<th>Sector destino</th>
 										</thead>
 										<tbody>
-											<tr data-toggle="modal" data-target="#modalChofer" ng-repeat="viaje in model2" ng-click="onViajeChofer(viaje.id)">
+											<tr ng-repeat="viaje in model2" >
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>
@@ -104,6 +106,8 @@
 												<td>{{viaje.ciudad}}</td>
 												<td>{{viaje.origen}}</td>
 												<td>{{viaje.destino}}</td>
+												<td> <button type="button" class="btn btn-danger btn-sm" ng-click="delete(viaje.id)">Eliminar</button> </td>
+                                          	    <td> <button type="button" data-toggle="modal" data-target="#modalChofer" class="btn btn-warning btn-sm" ng-click="onViajeChofer(viaje.id)">Ver</button> </td>
 											</tr>
 										</tbody>
 									</table>

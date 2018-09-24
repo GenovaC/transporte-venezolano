@@ -24,86 +24,25 @@
                             <hr>
                             <div class="text-center">
                                 <div class="row">
-                                    <div class="col-md-3 col-md-offset-1">
-                                        <h5>16<br /><small>Viajes</small></h5>
+                                    <div class="col-md-3">
+                                        <h6>{{totalViajes}}<br /><small>Viajes</small></h6>
                                     </div>
                                     <div class="col-md-4">
-                                        <h5>23 km<br /><small>Recorridos</small></h5>
+                                        <h6>{{totalRecorrido + " km"}}<br /><small>Recorridos</small></h6>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5>1.345$<br /><small>Invertido</small></h5>
+                                        <h6>{{totalInvertido + " bs S"}}<br /><small>Invertido</small></h6>
                                     </div>
                                 </div>
                             </div>
+                            
+                            <br>
                         </div>
                         
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Choferes destacados</h4>
-                                <label class="dark-label" >Choferes destacados en la ciudad donde vives</label>
-                            </div>
-                            <div class="content">
-                                <ul class="list-unstyled team-members">
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <div class="avatar">
-                                                    <img src="images/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                DJ Khaled
-                                                <br />
-                                                <span class="text-muted"><small>Unavailable</small></span>
-                                            </div>
-
-                                            <div class="col-xs-3 text-right">
-                                                <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <div class="avatar">
-                                                    <img src="images/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                Creative Tim
-                                                <br />
-                                                <span class="text-success"><small>Available</small></span>
-                                            </div>
-
-                                            <div class="col-xs-3 text-right">
-                                                <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <div class="avatar">
-                                                    <img src="images/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                Flume
-                                                <br />
-                                                <span class="text-danger"><small>Busy</small></span>
-                                            </div>
-
-                                            <div class="col-xs-3 text-right">
-                                                <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> 
+                        
                         <div class="col-md-3">
                                 <select class="custom-select" ng-model="myCliente" class="dark-label" 
-                                ng-options="cliente.fullname for cliente in clientes"></select>
+                                ng-options="cliente.fullname for cliente in clientes"  ng-click="cargarCifras(myCliente.id)"></select>
                         </div> 
                     </div>
                     <div class="col-lg-8 col-md-7">
@@ -112,7 +51,7 @@
                                 <h4 class="title">Edita tu Perfil</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form ng-submit="updateUsuario()">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group" >
@@ -194,7 +133,7 @@
                                     <h4 class="title">Medio de Pago</h4>
                                 </div>
                                 <div class="content">
-                                    <form>
+                                    <form ng-submit="updatePago()">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -230,9 +169,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-center">
+                                         <div class="text-center">
                                             <button type="submit" class="btn btn-info btn-fill btn-wd">Todo correcto</button>
-                                        </div>
+                                        </div> 
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

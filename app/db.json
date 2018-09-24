@@ -58,25 +58,6 @@
       "pasajeros": "2"
     },
     {
-      "id": 4,
-      "cliente": "Michael Faker",
-      "chofer": "Arturo López",
-      "idUsuario": 1,
-      "idChofer": 2,
-      "vehiculo": "Volkswagen Golf",
-      "precio": "50 bs S",
-      "origen": "Puerto Ordaz",
-      "destino": "Valencia",
-      "longitud": "Estado a otro",
-      "fecha": "17/09/2018",
-      "hora": "16:00",
-      "km": "970",
-      "tiempoEspera": "12",
-      "direccionInicial": "C.C. Alta Vista II",
-      "direccionFinal": "Plaza Bolívar",
-      "pasajeros": "3"
-    },
-    {
       "id": 5,
       "cliente": "Michael Faker",
       "chofer": "Arturo López",
@@ -93,26 +74,6 @@
       "tiempoEspera": "2",
       "direccionInicial": "Avenida Atlántico",
       "direccionFinal": "Terminal de Pasajeros Jhon Corke",
-      "pasajeros": "1"
-    },
-    {
-      "id": 6,
-      "cliente": "Michael Faker",
-      "chofer": "Arturo López",
-      "idUsuario": 1,
-      "idChofer": 2,
-      "vehiculo": "Fiat Palio",
-      "precio": "20 bs S",
-      "ciudad": "Puerto Ordaz",
-      "origen": "Alta Vista",
-      "destino": "La churuata",
-      "longitud": "Misma ciudad",
-      "fecha": "17/09/2018",
-      "hora": "13:45",
-      "km": "2.7",
-      "tiempoEspera": "9",
-      "direccionInicial": "Calle Cuchivero, Vigo's Plaza",
-      "direccionFinal": "Calle Millán, Alta Vista Sur",
       "pasajeros": "1"
     },
     {
@@ -176,26 +137,6 @@
       "pasajeros": "3"
     },
     {
-      "id": 10,
-      "cliente": "Michael Faker",
-      "chofer": "Arturo López",
-      "idUsuario": 1,
-      "idChofer": 2,
-      "vehiculo": "Ford Escort",
-      "ciudad": "Puerto Ordaz",
-      "precio": "55 bs S",
-      "origen": "Castillito",
-      "destino": "Las teodokildas",
-      "longitud": "Misma ciudad",
-      "fecha": "18/09/2018",
-      "hora": "08:00",
-      "km": "20",
-      "tiempoEspera": "21",
-      "direccionInicial": "Avenida Principal de Castilloto, Hotel Embajador",
-      "direccionFinal": "Iglesia de Jesucristo Shekinah",
-      "pasajeros": "1"
-    },
-    {
       "cliente": "Adrián Longart",
       "idUsuario": "3",
       "vehiculo": "Fiat Palio",
@@ -216,102 +157,125 @@
       "id": 11
     }
   ],
-  "lista_choferes": [
-    {
-      "name": "Alberto Amariscua",
-      "img": "images/1.jpg"
-    },
-    {
-      "name": "Chofersito 2",
-      "img": "images/2.jpg"
-    },
-    {
-      "name": "Petronila Silforosa",
-      "img": "images/3.jpg"
-    }
-  ],
   "lista_vehiculos": [
     {
-      "name": "Modelo 1",
+      "id": 1,
+      "idPropietario": 5,
+      "modelo": "Modelo 1",
       "img": "images/automoviles/1.jpg",
       "status": "Propio"
-    },
-    {
-      "name": "Modelo 2",
+    }, {
+      "id": 2,
+      "idPropietario": 5,
+      "modelo": "Modelo 2",
       "img": "images/automoviles/2.jpg",
       "status": "Asignado"
-    },
-    {
-      "name": "Modelo 3",
+    }, {
+      "id": 3,
+      "idPropietario": 5,
+      "modelo": "Modelo 3",
       "img": "images/automoviles/3.jpg",
       "status": "Propio"
-    },
-    {
-      "name": "Modelo 4",
+    }, {
+      "id": 4,
+      "idPropietario": 5,
+      "modelo": "Modelo 4",
       "img": "images/automoviles/4.jpg",
       "status": "Asignado"
-    },
-    {
-      "name": "Modelo 5",
+    }, {
+      "id": 5,
+      "idPropietario": 5,
+      "modelo": "Modelo 5",
       "img": "images/automoviles/5.jpg",
       "status": "Propio"
-    },
-    {
-      "name": "Modelo 6",
+    }, {
+      "id": 6,
+      "idPropietario": 4,
+      "modelo": "Modelo 6",
       "img": "images/automoviles/6.jpg",
+      "status": "Asignado"
+    }, {
+      "id": 7,
+      "idPropietario": 4,
+      "modelo": "Modelo 7",
+      "img": "images/automoviles/7.jpg",
+      "status": "Propio"
+    }, {
+      "id": 8,
+      "idPropietario": 2,
+      "modelo": "Modelo 8",
+      "img": "images/automoviles/8.jpg",
+      "status": "Asignado"
+    }, {
+      "id": 9,
+      "idPropietario": 2,
+      "modelo": "Modelo 9",
+      "img": "images/automoviles/9.jpg",
+      "status": "Propio"
+    }, {
+      "id": 10,
+      "idPropietario": 2,
+      "modelo": "Modelo 10",
+      "img": "images/automoviles/10.jpg",
       "status": "Asignado"
     }
   ],
   "usuarios": [
     {
-      "id": 1,
-      "cliente": "true",
-      "portada": "images/background.jpg",
-      "perfil": "images/faces/face-2.jpg",
-      "name": "Michael",
-      "lastname": "Faker",
+      "name": "Mayckol",
+      "lastname": "Machado",
+      "phone": "",
       "email": "michaelfaker@gmail.com",
       "user": "michael23",
       "password": "michael23",
-      "phone": "04166853664",
+      "cliente": "true",
+      "fullname": "Mayckol Machado",
+      "portada": "images/background.jpg",
+      "perfil": "images/faces/face-2.jpg",
       "homeaddress": "Alta Vista Sur. Residencias La Churuata. Piso 2. Apartamento 25",
-      "city": "Puerto Ordaz",
+      "city": "Guasipati",
       "state": "Bolivar",
       "country": "Venezuela",
       "aboutme": "Nada interesante para decir",
-      "fullname": "Michael Faker",
       "banco": "Banesco",
       "fvencimiento": "23/03/2020",
       "creditcard": "5899416802547896",
-      "codesecurity": "2458"
+      "codesecurity": "2458",
+      "id": 1
     },
     {
-      "id": 2,
-      "cliente": "false",
-      "portada": "images/luces.jpg",
-      "perfil": "images/faces/face-1.jpg",
       "name": "Arturo",
-      "lastname": "López",
+      "lastname": "Salgado",
+      "phone": "04143885677",
       "email": "arturolopez@gmail.com",
       "user": "arturo23",
       "password": "arturo23",
-      "company": "Empresa de Génova",
+      "cliente": "false",
+      "fullname": "Arturo Salgado",
+      "portada": "images/luces.jpg",
+      "perfil": "images/faces/face-1.jpg",
       "homeaddress": "Alta Vista Sur. Residencias La Churuata. Piso 3. Apartamento 30",
       "city": "Puerto Ordaz",
       "state": "Bolivar",
       "country": "Venezuela",
       "aboutme": "No me hace falta nada en mi vida :) Soy muy feliz",
-      "phone": "04161803428",
-      "fullname": "Arturo López",
       "banco": "Mercantil",
-      "typeaccount": "Corriente",
-      "account": "5839456762547896",
-      "codesecurity": "2658"
+      "fvencimiento": "",
+      "creditcard": "",
+      "codesecurity": "2658",
+      "id": 2,
+      "tipoCuenta": "corriente",
+      "account": "46456",
+      "horario[]": [
+        "Mie",
+        "Jue",
+        "Vie"
+      ]
     },
     {
       "id": 3,
       "cliente": "true",
-      "portada": "images/ciudad-nocturna.jpg",
+      "portada": "images/trafico.jpg",
       "perfil": "images/faces/face-3.jpg",
       "name": "Adrián",
       "lastname": "Longart",
@@ -340,7 +304,7 @@
       "cliente": "false",
       "fullname": "Elly Castillo",
       "portada": "images/ciudad-nocturna.jpg",
-      "perfil": "images/faces/face-3.jpg",
+      "perfil": "images/faces/face-4.jpg",
       "homeaddress": "",
       "city": "",
       "state": "",
@@ -351,6 +315,28 @@
       "creditcard": "",
       "codesecurity": "",
       "id": 4
+    },
+    {
+      "name": "Alberto",
+      "lastname": "Amariscua",
+      "phone": "02863442622",
+      "email": "albertoamariscua@gmail.com",
+      "user": "alberticooo",
+      "password": "159",
+      "cliente": "false",
+      "fullname": "Alberto Amariscua",
+      "portada": "images/mapa.jpg",
+      "perfil": "images/faces/face-0.jpg",
+      "homeaddress": "",
+      "city": "",
+      "state": "",
+      "country": "",
+      "aboutme": "",
+      "banco": "",
+      "fvencimiento": "",
+      "creditcard": "",
+      "codesecurity": "",
+      "id": 5
     }
   ],
   "configuracionTorta": [

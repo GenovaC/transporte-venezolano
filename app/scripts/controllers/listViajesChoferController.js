@@ -23,15 +23,13 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
     $scope.onViajeChofer = function (id) {
         $http.get('http://localhost:3000/viajes?id='+id)
         .then(function (r) {
-            $scope.modaleishon = r.data[0];
-            //  console.log($scope.model2.length);                
+            $scope.modaleishon = r.data[0];             
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
     } 
-
-    
+   
 
     function cargarChoferes() {
         $http.get('http://localhost:3000/usuarios?cliente=false')
@@ -45,6 +43,16 @@ app.controller('listaChoferViajesController', ['$scope', '$http', function ($sco
     }
 
     cargarChoferes();
+
+    $scope.delete = function (id) {
+        $http.delete('http://localhost:3000/viajes/'+id)
+        .then(function (r) {
+            alert("Eliminado con exito viaje codigo "+id)               
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    } 
     
 
     }]);

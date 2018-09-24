@@ -2,9 +2,10 @@ app.controller('choferPerfilController', ['$scope', '$http', function ($scope, $
 
     function cargarDatosChofer() {
 
-        $http.get('http://localhost:3000/usuarios?id=2')
+        $http.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            $scope.model = r.data[0];
+            $scope.model = r.data;
+            $scope.myChofer = $scope.model[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -24,6 +25,72 @@ app.controller('choferPerfilController', ['$scope', '$http', function ($scope, $
     ];
       
     $scope.selected = [];
+
+    $scope.updateChofer= function () {
+        
+        var data = $.param({
+    
+          name: $scope.myChofer.name,
+          lastname: $scope.myChofer.lastname,
+          phone: $scope.myChofer.phone,
+
+          email: $scope.myChofer.email,
+          user: $scope.myChofer.user,
+
+          fullname: $scope.myChofer.name + " " + $scope.myChofer.lastname,
+          
+          homeaddress:  $scope.myChofer.homeaddress,
+          city:  $scope.myChofer.city,
+          state:  $scope.myChofer.state,
+          country:  $scope.myChofer.country,
+          aboutme:  $scope.myChofer.aboutme,
+
+          horario: $scope.selected
+      });
+
+    var config = {
+        headers : {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    }
+
+    $http.patch('http://localhost:3000/usuarios/'+$scope.myChofer.id, data, config)
+    .then(function (data, status, headers, config) {
+        //$scope.PostDataResponse = data;
+        alert("Correctamente actualizado");
+    })
+    .catch(function (data, status, header, config) {
+      console.log('Ha ocurrido un error:',status, data);
+       alert("NO se pudo actualizar el registro");
+    });
+};
+
+    $scope.updatePago= function () {
+            
+        var data = $.param({
+
+        banco:  $scope.myChofer.banco,
+        tipoCuenta:  $scope.myChofer.typeaccount,
+        account:  $scope.myChofer.account,
+        codesecurity: $scope.myChofer.codesecurity
+    });
+
+        var config = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+
+        $http.patch('http://localhost:3000/usuarios/'+$scope.myChofer.id, data, config)
+        .then(function (data, status, headers, config) {
+            //$scope.PostDataResponse = data;
+            alert("Correctamente actualizado");
+        })
+        .catch(function (data, status, header, config) {
+        console.log('Ha ocurrido un error:',status, data);
+        alert("NO se pudo actualizar el registro");
+        });
+    };
 
 
 }]);

@@ -8,17 +8,17 @@
                     <div class="col-lg-4 col-md-5">
                         <div class="card card-user">
                             <div class="image">
-                                <img src="{{model.portada}}" alt="..."/>
+                                <img src="{{myChofer.portada}}" alt="..."/>
                             </div>
                             <div class="content">
                                 <div class="author">
-                                    <img class="avatar border-white" src="{{model.perfil}}" alt="..."/>
-                                    <h4 class="title">{{model.name}} {{model.lastname}}<br />
-                                        <a href="#"><small>{{model.user}}</small></a>
+                                    <img class="avatar border-white" src="{{myChofer.perfil}}" alt="..."/>
+                                    <h4 class="title">{{myChofer.name}} {{myChofer.lastname}}<br />
+                                        <a href="#"><small>{{myChofer.user}}</small></a>
                                     </h4>
                                 </div>
                                 <p class="description text-center">
-                                    {{model.aboutme}}
+                                    {{myChofer.aboutme}}
                                 </p> 
                                 <p class="description"> Horario  </p> <!--Puedes tener un ng-repeat-->
                                 <span class="text-big" ng-repeat="dia in selected" >{{"  " + dia}}</span>
@@ -40,6 +40,10 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <select class="custom-select" ng-model="myChofer" class="dark-label" 
+                            ng-options="chofer.fullname for chofer in model"></select>
+                        </div> 
                     </div>
                     
                     <div class="col-lg-8 col-md-7">
@@ -48,24 +52,24 @@
                                 <h4 class="title">Edita tu perfil</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form ng-submit="updateChofer()">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label class="dark-label">Company</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="Company" ng-model="model.company">
+                                                <input type="text" class="form-control border-input" disabled placeholder="Company" value="TransGénova">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="dark-label">Username</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" ng-model="model.user">
+                                                <input type="text" class="form-control border-input" placeholder="Username" ng-model="myChofer.user">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label" for="exampleInputEmail1">Correo electrónico</label>
-                                                <input type="email" class="form-control border-input" placeholder="Email" ng-model="model.email">
+                                                <input type="email" class="form-control border-input" placeholder="Email" ng-model="myChofer.email">
                                             </div>
                                         </div>
                                     </div>
@@ -74,19 +78,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Nombre</label>
-                                                <input type="text" class="form-control border-input" placeholder="Nombre" ng-model="model.name">
+                                                <input type="text" class="form-control border-input" placeholder="Nombre" ng-model="myChofer.name">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Apellido</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="model.lastname">
+                                                <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="myChofer.lastname">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Teléfono</label>
-                                                <input type="tel" class="form-control border-input" placeholder="Num Celular" ng-model="model.phone">
+                                                <input type="tel" class="form-control border-input" placeholder="Num Celular" ng-model="myChofer.phone">
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +100,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">Dirección</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" ng-model="model.homeaddress">
+                                                <input type="text" class="form-control border-input" placeholder="Home Address" ng-model="myChofer.homeaddress">
                                             </div>
                                         </div>
                                     </div>
@@ -105,19 +109,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Ciudad</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" ng-model="model.city">
+                                                <input type="text" class="form-control border-input" placeholder="City" ng-model="myChofer.city">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Estado</label>
-                                                <input type="text" class="form-control border-input" placeholder="Estado" ng-model="model.state">
+                                                <input type="text" class="form-control border-input" placeholder="Estado" ng-model="myChofer.state">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">País</label>
-                                                <input type="text" class="form-control border-input" placeholder="Country" ng-model="model.country">
+                                                <input type="text" class="form-control border-input" placeholder="Country" ng-model="myChofer.country">
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +130,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">About Me</label>
-                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" ng-model="model.aboutme">
+                                                <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" ng-model="myChofer.aboutme">
                                                     
                                                 </textarea>
                                             </div>
@@ -158,18 +162,18 @@
                                 <h4 class="title">Medio de Pago</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form ng-submit="updatePago()">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label">Nombre titular</label>
-                                                <input type="text" class="form-control border-input" placeholder="Nombre y apellido" ng-model="model.fullname">
+                                                <input type="text" class="form-control border-input" placeholder="Nombre y apellido" ng-model="myChofer.fullname">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="dark-label">Banco proveedor</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Banco" ng-model="model.banco">
+                                                    <input type="text" class="form-control border-input" placeholder="Banco" ng-model="myChofer.banco">
                                                 </div>
                                             </div>
                                     </div>
@@ -178,25 +182,25 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="dark-label">Tipo de Cuenta</label>
-                                                <input type="text" class="form-control border-input" placeholder="dd/mm/yyyy" ng-model="model.typeaccount">
+                                                <input type="text" class="form-control border-input" placeholder="dd/mm/yyyy" ng-model="myChofer.typeaccount">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="dark-label" for="exampleInputEmail1">Número de Cuenta</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Sin guiones ni espacios" ng-model="model.account">
+                                                    <input type="text" class="form-control border-input" placeholder="Sin guiones ni espacios" ng-model="myChofer.account">
                                                 </div>
                                             </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="dark-label">Código de seguridad</label>
-                                                <input type="text" class="form-control border-input" placeholder="ZIP Code" ng-model="model.codesecurity">
+                                                <input type="text" class="form-control border-input" placeholder="ZIP Code" ng-model="myChofer.codesecurity">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Todo correcto</button>
-                                    </div>
+                                    </div> 
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

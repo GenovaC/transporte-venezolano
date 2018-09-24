@@ -1,24 +1,37 @@
 app.controller('listaAutosController', ['$scope', '$http', function ($scope, $http) {
  
-    function cargarData() {
+    $scope.cargarVehiculos = function(id) {
 
-        $http.get('http://localhost:3000/lista_vehiculos?status=Asignado')        
+        $http.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)        
         .then(function (r) {
-            $scope.asignados = r.data;
+            $scope.model = r.data;
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
-        
-        $http.get('http://localhost:3000/lista_vehiculos?status=Propio')
-        .then(function (r1) {
-            $scope.propios = r1.data;
+    }
+
+    $scope.onVehicle = function (id) {
+        $http.get('http://localhost:3000/lista_vehiculos?id='+id)
+        .then(function (r) {
+            $scope.modaleishon = r.data[0];             
         })
-        .catch(function (r1){
-            console.log('Ha ocurrido un error:', r1.status, r1.data);
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    } 
+
+    function cargarChoferes() {
+        $http.get('http://localhost:3000/usuarios?cliente=false')
+        .then(function (r) {
+            $scope.choferes = r.data;
+            $scope.myChofer = $scope.choferes[0]; 
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
         })
     }
 
-    cargarData();
+    cargarChoferes();
 
 }]);

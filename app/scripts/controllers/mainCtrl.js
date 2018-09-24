@@ -2,7 +2,7 @@ app.controller('mainController', ['$scope', '$http', function ($scope, $http) {
  
     function cargarListaChoferes() {
 
-    $http.get('http://localhost:3000/lista_choferes')
+    $http.get('http://localhost:3000/usuarios?cliente=false&_limit=3') //Trayendo 3 clientes
       .then(function (r) {
           $scope.model = r.data;
       })
