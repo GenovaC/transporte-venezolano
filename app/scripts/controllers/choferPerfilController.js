@@ -26,6 +26,37 @@ app.controller('choferPerfilController', ['$scope', '$http', function ($scope, $
       
     $scope.selected = [];
 
+
+    $scope.cargarCifras = function (id) {
+
+        $http.get('http://localhost:3000/viajes?idChofer='+id)        
+        .then(function (r) { 
+            $scope.totalViajes = r.data.length;
+            $scope.totalRecorrido = 0;
+
+            angular.forEach(r.data, function(result){
+                $scope.totalRecorrido += parseFloat(result.km);
+            });
+
+            $scope.totalRecorrido = Number($scope.totalRecorrido.toFixed(2)); //Redondeando km recorridos
+
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+
+
+        $http.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)        
+        .then(function (r) { 
+            $scope.totalVehiculos = r.data.length;
+
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    };
+
+
     $scope.updateChofer= function () {
         
         var data = $.param({

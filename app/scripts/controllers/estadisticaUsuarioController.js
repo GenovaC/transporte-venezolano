@@ -1,20 +1,59 @@
 app.controller('pieUserEstadisticController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.user = {};
-     
-        
+    $scope.user = {};  
 
     function cargarTortaEstadistica() {
 
-        $http.get('http://localhost:3000/configuracionTorta?idUsuario=1')
-        .then(function (r) {
-           // $scope.est = r.data;
-           $scope.myJson = r.data[0];
-           //console.log(JSON.stringify($scope.myJson));
-        })
-        .catch(function (r){
-            console.log('Ha ocurrido un error:', r.status, r.data);
-        })
+        $scope.myJson = {
+            idUsuario: 1,
+            globals: {
+              shadow: false,
+              fontFamily: "Kosugi",
+              fontWeight: 100,
+              fontSize: "13 px"
+            },
+            type: "pie",
+            backgroundColor: "#fff",
+            legend: {
+              layout: "x4",
+              position: "center",
+              borderColor: "transparent",
+              marker: {
+                borderRadius: 10,
+                borderColor: "transparent"
+              }
+            },
+            tooltip: {
+              text: "%v viajes"
+            },
+            plot: {
+              refAngle: "-90",
+              borderWidth: "0px",
+              valueBox: {
+                placement: "in",
+                text: "%npv %",
+                fontSize: "15px",
+                textAlpha: "2"
+              }
+            },
+            series: [
+              {
+                text: "Misma ciudad",
+                values: [5],
+                backgroundColor: "#d2527f #db0a5b"
+              },
+              {
+                text: "Ciudad a otra",
+                values: [1],
+                backgroundColor: "#2ecc71 #00b16a"
+              },
+              {
+                text: "Estado a otro",
+                values: [6],
+                backgroundColor: "#e9d460 #f5ab35"
+              }
+            ]
+          }
     }
 
     function cargarCifrasEstadisticas() {
@@ -43,8 +82,21 @@ app.controller('pieUserEstadisticController', ['$scope', '$http', function ($sco
         })
     }
 
+    function cargarChoferesDestacados() {
+
+        $http.get('http://localhost:3000/usuarios?cliente=false')        
+        .then(function (r) { 
+            $scope.choferesDestacados = r.data;
+
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
     cargarTortaEstadistica();
     cargarCifrasEstadisticas();
+    cargarChoferesDestacados();
 
     $scope.submitTaxi = function () {
         // use $.param jQuery function to serialize data from JSON 
@@ -87,13 +139,8 @@ app.controller('pieUserEstadisticController', ['$scope', '$http', function ($sco
 
             console.log("NO guardo tu información");
             console.log(" - Status - "+status+" - Data - "+data+" - Headers - "+header+" - Config - "+config);
-             /*$scope.ResponseDetails = "Data: " + data +
-                 "<hr />status: " + status +
-                 "<hr />headers: " + header +
-                 "<hr />config: " + config;
-            */
          });
-     };
+    };
        
 
 

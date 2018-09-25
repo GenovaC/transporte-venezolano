@@ -1,8 +1,16 @@
-// Define the `app` module
-var app = angular.module('app', ['ngRoute', 'zingchart-angularjs', 'checklist-model']);
 
-    // configure our routes
-    app.config(function($routeProvider) {
+angular
+
+    .module('app', [
+        'ngRoute',
+        'app.controllers',
+        'app.components',
+        'zingchart-angularjs', 
+        'checklist-model'
+    ])
+
+    .config(['$routeProvider', function ($routeProvider) {
+
         $routeProvider
 
             // route for the home page
@@ -61,10 +69,15 @@ var app = angular.module('app', ['ngRoute', 'zingchart-angularjs', 'checklist-mo
                 controller: 'hourChoferEstadisticController',
                 controller: 'pieChoferEstadisticController',
                 controller: 'lineChoferEstadisticController'
+            })
+
+            .otherwise({
+                redirectTo: '/'
             });
-    }
-
-
-);
+    }]);
+ 
 
     
+
+
+

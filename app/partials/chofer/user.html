@@ -27,22 +27,24 @@
                             </div>
                             <hr>
                             <div class="text-center">
+                                <br>
                                 <div class="row">
-                                    <div class="col-md-3 col-md-offset-1">
-                                        <h5>16<br /><small>Viajes</small></h5>
+                                    <div class="col-md-3">
+                                        <h5>{{totalViajes}}<br /><small>Viajes</small></h5>
                                     </div>
                                     <div class="col-md-4">
-                                        <h5>230 km<br /><small>Recorridos</small></h5>
+                                        <h5>{{totalRecorrido + " km"}}<br /><small>Recorridos</small></h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <h5>3<br /><small>Vehículos</small></h5>
+                                        <h5>{{totalVehiculos}}<br /><small>Vehículos</small></h5>
                                     </div>
                                 </div>
+                                <br>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <select class="custom-select" ng-model="myChofer" class="dark-label" 
-                            ng-options="chofer.fullname for chofer in model"></select>
+                            ng-options="chofer.fullname for chofer in model" ng-click="cargarCifras(myChofer.id)"></select>
                         </div> 
                     </div>
                     

@@ -1,25 +1,6 @@
 {
   "viajes": [
     {
-      "id": 1,
-      "cliente": "Michael Faker",
-      "chofer": "Arturo López",
-      "idUsuario": 1,
-      "idChofer": 2,
-      "vehiculo": "Fiat Palio",
-      "origen": "Caracas",
-      "destino": "Guanare",
-      "longitud": "Ciudad a otra",
-      "direccionInicial": "Avenida Baralt",
-      "direccionFinal": "Un montensito en Guanare",
-      "km": "437",
-      "fecha": "16/09/2018",
-      "hora": "07:15",
-      "tiempoEspera": "5",
-      "pasajeros": "4",
-      "precio": 20
-    },
-    {
       "id": 2,
       "cliente": "Michael Faker",
       "chofer": "Arturo López",
@@ -155,6 +136,26 @@
       "direccionFinal": "a",
       "longitud": "Estado a otro",
       "id": 11
+    },
+    {
+      "cliente": "Adrián Longart",
+      "idUsuario": "3",
+      "vehiculo": "Fiat Palio",
+      "idChofer": "5",
+      "chofer": "Alberto Amariscua",
+      "hora": "5:00",
+      "fecha": "25/09/2018",
+      "pasajeros": "2",
+      "km": "400",
+      "precio": "150",
+      "tiempoEspera": "1",
+      "ciudad": "Puerto Ordaz",
+      "origen": "Puerto Ordaz",
+      "destino": "Maracaibo",
+      "direccionInicial": "Alta Vista Sur. Residencias La Churuata. Piso 3. Apartamento 30",
+      "direccionFinal": "Puente de Maracaibo",
+      "longitud": "Estado a otro",
+      "id": 12
     }
   ],
   "lista_vehiculos": [
@@ -164,55 +165,64 @@
       "modelo": "Modelo 1",
       "img": "images/automoviles/1.jpg",
       "status": "Propio"
-    }, {
+    },
+    {
       "id": 2,
       "idPropietario": 5,
       "modelo": "Modelo 2",
       "img": "images/automoviles/2.jpg",
       "status": "Asignado"
-    }, {
+    },
+    {
       "id": 3,
       "idPropietario": 5,
       "modelo": "Modelo 3",
       "img": "images/automoviles/3.jpg",
       "status": "Propio"
-    }, {
+    },
+    {
       "id": 4,
       "idPropietario": 5,
       "modelo": "Modelo 4",
       "img": "images/automoviles/4.jpg",
       "status": "Asignado"
-    }, {
+    },
+    {
       "id": 5,
       "idPropietario": 5,
       "modelo": "Modelo 5",
       "img": "images/automoviles/5.jpg",
       "status": "Propio"
-    }, {
+    },
+    {
       "id": 6,
       "idPropietario": 4,
       "modelo": "Modelo 6",
       "img": "images/automoviles/6.jpg",
       "status": "Asignado"
-    }, {
+    },
+    {
       "id": 7,
       "idPropietario": 4,
       "modelo": "Modelo 7",
       "img": "images/automoviles/7.jpg",
       "status": "Propio"
-    }, {
+    },
+    {
       "id": 8,
       "idPropietario": 2,
       "modelo": "Modelo 8",
       "img": "images/automoviles/8.jpg",
       "status": "Asignado"
-    }, {
+    },
+    {
       "id": 9,
       "idPropietario": 2,
       "modelo": "Modelo 9",
       "img": "images/automoviles/9.jpg",
       "status": "Propio"
-    }, {
+    },
+    {
       "id": 10,
       "idPropietario": 2,
       "modelo": "Modelo 10",
@@ -277,7 +287,7 @@
       "cliente": "true",
       "portada": "images/trafico.jpg",
       "perfil": "images/faces/face-3.jpg",
-      "name": "Adrián",
+      "name": "Ernesto",
       "lastname": "Longart",
       "email": "adrianlongart@gmail.com",
       "user": "aelr20",
@@ -286,9 +296,9 @@
       "city": "Puerto Ordaz",
       "state": "Bolivar",
       "country": "Venezuela",
-      "aboutme": "Nada interesante para decir",
+      "aboutme": "19 años. Baterista.",
       "phone": "04161000528",
-      "fullname": "Adrián Longart",
+      "fullname": "Ernesto Longart",
       "banco": "Provincial",
       "fvencimiento": "23/03/2020",
       "creditcard": "5899416802547896",
@@ -309,7 +319,7 @@
       "city": "",
       "state": "",
       "country": "",
-      "aboutme": "",
+      "aboutme": "Ingeniero, taxista.",
       "banco": "",
       "fvencimiento": "",
       "creditcard": "",
@@ -326,12 +336,12 @@
       "cliente": "false",
       "fullname": "Alberto Amariscua",
       "portada": "images/mapa.jpg",
-      "perfil": "images/faces/face-0.jpg",
+      "perfil": "images/faces/face-5.jpg",
       "homeaddress": "",
       "city": "",
       "state": "",
       "country": "",
-      "aboutme": "",
+      "aboutme": "Nothing to say",
       "banco": "",
       "fvencimiento": "",
       "creditcard": "",
@@ -340,62 +350,6 @@
     }
   ],
   "configuracionTorta": [
-    {
-      "idUsuario": 1,
-      "globals": {
-        "shadow": "false",
-        "fontFamily": "Kosugi",
-        "fontWeight": "100",
-        "fontSize": "13px"
-      },
-      "type": "pie",
-      "backgroundColor": "#fff",
-      "legend": {
-        "layout": "x4",
-        "position": "center",
-        "borderColor": "transparent",
-        "marker": {
-          "borderRadius": "10",
-          "borderColor": "transparent"
-        }
-      },
-      "tooltip": {
-        "text": "%v viajes"
-      },
-      "plot": {
-        "refAngle": "-90",
-        "borderWidth": "0px",
-        "valueBox": {
-          "placement": "in",
-          "text": "%npv %",
-          "fontSize": "15px",
-          "textAlpha": "2"
-        }
-      },
-      "series": [
-        {
-          "text": "Misma ciudad",
-          "values": [
-            5
-          ],
-          "backgroundColor": "#d2527f #db0a5b"
-        },
-        {
-          "text": "Ciudad a otra",
-          "values": [
-            1
-          ],
-          "backgroundColor": "#2ecc71 #00b16a"
-        },
-        {
-          "text": "Estado a otro",
-          "values": [
-            6
-          ],
-          "backgroundColor": "#e9d460 #f5ab35"
-        }
-      ]
-    },
     {
       "idUsuario": 2,
       "globals": {
