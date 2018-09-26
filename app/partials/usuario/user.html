@@ -2,36 +2,36 @@
     <sidenav-content></sidenav-content>     
     <div class="main-panel">    
         <navbar-content></navbar-content>                
-        <div class="content" ng-controller="userPerfilController">
+        <div class="content" ng-controller="userPerfilController as vm">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-4 col-md-5">
                         <div class="card card-user">
                             <div class="image">
-                                <img src="{{myCliente.portada}}" alt="..."/>
+                                <img src="{{vm.myCliente.portada}}" alt="..."/>
                             </div>
                             <div class="content">
                                 <div class="author" >
-                                    <img class="avatar border-white" src="{{myCliente.perfil}}" alt="..."/>
-                                    <h4 class="title">{{myCliente.name}} {{myCliente.lastname}}<br />
-                                        <a href="#"><small>{{myCliente.user}}</small></a>
+                                    <img class="avatar border-white" src="{{vm.myCliente.perfil}}" alt="..."/>
+                                    <h4 class="title">{{vm.myCliente.name}} {{vm.myCliente.lastname}}<br />
+                                        <a href="#"><small>{{vm.myCliente.user}}</small></a>
                                     </h4>
                                 </div>
                                 <p class="description text-center">
-                                    {{myCliente.aboutme}}
+                                    {{vm.myCliente.aboutme}}
                                 </p>
                             </div>
                             <hr>
                             <div class="text-center">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <h6>{{totalViajes}}<br /><small>Viajes</small></h6>
+                                        <h6>{{vm.totalViajes}}<br /><small>Viajes</small></h6>
                                     </div>
                                     <div class="col-md-4">
-                                        <h6>{{totalRecorrido + " km"}}<br /><small>Recorridos</small></h6>
+                                        <h6>{{vm.totalRecorrido + " km"}}<br /><small>Recorridos</small></h6>
                                     </div>
                                     <div class="col-md-3">
-                                        <h6>{{totalInvertido + " bs S"}}<br /><small>Invertido</small></h6>
+                                        <h6>{{vm.totalInvertido + " bs S"}}<br /><small>Invertido</small></h6>
                                     </div>
                                 </div>
                             </div>
@@ -41,8 +41,8 @@
                         
                         
                         <div class="col-md-3">
-                                <select class="custom-select" ng-model="myCliente" class="dark-label" 
-                                ng-options="cliente.fullname for cliente in clientes"  ng-click="cargarCifras(myCliente.id)"></select>
+                                <select class="custom-select" ng-model="vm.myCliente" class="dark-label" 
+                                ng-options="cliente.fullname for cliente in vm.clientes"  ng-click="vm.cargarCifras(vm.myCliente.id)"></select>
                         </div> 
                     </div>
                     <div class="col-lg-8 col-md-7">
@@ -51,18 +51,18 @@
                                 <h4 class="title">Edita tu Perfil</h4>
                             </div>
                             <div class="content">
-                                <form ng-submit="updateUsuario()">
+                                <form ng-submit="vm.updateUsuario()">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group" >
                                                 <label class="dark-label" >Username</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" ng-model="myCliente.user"  >
+                                                <input type="text" class="form-control border-input" placeholder="Username" ng-model="vm.myCliente.user"  >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label" for="exampleInputEmail1">Correo electrónico</label>
-                                                <input type="email" class="form-control border-input" placeholder="Email" ng-model="myCliente.email">
+                                                <input type="email" class="form-control border-input" placeholder="Email" ng-model="vm.myCliente.email">
                                             </div>
                                         </div>
                                     </div>
@@ -71,13 +71,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label">Nombre</label>
-                                                <input type="text" class="form-control border-input" placeholder="Name" ng-model="myCliente.name">
+                                                <input type="text" class="form-control border-input" placeholder="Name" ng-model="vm.myCliente.name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="dark-label">Apellido</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="myCliente.lastname">
+                                                <input type="text" class="form-control border-input" placeholder="Last Name" ng-model="vm.myCliente.lastname">
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">Dirección</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" ng-model="myCliente.homeaddress">
+                                                <input type="text" class="form-control border-input" placeholder="Home Address" ng-model="vm.myCliente.homeaddress">
                                             </div>
                                         </div>
                                     </div>
@@ -95,19 +95,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Ciudad</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" ng-model="myCliente.city">
+                                                <input type="text" class="form-control border-input" placeholder="City" ng-model="vm.myCliente.city">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">Estado</label>
-                                                <input type="text" class="form-control border-input" placeholder="Estado" ng-model="myCliente.state">
+                                                <input type="text" class="form-control border-input" placeholder="Estado" ng-model="vm.myCliente.state">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="dark-label">País</label>
-                                                <input type="text" class="form-control border-input" placeholder="Country" ng-model="myCliente.country">
+                                                <input type="text" class="form-control border-input" placeholder="Country" ng-model="vm.myCliente.country">
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="dark-label">About Me</label>
-                                                <textarea rows="4" class="form-control border-input" placeholder="Here can be your description" ng-model="myCliente.aboutme">                                                   
+                                                <textarea rows="4" class="form-control border-input" placeholder="Here can be your description" ng-model="vm.myCliente.aboutme">                                                   
                                                 </textarea>
                                             </div>
                                         </div>
@@ -133,18 +133,18 @@
                                     <h4 class="title">Medio de Pago</h4>
                                 </div>
                                 <div class="content">
-                                    <form ng-submit="updatePago()">
+                                    <form ng-submit="vm.updatePago()">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="dark-label">Nombre titular</label>
-                                                    <input type="text" class="form-control border-input" placeholder="Nombre y apellido" ng-model="myCliente.fullname">
+                                                    <input type="text" class="form-control border-input" placeholder="Nombre y apellido" ng-model="vm.myCliente.fullname">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="dark-label">Banco proveedor</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Banco proveedor" ng-model="myCliente.banco">
+                                                        <input type="text" class="form-control border-input" placeholder="Banco proveedor" ng-model="vm.myCliente.banco">
                                                     </div>
                                                 </div>
                                         </div>
@@ -153,19 +153,19 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="dark-label">Fecha de Vencimiento</label>
-                                                    <input type="text" class="form-control border-input" placeholder="dd/mm/yyyy" ng-model="myCliente.fvencimiento">
+                                                    <input type="text" class="form-control border-input" placeholder="dd/mm/yyyy" ng-model="vm.myCliente.fvencimiento">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="dark-label" for="exampleInputEmail1">Número de tarjeta de Crédito</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Sin guiones ni espacios" ng-model="myCliente.creditcard">
+                                                        <input type="text" class="form-control border-input" placeholder="Sin guiones ni espacios" ng-model="vm.myCliente.creditcard">
                                                     </div>
                                                 </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="dark-label">Código de seguridad</label>
-                                                    <input type="text" class="form-control border-input" placeholder="ZIP Code" ng-model="myCliente.codesecurity">
+                                                    <input type="text" class="form-control border-input" placeholder="ZIP Code" ng-model="vm.myCliente.codesecurity">
                                                 </div>
                                             </div>
                                         </div>

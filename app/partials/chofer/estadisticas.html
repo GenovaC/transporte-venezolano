@@ -2,7 +2,7 @@
 	<sidenav-content></sidenav-content>     
        <div class="main-panel">
 			<navbar-content></navbar-content>			
-            <div class="content"  ng-controller="estadisticChoferController">
+            <div class="content"  ng-controller="estadisticChoferController as vm">
                 <div class="container-fluid">
 
 					<div class="row">
@@ -14,7 +14,7 @@
 								</div>
 								<div class="content">
 									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-										<div zingchart id="chart-1" zc-json="torta" zc-width="100%" zc-height="300px"></div>
+										<div zingchart id="chart-1" zc-json="vm.torta" zc-width="100%" zc-height="300px"></div>
 									</div>
 									<div class="footer">
 										<div class="stats">
@@ -33,7 +33,7 @@
 								<div class="content">
 									<div>
 									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-										<div zingchart id="chart-2" zc-json="hour" zc-width="600px" zc-height="300px"></div>
+										<div zingchart id="chart-2" zc-json="vm.hour" zc-width="600px" zc-height="300px"></div>
 									</div>
 									<div class="footer">
 										<div class="stats">
@@ -58,7 +58,7 @@
 								<div class="content">
 									<div>
 									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-										<div zingchart id="chart-3" zc-json="line" zc-width="100%" zc-height="400px"></div>
+										<div zingchart id="chart-3" zc-json="vm.line" zc-width="100%" zc-height="400px"></div>
 									</div>
 									<div class="footer">
 										<div class="stats">

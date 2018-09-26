@@ -1,4 +1,4 @@
-<div  ng-controller="listaChoferViajesController">
+<div  ng-controller="listaChoferViajesController as vm">
 
 <div class="modal fade" id="modalChofer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
@@ -11,17 +11,17 @@
                     <h3>Tus viajes</h3>
                 </div>
                 <div class="modal-body">
-					<p > ID del viaje: {{modaleishon.id}} </p>                  
-                    <p > Fecha: {{modaleishon.fecha}} </p>    
-                    <p > Hora: {{modaleishon.hora}} </p>    
-                    <p > Nombre del cliente: {{ modaleishon.cliente }} </p>    
-                    <p > Direccion inicial: {{modaleishon.direccionInicial}} </p>    
-                    <p > Direccion final: {{modaleishon.direccionFinal}} </p>    
-                    <p > Número de pasajeros: {{modaleishon.pasajeros}} </p>    
-                    <p > Modelo del auto usado: {{modaleishon.vehiculo}} </p>    
-                    <p > Distancia recorrida: {{modaleishon.km}} </p> 
-                    <p > Tiempo de espera: {{modaleishon.tiempoEspera}} </p>    
-					<p > Precio: {{ modaleishon.precio }} </p>  
+					<p > ID del viaje: {{vm.detalle.id}} </p>                  
+                    <p > Fecha: {{vm.detalle.fecha}} </p>    
+                    <p > Hora: {{vm.detalle.hora}} </p>    
+                    <p > Nombre del cliente: {{ vm.detalle.cliente }} </p>    
+                    <p > Direccion inicial: {{vm.detalle.direccionInicial}} </p>    
+                    <p > Direccion final: {{vm.detalle.direccionFinal}} </p>    
+                    <p > Número de pasajeros: {{vm.detalle.pasajeros}} </p>    
+                    <p > Modelo del auto usado: {{vm.detalle.vehiculo}} </p>    
+                    <p > Distancia recorrida: {{vm.detalle.km}} </p> 
+                    <p > Tiempo de espera: {{vm.detalle.tiempoEspera}} </p>    
+					<p > Precio: {{ vm.detalle.precio }} </p>  
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
 					<div class="row">
 						<div class="col-md-3">
 							<select class="custom-select" ng-model="myChofer" class="dark-label" 
-							ng-options="chofer.fullname for chofer in choferes" ng-click="cargarViajes(myChofer.id)"></select>
+							ng-options="chofer.fullname for chofer in vm.choferes" ng-click="vm.cargarViajes(vm.myChofer.id)"></select>
 						</div>  
 					</div>
 					
@@ -62,15 +62,15 @@
 											<th>Destino</th>
 										</thead>
 										<tbody>
-											<tr ng-repeat="viaje in model" >
+											<tr ng-repeat="viaje in vm.model" >
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>
 												<td>{{viaje.precio}}</td>
 												<td>{{viaje.origen}}</td>
 												<td>{{viaje.destino}}</td>
-												<td> <button type="button" class="btn btn-dark btn-sm " ng-click="delete(viaje.id)">Eliminar</button> </td>
-                                            <td> <button type="button" data-toggle="modal" data-target="#modalChofer"  class="btn btn-success btn-sm" ng-click="onViajeChofer(viaje.id)">Ver</button> </td>
+												<td> <button type="button" class="btn btn-dark btn-sm " ng-click="vm.delete(viaje.id)">Eliminar</button> </td>
+                                            <td> <button type="button" data-toggle="modal" data-target="#modalChofer"  class="btn btn-success btn-sm" ng-click="vm.onViajeChofer(viaje.id)">Ver</button> </td>
 											</tr>
 										</tbody>
 									</table>
@@ -98,7 +98,7 @@
 											<th>Sector destino</th>
 										</thead>
 										<tbody>
-											<tr ng-repeat="viaje in model2" >
+											<tr ng-repeat="viaje in vm.model2" >
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>
@@ -106,8 +106,8 @@
 												<td>{{viaje.ciudad}}</td>
 												<td>{{viaje.origen}}</td>
 												<td>{{viaje.destino}}</td>
-												<td> <button type="button" class="btn btn-danger btn-sm" ng-click="delete(viaje.id)">Eliminar</button> </td>
-                                          	    <td> <button type="button" data-toggle="modal" data-target="#modalChofer" class="btn btn-warning btn-sm" ng-click="onViajeChofer(viaje.id)">Ver</button> </td>
+												<td> <button type="button" class="btn btn-danger btn-sm" ng-click="vm.delete(viaje.id)">Eliminar</button> </td>
+                                          	    <td> <button type="button" data-toggle="modal" data-target="#modalChofer" class="btn btn-warning btn-sm" ng-click="vm.onViajeChofer(viaje.id)">Ver</button> </td>
 											</tr>
 										</tbody>
 									</table>

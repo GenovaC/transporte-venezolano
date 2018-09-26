@@ -157,6 +157,24 @@
       "direccionFinal": "Alta Vista Sur. Residencias La Churuata. Piso 3. Apartamento 30",
       "longitud": "Estado a Otro",
       "id": 16
+    },
+    {
+      "cliente": "Genovita",
+      "origen": "Los olivos",
+      "destino": "Core 8",
+      "hora": "3845",
+      "fecha": "Fri Sep 21 2018 00:00:00 GMT-0400 (hora de Venezuela)",
+      "idUsuario": "1",
+      "longitud": "Misma ciudad",
+      "chofer": "Arturo López",
+      "ciudad": "Puerto Ordaz",
+      "vehiculo": "Fiat Palio",
+      "km": "12",
+      "tiempoEspera": "5",
+      "pasajeros": "5",
+      "precio": "20",
+      "idChofer": "2",
+      "id": 17
     }
   ],
   "lista_vehiculos": [
@@ -349,7 +367,9 @@
       "fvencimiento": "",
       "creditcard": "",
       "codesecurity": "",
-      "id": 5
+      "id": 5,
+      "tipoCuenta": "Corriente",
+      "account": ""
     }
   ],
   "configuracionTorta": [

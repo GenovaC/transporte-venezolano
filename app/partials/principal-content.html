@@ -1,4 +1,4 @@
-<main class="main body-jumbotron" >
+<main class="main body-jumbotron" ng-controller="mainController as vm" >
     
   <!-- Main jumbotron for a primary marketing message or call to action -->
  <div class="jumbotron"> <!--Asi se llama la plantilla que usé-->
@@ -11,21 +11,21 @@
      <!--Componente lateral para registrar a un usuario-->
      <aside id="registro">
        <h3>Regístrate</h3>
-       <form class="form-registrar-usuario-main" ng-submit="submitUsuario()" name="myForm" novalidate>
+       <form class="form-registrar-usuario-main" ng-submit="vm.submitUsuario()" name="myForm" novalidate>
          <div class="registro-datos-personales" >
-             <input class="form-control form-aside" type="text" name="name" placeholder="Nombre" ng-model="name" required >
-             <input class="form-control form-aside" type="text" name="apellido" placeholder="Apellido" ng-model="lastname" required >
-             <input class="form-control form-aside " type="tel" name="telefono" placeholder="Número de teléfono" ng-model="cel" required  >           
+             <input class="form-control form-aside" type="text" name="name" placeholder="Nombre" ng-model="vm.name" required >
+             <input class="form-control form-aside" type="text" name="apellido" placeholder="Apellido" ng-model="vm.lastname" required >
+             <input class="form-control form-aside " type="tel" name="telefono" placeholder="Número de teléfono" ng-model="vm.cel" required  >           
          </div>
          <hr>
          <div class="registro-datos-personales">
-             <input class="form-control form-aside" type ="email" name="email" placeholder="Correo electrónico" ng-model="email" required >
-             <input class="form-control form-aside" type="text" name="usuario" placeholder="Usuario" ng-model="user" required >
-             <input class="form-control form-aside" type="password" name="password" placeholder="Crear contraseña" ng-model="pwd" required >
-             <input class="form-control form-aside" type="password" name="repetirPassword" placeholder="Validar contraseña" ng-model="pwd2" required >
+             <input class="form-control form-aside" type ="email" name="email" placeholder="Correo electrónico" ng-model="vm.email" required >
+             <input class="form-control form-aside" type="text" name="usuario" placeholder="Usuario" ng-model="vm.user" required >
+             <input class="form-control form-aside" type="password" name="password" placeholder="Crear contraseña" ng-model="vm.pwd" required >
+             <input class="form-control form-aside" type="password" name="repetirPassword" placeholder="Validar contraseña" ng-model="vm.pwd2" required >
          </div>
          <label class="titulo-importante" for="clienteCheckbox">Ser chofer?</label>
-         <input type="checkbox" id="clienteCheckbox" ng-model="cliente" required >
+         <input type="checkbox" id="clienteCheckbox" ng-model="vm.cliente" required >
         
          <button class="btn btn-registro-usuario" id="btn-crear-usuario" type="submit">Crear Usuario</button> 
            
@@ -81,7 +81,7 @@
 
    <br>
    <!-- Tercera fila de elementos -->
-   <div class="row-principal" ng-controller="mainController">
+   <div class="row-principal" >
        <!-- Columna 1 de elementos -->
          <div class="col-md-4">
            <h2 class="titulo-importante">Conoce a los conductores</h2>
@@ -91,7 +91,7 @@
          <!-- Columna 2 de elementos -->
          <div class="col-md-8" >
             <ul class="galeria-equipo">
-              <li ng-repeat="chofer in model"> <img src="{{chofer.perfil}}" alt="Imagen random"> <p> {{chofer.fullname}} </p> </li>
+              <li ng-repeat="chofer in vm.model"> <img src="{{chofer.perfil}}" alt="Imagen random"> <p> {{chofer.fullname}} </p> </li>
             </ul> 
          </div>
      </div> <!-- /Row -->

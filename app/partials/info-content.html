@@ -88,12 +88,12 @@
      </div> <hr> <!-- /Row -->
 
      <!-- Quinta fila de elementos -->
-   <div class="row" id="conductores" ng-controller="infoController">
+   <div class="row" id="conductores" ng-controller="infoController as vm">
     <!-- Columna 1 de elementos -->
       <div class="col-md-10">
         <h2 class="titulo-importante">Nuestro equipo de choferes</h2>
         <ul class="galeria-equipo flex-container">
-            <li class="flex-item" ng-repeat="chofer in model"> <img src="{{chofer.perfil}}" alt="Imagen random"> <p> {{chofer.fullname}} </p> </li>
+            <li class="flex-item" ng-repeat="chofer in vm.model"> <img src="{{chofer.perfil}}" alt="Imagen random"> <p> {{chofer.fullname}} </p> </li>
           </ul> 
         <br>   
       </div>

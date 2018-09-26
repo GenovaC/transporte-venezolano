@@ -1,4 +1,4 @@
-<div class="wrapper" ng-controller="listaAutosController">
+<div class="wrapper" ng-controller="listaAutosController as vm">
 
         <div class="modal fade" id="modalAuto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document"> <!--Por defecto 600px-->
@@ -11,10 +11,10 @@
                             <h3>Tus autos</h3>
                         </div>
                         <div class="modal-body">
-                            <p > ID del auto: {{modaleishon.id}} </p>                  
-                            <p > Modelo: {{modaleishon.modelo}} </p>    
-                            <p > Propietario: ({{myChofer.id}}) - {{myChofer.fullname}} </p>  
-                            <p > Status: {{modaleishon.status}} </p>  
+                            <p > ID del auto: {{vm.modaleishon.id}} </p>                  
+                            <p > Modelo: {{vm.modaleishon.modelo}} </p>    
+                            <p > Propietario: ({{vm.myChofer.id}}) - {{myChofer.fullname}} </p>  
+                            <p > Status: {{vm.modaleishon.status}} </p>  
                         </div>
                     </div>
                 </div>
@@ -28,8 +28,8 @@
                 
                 <div class="row">
                     <div class="col-md-3">
-                        <select class="custom-select" ng-model="myChofer" class="dark-label" 
-                        ng-options="chofer.fullname for chofer in choferes" ng-click="cargarVehiculos(myChofer.id)"></select>
+                        <select class="custom-select" ng-model="vm.myChofer" class="dark-label" 
+                        ng-options="chofer.fullname for chofer in vm.choferes" ng-click="vm.cargarVehiculos(vm.myChofer.id)"></select>
                     </div>  
                 </div>
                 <br>
@@ -44,7 +44,7 @@
                                 </div>
                                 <!--Deberia tener una flecha para poder desplazarse entre la galería de autos-->
                                 <ul class="galeria-automoviles flex-container">
-                                    <li class="flex-item" ng-repeat="auto in model" data-toggle="modal" data-target="#modalAuto" ng-click="onVehicle(auto.id)" > 
+                                    <li class="flex-item" ng-repeat="auto in vm.model" data-toggle="modal" data-target="#modalAuto" ng-click="vm.onVehicle(auto.id)" > 
                                         <img src="{{auto.img}}" alt="Imagen random"> </li>
                                 </ul> 
                             </div>

@@ -1,4 +1,4 @@
-<div class="wrapper" ng-controller="estadisticUserController">
+<div class="wrapper" ng-controller="estadisticUserController as vm">
 
       <!--Modal para pedir un taxi-->
   <div class="modal fade" id="modalTaxi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -12,31 +12,31 @@
                     <h3>Pide un taxi ahora</h3>
                 </div>
                 <div class="modal-body formulario-modal-solicitar-taxi">
-                    <form action="" class="text-center" ng-submit="submitTaxi()">
+                    <form action="" class="text-center" ng-submit="vm.submitTaxi()">
                         <div class="form-group">
                             <label class="dark-label formulario-modal-label" for="origen-modal-taxi">Origen</label>
                             <input type="text" class="form-control border-input inputs-modales" id="origen-modal-taxi" 
-                            placeholder="Direccion origen" ng-model="origen">
+                            placeholder="Direccion origen" ng-model="vm.origen">
                         </div>
                         <div class="form-group">
                             <label class="dark-label formulario-modal-label" for="name-modal-taxi">Nombre Cliente</label>
                             <input type="text" id="name-modal-taxi" class="form-control border-input inputs-modales" 
-                            placeholder="Ingresa tu nombre" ng-model="cliente">
+                            placeholder="Ingresa tu nombre" ng-model="vm.cliente">
                         </div>
                         <div class="form-group">
                             <label class="dark-label formulario-modal-label" for="destino-modal-taxi">Destino</label>
                             <input type="text" id="destino-modal-taxi" class="form-control border-input inputs-modales" 
-                            placeholder="Direccion destino" ng-model="destino">
+                            placeholder="Direccion destino" ng-model="vm.destino">
                         </div>
                         <div class="form-group">
                             <label class="dark-label formulario-modal-label" for="hora-modal-taxi">Hora</label>
                             <input type="datetime" id="hora-modal-taxi" class="form-control border-input inputs-modales" 
-                            placeholder="Hora" ng-model="hora">
+                            placeholder="Hora" ng-model="vm.hora">
                         </div>
                         <div class="form-group">
                             <label class="dark-label formulario-modal-label" for="fecha-modal-taxi">Fecha</label>
                             <input type="date" id="fecha-modal-taxi" class="form-control border-input inputs-modales" 
-                            placeholder="Fecha" ng-model="fecha" >
+                            placeholder="Fecha" ng-model="vm.fecha" >
                         </div>
                         <hr>
                         <button type="submit" class="btn btn-info btn-fill btn-wd ">Solicitar</button>
@@ -65,14 +65,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p >Cuánto hemos viajado</p>
-                                            {{totalViajes}}
+                                            {{vm.totalViajes}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i> Has solicitado nuestros servicios {{totalViajes}} veces
+                                        <i class="ti-reload"></i> Has solicitado nuestros servicios {{vm.totalViajes}} veces
                                     </div>
                                 </div>
                             </div>
@@ -91,14 +91,14 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Cuánto hemos viajado</p>
-                                            {{totalRecorrido}} km
+                                            {{vm.totalRecorrido}} km
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-timer"></i> Con nosotros has recorrido {{totalRecorrido}} km
+                                        <i class="ti-timer"></i> Con nosotros has recorrido {{vm.totalRecorrido}} km
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Tiempo esperado</p>
-                                            + {{totalEsperado}} min
+                                            + {{vm.totalEsperado}} min
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                             <div class="content">
                                 <div >
                                  <!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-                                    <div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="300px"></div>
+                                    <div zingchart id="chart-1" zc-json="vm.myJson" zc-width="100%" zc-height="300px"></div>
                                 </div>
                                 <div class="footer">
                                     <div class="stats">
@@ -159,7 +159,7 @@
                                     </div>
                                     <div class="content">
                                         <ul class="list-unstyled team-members">
-                                            <li ng-repeat="chofer in choferesDestacados">
+                                            <li ng-repeat="chofer in vm.choferesDestacados">
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <div class="avatar">

@@ -1,12 +1,14 @@
 angular.module('app.controllers', [])
 
-  .controller('estadisticUserController', ['$scope','HttpVerbs', function ($scope, HttpVerbs) {
+  .controller('estadisticUserController', ['HttpVerbs', function ( HttpVerbs) {
   
-      $scope.user = {};  
+      var vm = this;
+
+      vm.user = {};  
 
       function cargarTortaEstadistica() {
 
-          $scope.myJson = {
+          vm.myJson = {
               idUsuario: 1,
               globals: {
                 shadow: false,
@@ -62,22 +64,22 @@ angular.module('app.controllers', [])
 
            HttpVerbs.get('http://localhost:3000/viajes?idUsuario='+1)        
            .then(function (r) { 
-              $scope.datos = r.data;
+              vm.datos = r.data;
 
-              $scope.totalViajes = $scope.datos.length;
+              vm.totalViajes = vm.datos.length;
 
-              $scope.totalEsperado = 0;
-              $scope.totalRecorrido = 0;
+              vm.totalEsperado = 0;
+              vm.totalRecorrido = 0;
 
-              angular.forEach($scope.datos, function(result){
-                  $scope.totalRecorrido += parseFloat(result.km);
-                  $scope.totalEsperado += parseFloat(result.tiempoEspera);
+              angular.forEach(vm.datos, function(result){
+                  vm.totalRecorrido += parseFloat(result.km);
+                  vm.totalEsperado += parseFloat(result.tiempoEspera);
               });
 
-              $scope.totalRecorrido = Number($scope.totalRecorrido.toFixed(2)); //Redondeando km recorridos
-              $scope.totalEsperado = $scope.totalEsperado/$scope.totalViajes; //Promedio de esperado
+              vm.totalRecorrido = Number(vm.totalRecorrido.toFixed(2)); //Redondeando km recorridos
+              vm.totalEsperado = vm.totalEsperado/vm.totalViajes; //Promedio de esperado
 
-              $scope.totalEsperado = Number($scope.totalEsperado.toFixed(2)); //Redondeando tiempo esperado
+              vm.totalEsperado = Number(vm.totalEsperado.toFixed(2)); //Redondeando tiempo esperado
           })
           .catch(function (r){
               console.log('Ha ocurrido un error:', r.status, r.data);
@@ -88,7 +90,7 @@ angular.module('app.controllers', [])
 
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')        
           .then(function (r) { 
-              $scope.choferesDestacados = r.data;
+              vm.choferesDestacados = r.data;
 
           })
           .catch(function (r){
@@ -100,15 +102,15 @@ angular.module('app.controllers', [])
       cargarCifrasEstadisticas();
       cargarChoferesDestacados();
 
-      $scope.submitTaxi = function () {
+      vm.submitTaxi = function () {
           // use $.param jQuery function to serialize data from JSON 
           var data = $.param({
 
-              cliente: $scope.cliente,
-              origen: $scope.origen,
-              destino: $scope.destino,
-              hora: $scope.hora,
-              fecha: $scope.fecha,
+              cliente: vm.cliente,
+              origen: vm.origen,
+              destino: vm.destino,
+              hora: vm.hora,
+              fecha: vm.fecha,
               
               //Esto no esta en el formulario de mi taxi asi que lo pondré por defecto asiii             
               
@@ -138,13 +140,15 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('estadisticChoferController', ['$scope', 'HttpVerbs',function ($scope, HttpVerbs) {
+  .controller('estadisticChoferController', ['HttpVerbs',function (HttpVerbs) {
     
+    var vm = this;
+
     function cargarTortaEstadistica() {
 
         HttpVerbs.get('http://localhost:3000/configuracionTorta?idUsuario='+2)
         .then(function (r) {
-           $scope.torta = r.data[0];
+           vm.torta = r.data[0];
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -155,7 +159,7 @@ angular.module('app.controllers', [])
 
         HttpVerbs.get('http://localhost:3000/hourEstadistics')
         .then(function (r) {
-            $scope.hour = r.data;
+            vm.hour = r.data;
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -167,7 +171,7 @@ angular.module('app.controllers', [])
         HttpVerbs.get('http://localhost:3000/lineEstadistics')
         .then(function (r) {
            // $scope.est = r.data;
-           $scope.line = r.data;
+           vm.line = r.data;
            //console.log(JSON.stringify($scope.myJson));
         })
         .catch(function (r){
@@ -181,12 +185,14 @@ angular.module('app.controllers', [])
   
   }])
 
-  .controller('listaAutosController', ['$scope', 'HttpVerbs', function ($scope, HttpVerbs) {
+  .controller('listaAutosController', ['HttpVerbs', function (HttpVerbs) {
    
-    $scope.cargarVehiculos = function(id) {
+    var vm = this;
+
+    vm.cargarVehiculos = function(id) {
         HttpVerbs.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)
         .then(function (r) {
-            $scope.model = r.data;
+            vm.model = r.data;
         })
         .catch(function (r){
 
@@ -194,10 +200,10 @@ angular.module('app.controllers', [])
         })
     }
 
-    $scope.onVehicle = function (id) {
+    vm.onVehicle = function (id) {
         HttpVerbs.get('http://localhost:3000/lista_vehiculos?id='+id)
         .then(function (r) {
-            $scope.modaleishon = r.data[0];             
+            vm.modaleishon = r.data[0];             
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -207,8 +213,8 @@ angular.module('app.controllers', [])
     function cargarChoferes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            $scope.choferes = r.data;
-            $scope.myChofer = $scope.choferes[0]; 
+            vm.choferes = r.data;
+            vm.myChofer = vm.choferes[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -218,13 +224,15 @@ angular.module('app.controllers', [])
     cargarChoferes();
   }])
 
-  .controller('listaChoferViajesController', ['$scope', 'HttpVerbs',function ($scope, HttpVerbs) {
+  .controller('listaChoferViajesController', ['HttpVerbs',function ( HttpVerbs) {
 
-    $scope.cargarViajes = function(id) {
+    var vm = this;
+
+    vm.cargarViajes = function(id) {
 
       HttpVerbs.get('http://localhost:3000/viajes?longitud=Estado a otro&longitud=Ciudad a otra&idChofer='+id)        
       .then(function (r) {
-          $scope.model = r.data;   
+          vm.model = r.data;   
       })
       .catch(function (r){
           console.log('Ha ocurrido un error:', r.status, r.data);
@@ -232,17 +240,17 @@ angular.module('app.controllers', [])
       
       HttpVerbs.get('http://localhost:3000/viajes?longitud=Misma ciudad&idChofer='+id)
       .then(function (r1) {
-          $scope.model2 = r1.data;
+          vm.model2 = r1.data;
       })
       .catch(function (r1){
           console.log('Ha ocurrido un error:', r1.status, r1.data);
       })
     }
 
-    $scope.onViajeChofer = function (id) {
+    vm.onViajeChofer = function (id) {
         HttpVerbs.get('http://localhost:3000/viajes?id='+id)
         .then(function (r) {
-            $scope.modaleishon = r.data[0];             
+            vm.detalle = r.data[0];             
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -252,8 +260,8 @@ angular.module('app.controllers', [])
     function cargarChoferes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            $scope.choferes = r.data;
-            $scope.myChofer = $scope.choferes[0]; 
+            vm.choferes = r.data;
+            vm.myChofer = vm.choferes[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -262,7 +270,7 @@ angular.module('app.controllers', [])
 
     cargarChoferes();
 
-    $scope.delete = function (id) {
+    vm.delete = function (id) {
         HttpVerbs.delete('http://localhost:3000/viajes/'+id)
         .then(function (r) {
             alert("Eliminado con exito viaje codigo "+id)               
@@ -275,13 +283,15 @@ angular.module('app.controllers', [])
     
   }])
 
-  .controller('listaUsuarioViajesController', ['$scope', 'HttpVerbs',function ($scope, HttpVerbs) {
+  .controller('listaUsuarioViajesController', ['HttpVerbs',function (HttpVerbs) {
     
+    var vm = this;
+
     function cargarClientes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=true')
         .then(function (r) {
-            $scope.clientes = r.data;
-            $scope.myCliente = $scope.clientes[0]; 
+            vm.clientes = r.data;
+            vm.myCliente = vm.clientes[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -290,11 +300,11 @@ angular.module('app.controllers', [])
 
     cargarClientes();
 
-    $scope.cargarViajes = function(id) {
+    vm.cargarViajes = function(id) {
 
         HttpVerbs.get('http://localhost:3000/viajes?longitud=Estado a otro&longitud=Ciudad a otra&idUsuario='+id)
         .then(function (r) {
-            $scope.model = r.data;
+            vm.model = r.data;
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -302,17 +312,17 @@ angular.module('app.controllers', [])
         
         HttpVerbs.get('http://localhost:3000/viajes?longitud=Misma ciudad&idUsuario='+myCliente.id)
         .then(function (r1) {
-            $scope.model2 = r1.data;
+            vm.model2 = r1.data;
         })
         .catch(function (r1){
             console.log('Ha ocurrido un error:', r1.status, r1.data);
         })
     }
 
-    $scope.onViajeUser = function (id) {
+    vm.onViajeUser = function (id) {
         HttpVerbs.get('http://localhost:3000/viajes?id='+id)
         .then(function (r) {
-            $scope.modaleishon = r.data[0];
+            vm.detalle = r.data[0];
             //  $scope.modaleishon = console.log(JSON.stringify($scope.mmm));                
         })
         .catch(function (r){
@@ -320,7 +330,7 @@ angular.module('app.controllers', [])
         })
     } 
 
-    $scope.delete = function (id) {
+    vm.delete = function (id) {
         HttpVerbs.delete('http://localhost:3000/viajes/'+id)
         .then(function (r) {
             alert("Eliminado con exito viaje codigo "+id)               
@@ -333,13 +343,15 @@ angular.module('app.controllers', [])
 
   }])
 
-  .controller('mainController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
+  .controller('mainController', ['HttpVerbs', function (HttpVerbs) {
+
+    var vm = this;
 
       function cargarChoferes() {
 
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false&_limit=3') //Trayendo 3 choferes
         .then(function (r) {
-            $scope.model = r.data;
+            vm.model = r.data;
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -347,26 +359,26 @@ angular.module('app.controllers', [])
       }
   
       function cargarFecha(){
-          $scope.dt = new Date();
+          vm.dt = new Date();
       }
   
       cargarChoferes();
       cargarFecha();  
   
-      $scope.submitUsuario= function () {
+      vm.submitUsuario= function () {
           
             var data = $.param({
         
-                name: $scope.name,
-                lastname: $scope.lastname,
-                phone: $scope.cel,
+                name: vm.name,
+                lastname: vm.lastname,
+                phone: vm.cel,
 
-                email: $scope.email,
-                user: $scope.user,
-                password: $scope.pwd,
-                cliente: !$scope.cliente,
+                email: vm.email,
+                user: vm.user,
+                password: vm.pwd,
+                cliente: !vm.cliente,
 
-                fullname: $scope.name + " " + $scope.lastname,
+                fullname: vm.name + " " + vm.lastname,
                 
                 portada: "images/ciudad-nocturna.jpg",
                 perfil: "images/faces/face-3.jpg",
@@ -395,13 +407,15 @@ angular.module('app.controllers', [])
     
   }])
 
-  .controller('infoController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
+  .controller('infoController', ['HttpVerbs', function (HttpVerbs) {
+
+    var vm = this;
 
     function cargarChoferes() {
 
       HttpVerbs.get('http://localhost:3000/usuarios?cliente=false') 
       .then(function (r) {
-          $scope.model = r.data;
+          vm.model = r.data;
       })
       .catch(function (r){
           console.log('Ha ocurrido un error:', r.status, r.data);
@@ -432,46 +446,48 @@ angular.module('app.controllers', [])
     
   })
 
-  .controller('planificacionController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
+  .controller('planificacionController', ['HttpVerbs', function (HttpVerbs) {
     
+    var vm = this;
+
     conocerDistancia = function(){
-        if ( ($scope.stateOrigen).localeCompare($scope.stateDestino) != 0 ) 
-            $scope.distanciaViaje = "Estado a Otro";
+        if ( (vm.stateOrigen).localeCompare(vm.stateDestino) != 0 ) 
+            vm.distanciaViaje = "Estado a Otro";
 
-        else if ( ($scope.cityOrigen).localeCompare($scope.cityDestino) != 0) 
-            $scope.distanciaViaje = "Ciudad a otra"; 
+        else if ( (vm.cityOrigen).localeCompare(vm.cityDestino) != 0) 
+            vm.distanciaViaje = "Ciudad a otra"; 
 
-        else  $scope.distanciaViaje = "Misma Ciudad"; 
+        else  vm.distanciaViaje = "Misma Ciudad"; 
     }
 
-    $scope.submitViaje= function () {    
+    vm.submitViaje= function () {    
 
         conocerDistancia();
 
         // use $.param jQuery function to serialize data from JSON 
         var data = $.param({
 
-            cliente: $scope.myCliente.fullname,            
-            idUsuario: $scope.myCliente.id, 
+            cliente: vm.myCliente.fullname,            
+            idUsuario: vm.myCliente.id, 
 
             vehiculo: "Fiat Palio",             
-            idChofer: $scope.myChofer.id,
-            chofer: $scope.myChofer.fullname,
+            idChofer: vm.myChofer.id,
+            chofer: vm.myChofer.fullname,
 
-            hora: $scope.hora,
-            fecha: $scope.fecha,
-            pasajeros: $scope.pasajeros,
-            km: $scope.km,
-            precio: $scope.precio,
+            hora: vm.hora,
+            fecha: vm.fecha,
+            pasajeros: vm.pasajeros,
+            km: vm.km,
+            precio: vm.precio,
             tiempoEspera: "1",
 
-            ciudad: $scope.cityOrigen,
-            origen: $scope.cityOrigen,
-            destino: $scope.cityDestino,
-            direccionInicial: $scope.direccionOrigen,
-            direccionFinal: $scope.direccionDestino,
+            ciudad: vm.cityOrigen,
+            origen: vm.cityOrigen,
+            destino: vm.cityDestino,
+            direccionInicial: vm.direccionOrigen,
+            direccionFinal: vm.direccionDestino,
 
-            longitud:  $scope.distanciaViaje,
+            longitud:  vm.distanciaViaje,
 
         });
     
@@ -489,8 +505,8 @@ angular.module('app.controllers', [])
     function cargarDatosUsuario() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=true')
         .then(function (r) {
-            $scope.clientes = r.data;
-            $scope.myCliente = $scope.clientes[0]; 
+            vm.clientes = r.data;
+            vm.myCliente = vm.clientes[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -500,8 +516,8 @@ angular.module('app.controllers', [])
     function cargarDatosChoferes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            $scope.choferes = r.data;
-            $scope.myChofer = $scope.choferes[0]; 
+            vm.choferes = r.data;
+            vm.myChofer = vm.choferes[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -513,14 +529,16 @@ angular.module('app.controllers', [])
 
   }])
 
-  .controller('choferPerfilController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
+  .controller('choferPerfilController', ['HttpVerbs', function (HttpVerbs) {
     
+    var vm = this;
+
     function cargarDatosChofer() {
 
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-           $scope.model = r.data;
-           $scope.myChofer = $scope.model[0]; 
+           vm.model = r.data;
+           vm.myChofer = vm.model[0]; 
         })
         .catch(function (r){
           console.log('Ha ocurrido un error:', r.status, r.data);
@@ -529,7 +547,7 @@ angular.module('app.controllers', [])
 
     cargarDatosChofer();
 
-    $scope.dias = [
+    vm.dias = [
         'Lun', 
         'Mar', 
         'Mie', 
@@ -539,21 +557,21 @@ angular.module('app.controllers', [])
         'Dom'
     ];
       
-    $scope.selected = [];
+    vm.selected = [];
 
 
-    $scope.cargarCifras = function (id) {
+    vm.cargarCifras = function (id) {
 
         HttpVerbs.get('http://localhost:3000/viajes?idChofer='+id)        
         .then(function (r) { 
-            $scope.totalViajes = r.data.length;
-            $scope.totalRecorrido = 0;
+            vm.totalViajes = r.data.length;
+            vm.totalRecorrido = 0;
 
             angular.forEach(r.data, function(result){
-                $scope.totalRecorrido += parseFloat(result.km);
+                vm.totalRecorrido += parseFloat(result.km);
             });
 
-            $scope.totalRecorrido = Number($scope.totalRecorrido.toFixed(2)); //Redondeando km recorridos
+            vm.totalRecorrido = Number(vm.totalRecorrido.toFixed(2)); //Redondeando km recorridos
 
         })
         .catch(function (r){
@@ -563,7 +581,7 @@ angular.module('app.controllers', [])
 
         HttpVerbs.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)        
         .then(function (r) { 
-            $scope.totalVehiculos = r.data.length;
+            vm.totalVehiculos = r.data.length;
 
         })
         .catch(function (r){
@@ -572,30 +590,30 @@ angular.module('app.controllers', [])
     };
 
 
-    $scope.updateChofer= function () {
+    vm.updateChofer= function () {
         
         var data = $.param({
     
-          name: $scope.myChofer.name,
-          lastname: $scope.myChofer.lastname,
-          phone: $scope.myChofer.phone,
+          name: vm.myChofer.name,
+          lastname: vm.myChofer.lastname,
+          phone: vm.myChofer.phone,
 
-          email: $scope.myChofer.email,
-          user: $scope.myChofer.user,
+          email: vm.myChofer.email,
+          user: vm.myChofer.user,
 
-          fullname: $scope.myChofer.name + " " + $scope.myChofer.lastname,
+          fullname: vm.myChofer.name + " " + vm.myChofer.lastname,
           
-          homeaddress:  $scope.myChofer.homeaddress,
-          city:  $scope.myChofer.city,
-          state:  $scope.myChofer.state,
-          country:  $scope.myChofer.country,
-          aboutme:  $scope.myChofer.aboutme,
+          homeaddress:  vm.myChofer.homeaddress,
+          city:  vm.myChofer.city,
+          state:  vm.myChofer.state,
+          country:  vm.myChofer.country,
+          aboutme:  vm.myChofer.aboutme,
 
-          horario: $scope.selected
+          horario: vm.selected
       });
 
 
-    HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myChofer.id, data)
+    HttpVerbs.modificar('http://localhost:3000/usuarios/'+vm.myChofer.id, data)
     .then(function (data, status, headers, config) {
         //$scope.PostDataResponse = data;
         alert("Correctamente actualizado");
@@ -606,17 +624,17 @@ angular.module('app.controllers', [])
     });
     };
 
-    $scope.updatePago= function () {
+    vm.updatePago= function () {
             
         var data = $.param({
 
-            banco:  $scope.myChofer.banco,
-            tipoCuenta:  $scope.myChofer.typeaccount,
-            account:  $scope.myChofer.account,
-            codesecurity: $scope.myChofer.codesecurity
+            banco:  vm.myChofer.banco,
+            tipoCuenta:  vm.myChofer.typeaccount,
+            account:  vm.myChofer.account,
+            codesecurity: vm.myChofer.codesecurity
         });
 
-        HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myChofer.id, data)
+        HttpVerbs.modificar('http://localhost:3000/usuarios/'+vm.myChofer.id, data)
         .then(function (data, status, headers, config) {
             //$scope.PostDataResponse = data;
             alert("Correctamente actualizado");
@@ -629,13 +647,15 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('userPerfilController', ['$scope', 'HttpVerbs',function ($scope,HttpVerbs) {
+  .controller('userPerfilController', ['HttpVerbs',function (HttpVerbs) {
     
+    var vm = this;
+
     function cargarClientes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=true')
         .then(function (r) {
-            $scope.clientes = r.data;
-            $scope.myCliente = $scope.clientes[0]; 
+            vm.clientes = r.data;
+            vm.myCliente = vm.clientes[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -644,21 +664,21 @@ angular.module('app.controllers', [])
 
     cargarClientes();
 
-    $scope.cargarCifras = function (id) {
+    vm.cargarCifras = function (id) {
 
         HttpVerbs.get('http://localhost:3000/viajes?idUsuario='+id)        
         .then(function (r) { 
-            $scope.totalViajes = r.data.length;
-            $scope.totalInvertido = 0;
-            $scope.totalRecorrido = 0;
+            vm.totalViajes = r.data.length;
+            vm.totalInvertido = 0;
+            vm.totalRecorrido = 0;
 
             angular.forEach(r.data, function(result){
-                $scope.totalRecorrido += parseFloat(result.km);
-                $scope.totalInvertido += parseFloat(result.precio);
+                vm.totalRecorrido += parseFloat(result.km);
+                vm.totalInvertido += parseFloat(result.precio);
             });
 
-            $scope.totalRecorrido = Number($scope.totalRecorrido.toFixed(2)); //Redondeando km recorridos
-            $scope.totalInvertido = Number($scope.totalInvertido.toFixed(2)); //Redondeando invertido
+            vm.totalRecorrido = Number(vm.totalRecorrido.toFixed(2)); //Redondeando km recorridos
+            vm.totalInvertido = Number(vm.totalInvertido.toFixed(2)); //Redondeando invertido
 
         })
         .catch(function (r){
@@ -666,33 +686,33 @@ angular.module('app.controllers', [])
         })
     };
 
-    $scope.updateUsuario= function () {
+    vm.updateUsuario= function () {
         
         var data = $.param({
         
-            name: $scope.myCliente.name,
-            lastname: $scope.myCliente.lastname,
-            phone: $scope.myCliente.phone,
+            name: vm.myCliente.name,
+            lastname: vm.myCliente.lastname,
+            phone: vm.myCliente.phone,
 
-            email: $scope.myCliente.email,
-            user: $scope.myCliente.user,
-            password: $scope.myCliente.password,
-            cliente: $scope.myCliente.cliente,
+            email: vm.myCliente.email,
+            user: vm.myCliente.user,
+            password: vm.myCliente.password,
+            cliente: vm.myCliente.cliente,
 
-            fullname: $scope.myCliente.name + " " + $scope.myCliente.lastname,
+            fullname: vm.myCliente.name + " " + vm.myCliente.lastname,
             
-            portada: $scope.myCliente.portada,
-            perfil: $scope.myCliente.perfil,
+            portada: vm.myCliente.portada,
+            perfil: vm.myCliente.perfil,
             
-            homeaddress:  $scope.myCliente.homeaddress,
-            city:  $scope.myCliente.city,
-            state:  $scope.myCliente.state,
-            country:  $scope.myCliente.country,
-            aboutme:  $scope.myCliente.aboutme,
+            homeaddress:  vm.myCliente.homeaddress,
+            city:  vm.myCliente.city,
+            state:  vm.myCliente.state,
+            country:  vm.myCliente.country,
+            aboutme:  vm.myCliente.aboutme,
             
         });
 
-        HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myCliente.id, data)
+        HttpVerbs.modificar('http://localhost:3000/usuarios/'+vm.myCliente.id, data)
         .then(function (data, status, headers, config) {
             alert("Correctamente actualizado");
         })
@@ -703,16 +723,16 @@ angular.module('app.controllers', [])
         location.reload();
     };
 
-    $scope.updatePago= function () {
+    vm.updatePago= function () {
             
         var data = $.param({        
-            banco:  $scope.myCliente.banco,
-            fvencimiento:  $scope.myCliente.fvencimiento,
-            creditcard:  $scope.myCliente.creditcard,
-            codesecurity: $scope.myCliente.codesecurity
+            banco:  vm.myCliente.banco,
+            fvencimiento:  vm.myCliente.fvencimiento,
+            creditcard:  vm.myCliente.creditcard,
+            codesecurity: vm.myCliente.codesecurity
         });
 
-        HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myCliente.id, data)
+        HttpVerbs.modificar('http://localhost:3000/usuarios/'+vm.myCliente.id, data)
         .then(function (data, status, headers, config) {
             alert("Correctamente actualizado");
         })
