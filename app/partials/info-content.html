@@ -1,0 +1,123 @@
+<main class="main body-jumbotron" ng-controller="mainController">
+    
+ <div class="container" >
+   <!-- Primera fila de elementos -->
+   <div class="row" id="comoFunciona">
+     <!-- Columna 1 de elementos -->
+     <div class="col-md-6">
+       <h2 class="titulo-importante">Cómo funciona</h2>
+       <p class="texto-alineado"> El primer paso es unirte a la comunidad que hacen posible los servicios de TransGénova. 
+           Sólo dando click <a class="btn btn-warning btn-xs" href="#!principal#registro">aquí</a> y proporcionando la información necesaria, 
+           ya podrás ser parte de nuestra amplia clientela. </p>
+        <p class="texto-alineado">
+            Desde tu cuenta podrás solicitar un taxi en la ciudad donde vives, o podrás planificar un viaje 
+            hacia otra ciudad del país, con un poco de antelación para que se asigne un chofer que te lleve
+            a tu destino.
+        </p> <br>
+     </div>     
+      <!-- Columna 2 de elementos -->
+     <div class="col-md-6">
+        <h2 class="titulo-importante">Cómo se paga</h2>        
+        <p class="texto-alineado">
+           Los pagos se realizan a través de una tarjeta de crédito que podrás afiliar a tu cuenta una vez te 
+           hayas registrado. Allí se cargarán los pagos de los transportes que solicites. Deberás confirmarlos
+           cada vez que tus solicitudesse hayan cumplido. 
+       </p>
+       <p class="texto-alineado">
+            Los vehículos que usamos en TransGénova cuentan con dispositivos que permiten conocer el precio 
+            que deberá tener el viaje en relación al tiempo que transcurrió el trayecto y a la distancia recorrida
+            a una tarifa de x bs Soberanos por kilómetro.
+        </p> <br>
+     </div>
+   </div> <!--/Row-->
+
+   <hr>
+   <!-- Segunda fila de elementos -->
+
+   <div class="row" >
+     <!-- Columna 1 de elementos -->
+       <div class="col-md-6"  id="quienes">
+         <h2 class="titulo-importante">A quiénes está dirigido</h2>
+         <p class="texto-alineado">
+             Cualquier persona dentro del territorio nacional que necesite un servicio de transporte 
+             puede solicitarlo a través de su cuenta en TransGénova, recibirlo en el sitio en que se encuentre
+             y dirigirse a donde quieran. 
+         </p>         
+       </div>
+       <!-- Columna 2 de elementos -->
+       <div class="col-md-6">
+         <h2 class="titulo-importante">Quiénes pueden conducir</h2>
+         <p class="texto-alineado" >
+             Para poder unirte al equipo de conductores de nuestra empresa, basta con que te registres 
+             <a class="btn btn-info btn-xs" href="#!principal#registro">aquí</a> y seleccionar que quieres ser chofer. Una vez proporciones
+             la información necesaria, se te contactará para que lleves tus documentos, y luego se llevará
+             a cabo una entrevista y una prueba de manejo. 
+        </p> <p class="texto-alineado">
+            Una vez aprobado todo, el equipo de TransGénova te dará la bienvenida, y te asignarán vehículos
+            para que puedas empezar a recibir solicitudes de viajes y taxis.
+         </p>           
+       </div>
+   </div> <!-- /Row -->
+    <hr>
+
+   <!-- Tercera fila de elementos -->
+   <div class="row" id="nosotros">
+       <!-- Columna 1 de elementos -->
+         <div class="col-md-10" >
+           <h2 class="titulo-importante">Sobre nosotros</h2>
+           <p class="texto-alineado" >
+               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, eum nisi! Eaque repellendus culpa, ab at minus eum modi maxime recusandae delectus sapiente temporibus aut animi. Expedita sed qui libero cumque quo, distinctio nesciunt harum non consectetur. Et excepturi suscipit sint. Nobis, corrupti error autem hic consequuntur dignissimos inventore mollitia?
+           </p>
+           <p class="texto-alineado" >
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, eum nisi! Eaque repellendus culpa, ab at minus eum modi maxime recusandae delectus sapiente temporibus aut animi. Expedita sed qui libero cumque quo, distinctio nesciunt harum non consectetur. Et excepturi suscipit sint. Nobis, corrupti error autem hic consequuntur dignissimos inventore mollitia?
+            </p>
+           <br>   
+         </div>
+     </div> <hr> <!-- /Row --> 
+   
+   <!-- Cuarta fila de elementos -->
+   <div class="row" id="contacto">
+       <!-- Columna 1 de elementos -->
+         <div class="col-md-8" >
+           <h2 class="titulo-importante">Contáctanos</h2>
+           <p class="texto-alineado" >
+               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, eum nisi! Eaque repellendus culpa, ab at minus eum modi maxime recusandae delectus sapiente temporibus aut animi. Expedita sed qui libero cumque quo, distinctio nesciunt harum non consectetur. Et excepturi suscipit sint. Nobis, corrupti error autem hic consequuntur dignissimos inventore mollitia?
+           </p>
+           <br>   
+         </div>
+     </div> <hr> <!-- /Row -->
+
+     <!-- Quinta fila de elementos -->
+   <div class="row" id="conductores" ng-controller="infoController">
+    <!-- Columna 1 de elementos -->
+      <div class="col-md-10">
+        <h2 class="titulo-importante">Nuestro equipo de choferes</h2>
+        <ul class="galeria-equipo flex-container">
+            <li class="flex-item" ng-repeat="chofer in model"> <img src="{{chofer.perfil}}" alt="Imagen random"> <p> {{chofer.fullname}} </p> </li>
+          </ul> 
+        <br>   
+      </div>
+  </div> <!-- /Row -->
+
+   </div> <!-- /container -->
+
+</main>
+
+
+    <footer class="container footer-principal">
+        <div class="container-fluid">
+            <nav class="pull-right redes-sociales copyright">
+                <a target="_blank" href="#">Instagram</a>
+                <a target="_blank" href="#">Facebook</a>
+                <a target="_blank" href="#">Twitter</a>
+                <a target="_blank" href="#">cualquier red social</a>
+                <a target="_blank" href="http://www.gmail.com">Gmail</a>
+            </nav>
+            <!--Créditos y copyright-->
+            <div class="copyright pull-left">
+                <p>Génova Castillo </p>
+            </div>
+        </div>
+  </footer>
+
+  <br>

@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-  .controller('pieUserEstadisticController', ['$scope', '$http', function ($scope, $http) {
+  .controller('estadisticUserController', ['$scope','HttpVerbs', function ($scope, HttpVerbs) {
   
       $scope.user = {};  
 
@@ -60,8 +60,8 @@ angular.module('app.controllers', [])
 
       function cargarCifrasEstadisticas() {
 
-          $http.get('http://localhost:3000/viajes?idUsuario=1')        
-          .then(function (r) { 
+           HttpVerbs.get('http://localhost:3000/viajes?idUsuario='+1)        
+           .then(function (r) { 
               $scope.datos = r.data;
 
               $scope.totalViajes = $scope.datos.length;
@@ -86,7 +86,7 @@ angular.module('app.controllers', [])
 
       function cargarChoferesDestacados() {
 
-          $http.get('http://localhost:3000/usuarios?cliente=false')        
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')        
           .then(function (r) { 
               $scope.choferesDestacados = r.data;
 
@@ -124,208 +124,78 @@ angular.module('app.controllers', [])
               idChofer: 2
 
           });
-      
-          var config = {
-              headers : {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-              }
-          }
 
-          $http.post('http://localhost:3000/viajes', data, config)
-          .then(function (data, status, headers, config) {
+          HttpVerbs.agregar('http://localhost:3000/viajes', data)
+          .then(function () {
               //$scope.PostDataResponse = data;
-              console.log("Se guardo tu información 'satisfactoriamente'");
-              console.log(" - Status - "+status+" - Data - "+data+" - Headers - "+headers+" - Config - "+config);
-          })
-          .catch(function (data, status, header, config) {
-
-              console.log("NO guardo tu información");
-              console.log(" - Status - "+status+" - Data - "+data+" - Headers - "+header+" - Config - "+config);
+              alert("Se guardo tu información 'satisfactoriamente'");
+            })
+          .catch(function () {
+              alert("NO guardo tu información");
           });
+          location.reload();
       };
 
     }])
 
-  .controller('choferPerfilController', ['$scope', '$http', function ($scope, $http) {
+  .controller('estadisticChoferController', ['$scope', 'HttpVerbs',function ($scope, HttpVerbs) {
     
-      function cargarDatosChofer() {
+    function cargarTortaEstadistica() {
 
-        $http.get('http://localhost:3000/usuarios?cliente=false')
+        HttpVerbs.get('http://localhost:3000/configuracionTorta?idUsuario='+2)
         .then(function (r) {
-            $scope.model = r.data;
-            $scope.myChofer = $scope.model[0]; 
+           $scope.torta = r.data[0];
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }  
+
+    function cargarHorasEstadistica() {
+
+        HttpVerbs.get('http://localhost:3000/hourEstadistics')
+        .then(function (r) {
+            $scope.hour = r.data;
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    }
+
+    function cargarLineEstadistica() {
+
+        HttpVerbs.get('http://localhost:3000/lineEstadistics')
+        .then(function (r) {
+           // $scope.est = r.data;
+           $scope.line = r.data;
+           //console.log(JSON.stringify($scope.myJson));
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
       }
 
-      cargarDatosChofer();
-
-      $scope.dias = [
-          'Lun', 
-          'Mar', 
-          'Mie', 
-          'Jue',
-          'Vie',
-          'Sab',
-          'Dom'
-      ];
-        
-      $scope.selected = [];
-
-
-      $scope.cargarCifras = function (id) {
-
-          $http.get('http://localhost:3000/viajes?idChofer='+id)        
-          .then(function (r) { 
-              $scope.totalViajes = r.data.length;
-              $scope.totalRecorrido = 0;
-
-              angular.forEach(r.data, function(result){
-                  $scope.totalRecorrido += parseFloat(result.km);
-              });
-
-              $scope.totalRecorrido = Number($scope.totalRecorrido.toFixed(2)); //Redondeando km recorridos
-
-          })
-          .catch(function (r){
-              console.log('Ha ocurrido un error:', r.status, r.data);
-          })
-
-
-          $http.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)        
-          .then(function (r) { 
-              $scope.totalVehiculos = r.data.length;
-
-          })
-          .catch(function (r){
-              console.log('Ha ocurrido un error:', r.status, r.data);
-          })
-      };
-
-
-      $scope.updateChofer= function () {
-          
-          var data = $.param({
-      
-            name: $scope.myChofer.name,
-            lastname: $scope.myChofer.lastname,
-            phone: $scope.myChofer.phone,
-
-            email: $scope.myChofer.email,
-            user: $scope.myChofer.user,
-
-            fullname: $scope.myChofer.name + " " + $scope.myChofer.lastname,
-            
-            homeaddress:  $scope.myChofer.homeaddress,
-            city:  $scope.myChofer.city,
-            state:  $scope.myChofer.state,
-            country:  $scope.myChofer.country,
-            aboutme:  $scope.myChofer.aboutme,
-
-            horario: $scope.selected
-        });
-
-      var config = {
-          headers : {
-              'Content-Type': 'application/x-www-form-urlencoded'
-          }
-      }
-
-      $http.patch('http://localhost:3000/usuarios/'+$scope.myChofer.id, data, config)
-      .then(function (data, status, headers, config) {
-          //$scope.PostDataResponse = data;
-          alert("Correctamente actualizado");
-      })
-      .catch(function (data, status, header, config) {
-        console.log('Ha ocurrido un error:',status, data);
-        alert("NO se pudo actualizar el registro");
-      });
-      };
-
-      $scope.updatePago= function () {
-              
-          var data = $.param({
-
-          banco:  $scope.myChofer.banco,
-          tipoCuenta:  $scope.myChofer.typeaccount,
-          account:  $scope.myChofer.account,
-          codesecurity: $scope.myChofer.codesecurity
-      });
-
-          var config = {
-              headers : {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-              }
-          }
-
-          $http.patch('http://localhost:3000/usuarios/'+$scope.myChofer.id, data, config)
-          .then(function (data, status, headers, config) {
-              //$scope.PostDataResponse = data;
-              alert("Correctamente actualizado");
-          })
-          .catch(function (data, status, header, config) {
-          console.log('Ha ocurrido un error:',status, data);
-          alert("NO se pudo actualizar el registro");
-          });
-      };
-
-  }])
-
-  .controller('hourChoferEstadisticController', ['$scope', '$http', function ($scope, $http) {
-    
-    function cargarHorasEstadistica() {
-
-      $http.get('http://localhost:3000/hourEstadistics')
-      .then(function (r) {
-         // $scope.est = r.data;
-         $scope.chartData = r.data;
-         //console.log(JSON.stringify($scope.myJson));
-      })
-      .catch(function (r){
-          console.log('Ha ocurrido un error:', r.status, r.data);
-      })
-    }
-
     cargarHorasEstadistica();
+    cargarLineEstadistica();
+    cargarTortaEstadistica();
   
   }])
 
-  .controller('lineChoferEstadisticController', ['$scope', '$http', function ($scope, $http) {
-    
-    function cargarLineEstadistica() {
-
-      $http.get('http://localhost:3000/lineEstadistics')
-      .then(function (r) {
-         // $scope.est = r.data;
-         $scope.chartData = r.data;
-         //console.log(JSON.stringify($scope.myJson));
-      })
-      .catch(function (r){
-          console.log('Ha ocurrido un error:', r.status, r.data);
-      })
-    }
-    
-    cargarLineEstadistica();
-
-  }])
-
-  .controller('listaAutosController', ['$scope', '$http', function ($scope, $http) {
+  .controller('listaAutosController', ['$scope', 'HttpVerbs', function ($scope, HttpVerbs) {
    
     $scope.cargarVehiculos = function(id) {
+        HttpVerbs.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)
+        .then(function (r) {
+            $scope.model = r.data;
+        })
+        .catch(function (r){
 
-      $http.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)        
-      .then(function (r) {
-          $scope.model = r.data;
-      })
-      .catch(function (r){
-          console.log('Ha ocurrido un error:', r.status, r.data);
-      })
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
     }
 
     $scope.onVehicle = function (id) {
-        $http.get('http://localhost:3000/lista_vehiculos?id='+id)
+        HttpVerbs.get('http://localhost:3000/lista_vehiculos?id='+id)
         .then(function (r) {
             $scope.modaleishon = r.data[0];             
         })
@@ -335,7 +205,7 @@ angular.module('app.controllers', [])
     } 
 
     function cargarChoferes() {
-        $http.get('http://localhost:3000/usuarios?cliente=false')
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
             $scope.choferes = r.data;
             $scope.myChofer = $scope.choferes[0]; 
@@ -348,11 +218,11 @@ angular.module('app.controllers', [])
     cargarChoferes();
   }])
 
-  .controller('listaChoferViajesController', ['$scope', '$http', function ($scope, $http) {
+  .controller('listaChoferViajesController', ['$scope', 'HttpVerbs',function ($scope, HttpVerbs) {
 
     $scope.cargarViajes = function(id) {
 
-      $http.get('http://localhost:3000/viajes?idChofer='+id+'&longitud=Estado a otro&longitud=Ciudad a otra')        
+      HttpVerbs.get('http://localhost:3000/viajes?longitud=Estado a otro&longitud=Ciudad a otra&idChofer='+id)        
       .then(function (r) {
           $scope.model = r.data;   
       })
@@ -360,7 +230,7 @@ angular.module('app.controllers', [])
           console.log('Ha ocurrido un error:', r.status, r.data);
       })
       
-      $http.get('http://localhost:3000/viajes?idChofer='+id+'&longitud=Misma ciudad')
+      HttpVerbs.get('http://localhost:3000/viajes?longitud=Misma ciudad&idChofer='+id)
       .then(function (r1) {
           $scope.model2 = r1.data;
       })
@@ -369,9 +239,8 @@ angular.module('app.controllers', [])
       })
     }
 
-
     $scope.onViajeChofer = function (id) {
-        $http.get('http://localhost:3000/viajes?id='+id)
+        HttpVerbs.get('http://localhost:3000/viajes?id='+id)
         .then(function (r) {
             $scope.modaleishon = r.data[0];             
         })
@@ -380,9 +249,8 @@ angular.module('app.controllers', [])
         })
     } 
   
-
     function cargarChoferes() {
-        $http.get('http://localhost:3000/usuarios?cliente=false')
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
             $scope.choferes = r.data;
             $scope.myChofer = $scope.choferes[0]; 
@@ -395,51 +263,22 @@ angular.module('app.controllers', [])
     cargarChoferes();
 
     $scope.delete = function (id) {
-        $http.delete('http://localhost:3000/viajes/'+id)
+        HttpVerbs.delete('http://localhost:3000/viajes/'+id)
         .then(function (r) {
             alert("Eliminado con exito viaje codigo "+id)               
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
+        location.reload();
     } 
     
   }])
 
-  .controller('listaUsuarioViajesController', ['$scope', '$http', function ($scope, $http) {
+  .controller('listaUsuarioViajesController', ['$scope', 'HttpVerbs',function ($scope, HttpVerbs) {
     
-    $scope.cargarViajes = function(id) {
-
-      $http.get('http://localhost:3000/viajes?idUsuario='+id+'&longitud=Estado a otro&longitud=Ciudad a otra')
-      .then(function (r) {
-          $scope.model = r.data;
-      })
-      .catch(function (r){
-          console.log('Ha ocurrido un error:', r.status, r.data);
-      })
-      
-      $http.get('http://localhost:3000/viajes?idUsuario='+id+'&longitud=Misma ciudad')
-      .then(function (r1) {
-          $scope.model2 = r1.data;
-      })
-      .catch(function (r1){
-          console.log('Ha ocurrido un error:', r1.status, r1.data);
-      })
-    }
-
-    $scope.onViajeUser = function (id) {
-        $http.get('http://localhost:3000/viajes?id='+id)
-        .then(function (r) {
-            $scope.modaleishon = r.data[0];
-            //  $scope.modaleishon = console.log(JSON.stringify($scope.mmm));                
-        })
-        .catch(function (r){
-            console.log('Ha ocurrido un error:', r.status, r.data);
-        })
-    } 
-
     function cargarClientes() {
-        $http.get('http://localhost:3000/usuarios?cliente=true')
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=true')
         .then(function (r) {
             $scope.clientes = r.data;
             $scope.myCliente = $scope.clientes[0]; 
@@ -451,23 +290,54 @@ angular.module('app.controllers', [])
 
     cargarClientes();
 
-    $scope.delete = function (id) {
-        $http.delete('http://localhost:3000/viajes/'+id)
+    $scope.cargarViajes = function(id) {
+
+        HttpVerbs.get('http://localhost:3000/viajes?longitud=Estado a otro&longitud=Ciudad a otra&idUsuario='+id)
         .then(function (r) {
-            alert("Eliminado con exito viaje codigo "+id)               
+            $scope.model = r.data;
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+        
+        HttpVerbs.get('http://localhost:3000/viajes?longitud=Misma ciudad&idUsuario='+myCliente.id)
+        .then(function (r1) {
+            $scope.model2 = r1.data;
+        })
+        .catch(function (r1){
+            console.log('Ha ocurrido un error:', r1.status, r1.data);
+        })
+    }
+
+    $scope.onViajeUser = function (id) {
+        HttpVerbs.get('http://localhost:3000/viajes?id='+id)
+        .then(function (r) {
+            $scope.modaleishon = r.data[0];
+            //  $scope.modaleishon = console.log(JSON.stringify($scope.mmm));                
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
     } 
 
+    $scope.delete = function (id) {
+        HttpVerbs.delete('http://localhost:3000/viajes/'+id)
+        .then(function (r) {
+            alert("Eliminado con exito viaje codigo "+id)               
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+        location.reload();
+    } 
+
   }])
 
-  .controller('mainController', ['$scope', '$http', function ($scope, $http) {
+  .controller('mainController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
 
-      function cargarListaChoferes() {
+      function cargarChoferes() {
 
-      $http.get('http://localhost:3000/usuarios?cliente=false&_limit=3') //Trayendo 3 clientes
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=false&_limit=3') //Trayendo 3 choferes
         .then(function (r) {
             $scope.model = r.data;
         })
@@ -480,67 +350,66 @@ angular.module('app.controllers', [])
           $scope.dt = new Date();
       }
   
-      cargarListaChoferes();
-      cargarFecha();
-  
+      cargarChoferes();
+      cargarFecha();  
   
       $scope.submitUsuario= function () {
           
-        //  if (($scope.pwd).localeCompare($scope.pwd2) == 0) {
-                  var data = $.param({
-              
-                  name: $scope.name,
-                  lastname: $scope.lastname,
-                  phone: $scope.cel,
-  
-                  email: $scope.email,
-                  user: $scope.user,
-                  password: $scope.pwd,
-                  cliente: !$scope.cliente,
-  
-                  fullname: $scope.name + " " + $scope.lastname,
-                 
-                  portada: "images/ciudad-nocturna.jpg",
-                  perfil: "images/faces/face-3.jpg",
-                 
-                  homeaddress:  "",
-                  city:  "",
-                  state:  "",
-                  country:  "",
-                  aboutme:  "",
-                  
-                  banco:  "",
-                  fvencimiento:  "",
-                  creditcard:  "",
-                  codesecurity: ""
-              });
-          
-              var config = {
-                  headers : {
-                      'Content-Type': 'application/x-www-form-urlencoded'
-                  }
-              }
-  
-              $http.post('http://localhost:3000/usuarios', data, config)
-              .then(function (data, status, headers, config) {
-                  //$scope.PostDataResponse = data;
-                  console.log("Se guardo tu información 'satisfactoriamente'");
-                  alert("Correctamente registrado");
-              })
-              .catch(function (data, status, header, config) {
-  
-                  console.log("NO guardo tu información");
-                  /*$scope.ResponseDetails = "Data: " + data +
-                      "<hr />status: " + status +
-                      "<hr />headers: " + header +
-                      "<hr />config: " + config;
-                  */
-                 alert("NO se pudo hacer el registro");
-              });
-         // } else alert("Las contraseñas no coinciden");
-      };
+            var data = $.param({
+        
+                name: $scope.name,
+                lastname: $scope.lastname,
+                phone: $scope.cel,
+
+                email: $scope.email,
+                user: $scope.user,
+                password: $scope.pwd,
+                cliente: !$scope.cliente,
+
+                fullname: $scope.name + " " + $scope.lastname,
+                
+                portada: "images/ciudad-nocturna.jpg",
+                perfil: "images/faces/face-3.jpg",
+                
+                homeaddress:  "",
+                city:  "",
+                state:  "",
+                country:  "",
+                aboutme:  "",
+                
+                banco:  "",
+                fvencimiento:  "",
+                creditcard:  "",
+                codesecurity: ""
+            });
+
+            HttpVerbs.agregar('http://localhost:3000/usuarios', data)
+            .then(function (data, status, headers, config) {
+                alert("Correctamente registrado");
+            })
+            .catch(function (data, status, header, config) {  
+                alert("NO se pudo hacer el registro");
+            });
+            location.reload();
+        };
     
   }])
+
+  .controller('infoController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
+
+    function cargarChoferes() {
+
+      HttpVerbs.get('http://localhost:3000/usuarios?cliente=false') 
+      .then(function (r) {
+          $scope.model = r.data;
+      })
+      .catch(function (r){
+          console.log('Ha ocurrido un error:', r.status, r.data);
+      })
+    }
+
+    cargarChoferes();
+}])
 
   .controller('MapController', function() {
 
@@ -563,28 +432,22 @@ angular.module('app.controllers', [])
     
   })
 
-  .controller('pieChoferEstadisticController', ['$scope', '$http', function ($scope, $http) {
+  .controller('planificacionController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
     
-    function cargarTortaEstadistica() {
+    conocerDistancia = function(){
+        if ( ($scope.stateOrigen).localeCompare($scope.stateDestino) != 0 ) 
+            $scope.distanciaViaje = "Estado a Otro";
 
-      $http.get('http://localhost:3000/configuracionTorta?idUsuario=2')
-      .then(function (r) {
-         // $scope.est = r.data;
-         $scope.myJson = r.data[0];
-         //console.log(JSON.stringify($scope.myJson));
-      })
-      .catch(function (r){
-          console.log('Ha ocurrido un error:', r.status, r.data);
-      })
-  }
+        else if ( ($scope.cityOrigen).localeCompare($scope.cityDestino) != 0) 
+            $scope.distanciaViaje = "Ciudad a otra"; 
 
-  cargarTortaEstadistica();
+        else  $scope.distanciaViaje = "Misma Ciudad"; 
+    }
 
-  }])
+    $scope.submitViaje= function () {    
 
-  .controller('planificacionController', ['$scope', '$http', function ($scope, $http) {
-    
-    $scope.submitViaje= function () {
+        conocerDistancia();
+
         // use $.param jQuery function to serialize data from JSON 
         var data = $.param({
 
@@ -608,48 +471,23 @@ angular.module('app.controllers', [])
             direccionInicial: $scope.direccionOrigen,
             direccionFinal: $scope.direccionDestino,
 
-            /* longitud = function(){
-
-            if ( ($scope.ciudadOrigen).localeCompare($scope.ciudadDestino) == 0) 
-                return "Misma ciudad"
-            if ( ($scope.stateOrigen).localeCompare($scope.stateDestino) != 0 ) 
-                return "Estado a Otro"
-            if ( ( ($scope.stateOrigen).localeCompare($scope.stateDestino) == 0 )  && 
-                ( ($scope.ciudadOrigen).localeCompare($scope.ciudadDestino) == 0) )
-                return "Ciudad a otra" 
-            }, */
-
-            //Esto no esta en el formulario de mi taxi asi que lo pondré por defecto asiii            
-            
-            longitud: "Estado a otro", //No deberia
+            longitud:  $scope.distanciaViaje,
 
         });
     
-        var config = {
-            headers : {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }
 
-        $http.post('http://localhost:3000/viajes', data, config)
+        HttpVerbs.agregar('http://localhost:3000/viajes', data)
         .then(function (data, status, headers, config) {
-            //$scope.PostDataResponse = data;
-            console.log("Se guardo tu información 'satisfactoriamente'");
             alert("Se guardo tu información 'satisfactoriamente'");
         })
         .catch(function (data, status, header, config) {
             alert("Error");
-            console.log("NO guardo tu información");
-            /*$scope.ResponseDetails = "Data: " + data +
-                "<hr />status: " + status +
-                "<hr />headers: " + header +
-                "<hr />config: " + config;
-            */
         });
+        location.reload();
     };
 
     function cargarDatosUsuario() {
-        $http.get('http://localhost:3000/usuarios?cliente=true')
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=true')
         .then(function (r) {
             $scope.clientes = r.data;
             $scope.myCliente = $scope.clientes[0]; 
@@ -660,7 +498,7 @@ angular.module('app.controllers', [])
     }
 
     function cargarDatosChoferes() {
-        $http.get('http://localhost:3000/usuarios?cliente=false')
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
             $scope.choferes = r.data;
             $scope.myChofer = $scope.choferes[0]; 
@@ -675,24 +513,140 @@ angular.module('app.controllers', [])
 
   }])
 
-  .controller('userPerfilController', ['$scope', '$http', function ($scope, $http) {
+  .controller('choferPerfilController', ['$scope', 'HttpVerbs', function ($scope,HttpVerbs) {
     
-    function cargarClientes() {
-      $http.get('http://localhost:3000/usuarios?cliente=true')
-      .then(function (r) {
-          $scope.clientes = r.data;
-          $scope.myCliente = $scope.clientes[0]; 
-      })
-      .catch(function (r){
+    function cargarDatosChofer() {
+
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
+        .then(function (r) {
+           $scope.model = r.data;
+           $scope.myChofer = $scope.model[0]; 
+        })
+        .catch(function (r){
           console.log('Ha ocurrido un error:', r.status, r.data);
       })
+    }
+
+    cargarDatosChofer();
+
+    $scope.dias = [
+        'Lun', 
+        'Mar', 
+        'Mie', 
+        'Jue',
+        'Vie',
+        'Sab',
+        'Dom'
+    ];
+      
+    $scope.selected = [];
+
+
+    $scope.cargarCifras = function (id) {
+
+        HttpVerbs.get('http://localhost:3000/viajes?idChofer='+id)        
+        .then(function (r) { 
+            $scope.totalViajes = r.data.length;
+            $scope.totalRecorrido = 0;
+
+            angular.forEach(r.data, function(result){
+                $scope.totalRecorrido += parseFloat(result.km);
+            });
+
+            $scope.totalRecorrido = Number($scope.totalRecorrido.toFixed(2)); //Redondeando km recorridos
+
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+
+
+        HttpVerbs.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)        
+        .then(function (r) { 
+            $scope.totalVehiculos = r.data.length;
+
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
+    };
+
+
+    $scope.updateChofer= function () {
+        
+        var data = $.param({
+    
+          name: $scope.myChofer.name,
+          lastname: $scope.myChofer.lastname,
+          phone: $scope.myChofer.phone,
+
+          email: $scope.myChofer.email,
+          user: $scope.myChofer.user,
+
+          fullname: $scope.myChofer.name + " " + $scope.myChofer.lastname,
+          
+          homeaddress:  $scope.myChofer.homeaddress,
+          city:  $scope.myChofer.city,
+          state:  $scope.myChofer.state,
+          country:  $scope.myChofer.country,
+          aboutme:  $scope.myChofer.aboutme,
+
+          horario: $scope.selected
+      });
+
+
+    HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myChofer.id, data)
+    .then(function (data, status, headers, config) {
+        //$scope.PostDataResponse = data;
+        alert("Correctamente actualizado");
+    })
+    .catch(function (data, status, header, config) {
+      console.log('Ha ocurrido un error:',status, data);
+      alert("NO se pudo actualizar el registro");
+    });
+    };
+
+    $scope.updatePago= function () {
+            
+        var data = $.param({
+
+            banco:  $scope.myChofer.banco,
+            tipoCuenta:  $scope.myChofer.typeaccount,
+            account:  $scope.myChofer.account,
+            codesecurity: $scope.myChofer.codesecurity
+        });
+
+        HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myChofer.id, data)
+        .then(function (data, status, headers, config) {
+            //$scope.PostDataResponse = data;
+            alert("Correctamente actualizado");
+        })
+        .catch(function (data, status, header, config) {
+            console.log('Ha ocurrido un error:',status, data);
+            alert("NO se pudo actualizar el registro");
+        });
+    };
+
+    }])
+
+  .controller('userPerfilController', ['$scope', 'HttpVerbs',function ($scope,HttpVerbs) {
+    
+    function cargarClientes() {
+        HttpVerbs.get('http://localhost:3000/usuarios?cliente=true')
+        .then(function (r) {
+            $scope.clientes = r.data;
+            $scope.myCliente = $scope.clientes[0]; 
+        })
+        .catch(function (r){
+            console.log('Ha ocurrido un error:', r.status, r.data);
+        })
     }
 
     cargarClientes();
 
     $scope.cargarCifras = function (id) {
 
-        $http.get('http://localhost:3000/viajes?idUsuario='+id)        
+        HttpVerbs.get('http://localhost:3000/viajes?idUsuario='+id)        
         .then(function (r) { 
             $scope.totalViajes = r.data.length;
             $scope.totalInvertido = 0;
@@ -714,7 +668,7 @@ angular.module('app.controllers', [])
 
     $scope.updateUsuario= function () {
         
-            var data = $.param({
+        var data = $.param({
         
             name: $scope.myCliente.name,
             lastname: $scope.myCliente.lastname,
@@ -737,22 +691,16 @@ angular.module('app.controllers', [])
             aboutme:  $scope.myCliente.aboutme,
             
         });
-    
-        var config = {
-            headers : {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }
 
-        $http.patch('http://localhost:3000/usuarios/'+$scope.myCliente.id, data, config)
+        HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myCliente.id, data)
         .then(function (data, status, headers, config) {
-            //$scope.PostDataResponse = data;
             alert("Correctamente actualizado");
         })
         .catch(function (data, status, header, config) {
         console.log('Ha ocurrido un error:',status, data);
             alert("NO se pudo actualizar el registro");
         });
+        location.reload();
     };
 
     $scope.updatePago= function () {
@@ -764,23 +712,19 @@ angular.module('app.controllers', [])
             codesecurity: $scope.myCliente.codesecurity
         });
 
-        var config = {
-            headers : {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }
-
-        $http.patch('http://localhost:3000/usuarios/'+$scope.myChofer.id, data, config)
+        HttpVerbs.modificar('http://localhost:3000/usuarios/'+$scope.myCliente.id, data)
         .then(function (data, status, headers, config) {
-            //$scope.PostDataResponse = data;
             alert("Correctamente actualizado");
         })
         .catch(function (data, status, header, config) {
-        console.log('Ha ocurrido un error:',status, data);
-        alert("NO se pudo actualizar el registro");
+            console.log('Ha ocurrido un error:',status, data);
+            alert("NO se pudo actualizar el registro");
         });
+        
+        location.reload();
     };
 
   }]);
+
 
 

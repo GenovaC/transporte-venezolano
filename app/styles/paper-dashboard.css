@@ -47,8 +47,18 @@
   color: #fff;
 }
 
+.texto-alineado {
+  text-align: justify;
+}
+
+.imagen-fondo{
+    backdrop-filter: blur(10px);
+    background-color: rgba(54, 48, 47, 0.473);
+}
+  
+
 body {
-  background: #f0d89e url('../images/main.jpg');
+  background: #f0d89e url('../images/main.jpg'); 
   background-color: #1C0B19;
   background-size: cover;
   font-family: 'Signika', 'Kosugi' sans-serif;
@@ -982,7 +992,7 @@ input.ng-invalid {
 /*Footer de la página*/
 
 .footer-principal {
-    margin: 80px;
+    margin-top: 80px;
     font-family: 'Signika', sans-serif;
     background: rgba(238,233,205, .3);
     padding: 20px;
@@ -992,7 +1002,7 @@ input.ng-invalid {
     flex-wrap: no-wrap;
     justify-content: space-between;
     border-radius: 10px;
-    width: 85%;
+    width: 87%;
 }
 
 .footer-principal .redes-sociales a{

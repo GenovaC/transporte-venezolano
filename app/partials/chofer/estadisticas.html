@@ -1,10 +1,8 @@
 <div class="wrapper">
 	<sidenav-content></sidenav-content>     
        <div class="main-panel">
-
-			<navbar-content></navbar-content>
-			
-            <div class="content">
+			<navbar-content></navbar-content>			
+            <div class="content"  ng-controller="estadisticChoferController">
                 <div class="container-fluid">
 
 					<div class="row">
@@ -15,9 +13,8 @@
 									<p class="category dark-label">Según longitud de la ruta</p>
 								</div>
 								<div class="content">
-									<div ng-controller="pieChoferEstadisticController">
 									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-										<div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="300px"></div>
+										<div zingchart id="chart-1" zc-json="torta" zc-width="100%" zc-height="300px"></div>
 									</div>
 									<div class="footer">
 										<div class="stats">
@@ -26,8 +23,6 @@
 									</div>
 								</div>
 							</div>
-						</div>
-
 
 						<div class="col-md-7">
 							<div class="card">
@@ -36,9 +31,9 @@
 									<p class="category dark-label">24 Horas</p>
 								</div>
 								<div class="content">
-									<div ng-controller="hourChoferEstadisticController">
+									<div>
 									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-										<div zingchart id="chart-2" zc-json="chartData" zc-width="600" zc-height="300px"></div>
+										<div zingchart id="chart-2" zc-json="hour" zc-width="600px" zc-height="300px"></div>
 									</div>
 									<div class="footer">
 										<div class="stats">
@@ -48,6 +43,9 @@
 								</div>
 							</div>
 						</div>
+
+						</row>
+
 					</div>
 
 					<div class="row">
@@ -58,9 +56,9 @@
 									<p class="category dark-label">Crecimiento de la empresa en el año</p>
 								</div>
 								<div class="content">
-									<div ng-controller="lineChoferEstadisticController">
+									<div>
 									<!-- <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div> -->
-										<div zingchart id="chart-3" zc-json="chartData" zc-width="100%" zc-height="400px"></div>
+										<div zingchart id="chart-3" zc-json="line" zc-width="100%" zc-height="400px"></div>
 									</div>
 									<div class="footer">
 										<div class="stats">

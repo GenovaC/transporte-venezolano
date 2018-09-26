@@ -1,4 +1,4 @@
-<main class="main body-jumbotron" ng-controller="mainController">
+<main class="main body-jumbotron" >
     
   <!-- Main jumbotron for a primary marketing message or call to action -->
  <div class="jumbotron"> <!--Asi se llama la plantilla que usé-->
@@ -9,7 +9,7 @@
        <p><a class="btn btn-green btn-lg" href="#" role="button" >Viaja ahora &raquo;</a></p>
      </div>
      <!--Componente lateral para registrar a un usuario-->
-     <aside>
+     <aside id="registro">
        <h3>Regístrate</h3>
        <form class="form-registrar-usuario-main" ng-submit="submitUsuario()" name="myForm" novalidate>
          <div class="registro-datos-personales" >
@@ -40,14 +40,16 @@
      <!-- Columna 1 de elementos -->
      <div class="col-md-4">
        <h2 class="titulo-importante">Cómo funciona</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-green" href="#" role="button">View details &raquo;</a></p>
+       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, 
+         tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+         justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       <p><a class="btn btn-green" href="#!info#comoFunciona" role="button">View details &raquo;</a></p>
      </div>
      <!-- Columna 2 de elementos -->
      <div class="col-md-4">
        <h2 class="titulo-importante">Quiénes pueden usarlo</h2>
        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-green" href="#" role="button">View details &raquo;</a></p>
+       <p><a class="btn btn-green" href="#!info#quienes" role="button">View details &raquo;</a></p>
      </div>
      <!-- Columna 3 de elementos -->
      <div class="col-md-4">
@@ -60,40 +62,37 @@
      </div>
    </div> <!--/Row-->
 
-   <hr>
+   <br>
    <!-- Segunda fila de elementos -->
    <div class="row-principal">
      <!-- Columna 1 de elementos -->
        <div class="col-md-6">
          <h2 class="titulo-importante">Taxis</h2>
          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         <p><a class="btn-principal btn-servicios" href="#" role="button">Toma un taxi &raquo;</a></p>
+         <p><a class="btn-principal btn-servicios" href="#!estadisticasU" role="button">Toma un taxi &raquo;</a></p>
        </div>
        <!-- Columna 2 de elementos -->
        <div class="col-md-6">
          <h2 class="titulo-importante">Viajes largos</h2>
          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn-principal btn-servicios" href="#" role="button">Planifica un viaje &raquo;</a></p>
+        <p><a class="btn-principal btn-servicios" href="#!planificar" role="button">Planifica un viaje &raquo;</a></p>
        </div>
    </div> <!-- /Row -->
 
-   <hr>
+   <br>
    <!-- Tercera fila de elementos -->
-   <div class="row-principal">
+   <div class="row-principal" ng-controller="mainController">
        <!-- Columna 1 de elementos -->
          <div class="col-md-4">
            <h2 class="titulo-importante">Conoce a los conductores</h2>
            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-           <p><a class="btn btn-link btn-green" href="#" role="button">Ver todos &raquo;</a></p>   
+           <p><a class="btn btn-link btn-green" href="#!info#conductores" role="button">Ver todos &raquo;</a></p>   
          </div>
          <!-- Columna 2 de elementos -->
          <div class="col-md-8" >
             <ul class="galeria-equipo">
               <li ng-repeat="chofer in model"> <img src="{{chofer.perfil}}" alt="Imagen random"> <p> {{chofer.fullname}} </p> </li>
-               <!--<li> <img src="images/1.jpg" alt="Imagen random 1"> <p>Chofer 1 </p> </li>
-               <li> <img src="images/2.jpg" alt="Imagen random 2"> <p>Chofer 2 </p> </li>
-               <li> <img src="images/3.jpg" alt="Imagen random 3"> <p>Chofer 3 </p> </li> -->
-           </ul> 
+            </ul> 
          </div>
      </div> <!-- /Row -->
 
@@ -102,15 +101,20 @@
 </main>
 
 
-<footer class="container footer-principal">
-  <div class="copyright pull-left">
-      <p>Génova Castillo </p>
-  </div>
-  <div class="redes-sociales copyright pull-right">
-      <a target="_blank" href="#">Instagram</a>
-      <a target="_blank" href="#">Facebook</a>
-      <a target="_blank" href="#">Twitter</a>
-      <a target="_blank" href="#">cualquier red social</a>
-      <a target="_blank" href="http://www.gmail.com">Gmail</a>
-  </div>
-</footer>
+  <footer class="container footer-principal">
+    <div class="container-fluid">
+        <nav class="pull-right redes-sociales copyright">
+            <a target="_blank" href="#">Instagram</a>
+            <a target="_blank" href="#">Facebook</a>
+            <a target="_blank" href="#">Twitter</a>
+            <a target="_blank" href="#">cualquier red social</a>
+            <a target="_blank" href="http://www.gmail.com">Gmail</a>
+        </nav>
+        <!--Créditos y copyright-->
+        <div class="copyright pull-left">
+            <p>Génova Castillo </p>
+        </div>
+    </div>
+  </footer>
+
+  <br>

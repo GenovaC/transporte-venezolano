@@ -5,6 +5,7 @@ angular
         'ngRoute',
         'app.controllers',
         'app.components',
+        'app.factories',
         'zingchart-angularjs', 
         'checklist-model'
     ])
@@ -19,9 +20,14 @@ angular
                 controller: 'mainController'
             })
 
+            .when('/info', {
+                templateUrl : 'partials/info.html',
+                controller: 'infoController'
+            })
+
             .when('/principal', {
                 templateUrl : 'partials/home.html',
-                controller: 'listaChoferesController'
+                controller: 'mainController'
             })
 
             .when('/maps', {
@@ -61,14 +67,12 @@ angular
 
             .when('/estadisticasU', {
                 templateUrl : 'partials/usuario/estadisticas.html',
-                controller: 'pieUserEstadisticController'
+                controller: 'estadisticUserController'
             })
 
             .when('/estadisticasC', {
                 templateUrl : 'partials/chofer/estadisticas.html',
-                controller: 'hourChoferEstadisticController',
-                controller: 'pieChoferEstadisticController',
-                controller: 'lineChoferEstadisticController'
+                controller: 'estadisticChoferController'
             })
 
             .otherwise({
