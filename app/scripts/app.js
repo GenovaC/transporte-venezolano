@@ -6,6 +6,7 @@ angular
         'app.controllers',
         'app.components',
         'app.factories',
+        'app.directives',
         'zingchart-angularjs', 
         'checklist-model'
     ])
@@ -16,62 +17,62 @@ angular
 
             // route for the home page
             .when('/', {
-                templateUrl : 'partials/home.html',
+                templateUrl : 'views/home.html',
                 controller: 'mainController'
             })
 
             .when('/info', {
-                templateUrl : 'partials/info.html',
+                templateUrl : 'views/info.html',
                 controller: 'infoController'
             })
 
             .when('/principal', {
-                templateUrl : 'partials/home.html',
+                templateUrl : 'views/home.html',
                 controller: 'mainController'
             })
 
             .when('/maps', {
-                templateUrl : 'partials/chofer/maps.html',
+                templateUrl : 'views/chofer/maps.html',
                 controller: 'MapController'
             })
 
             .when('/vehiculos', {
-                templateUrl : 'partials/chofer/vehiculos.html',
+                templateUrl : 'views/chofer/vehiculos.html',
                 controller: 'listaAutosController',
             })
 
             .when('/planificar', {
-                templateUrl : 'partials/usuario/planificar.html',
+                templateUrl : 'views/usuario/planificar.html',
                 controller: 'planificacionController'
             })
 
             .when('/viajesU', {
-                templateUrl : 'partials/usuario/table.html',
+                templateUrl : 'views/usuario/table.html',
                 controller: 'listaUsuarioViajesController'
             })
 
             .when('/viajesC', {
-                templateUrl : 'partials/chofer/table.html',
+                templateUrl : 'views/chofer/table.html',
                 controller: 'listaChoferViajesController'
             })
 
             .when('/perfilU', {
-                templateUrl : 'partials/usuario/user.html',
+                templateUrl : 'views/usuario/user.html',
                 controller: 'userPerfilController'
             })
 
             .when('/perfilC', {
-                templateUrl : 'partials/chofer/user.html',
+                templateUrl : 'views/chofer/user.html',
                 controller: 'choferPerfilController'
             })
 
             .when('/estadisticasU', {
-                templateUrl : 'partials/usuario/estadisticas.html',
+                templateUrl : 'views/usuario/estadisticas.html',
                 controller: 'estadisticUserController'
             })
 
             .when('/estadisticasC', {
-                templateUrl : 'partials/chofer/estadisticas.html',
+                templateUrl : 'views/chofer/estadisticas.html',
                 controller: 'estadisticChoferController'
             })
 

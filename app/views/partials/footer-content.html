@@ -21,8 +21,8 @@
             </ul>
         </nav>
         <!--Créditos y copyright-->
-        <div class="copyright pull-right" ng-controller="mainController">
-            {{dt | date:'yyyy-MM-dd'}}, made with <i class="fa fa-heart heart"></i> by <a>Génova Castillo</a>
+        <div class="copyright pull-right" ng-controller="mainController as vm">
+            {{vm.dt | date:'yyyy-MM-dd'}} made with <i class="fa fa-heart heart"></i> by <a>Génova Castillo</a>
         </div>
     </div>
 </footer>

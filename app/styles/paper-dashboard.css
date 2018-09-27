@@ -65,6 +65,99 @@ body {
   background-attachment: fixed;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #33253f;
+  background-image: none;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: #fff;
+  cursor: pointer;
+
+  vertical-align: middle;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select-chofer {
+  position: relative;
+  display: block;
+  width: 13em;
+  height: 3em;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: .75em;
+}
+
+
+/* Arrow */
+select-chofer::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: #82119e;
+  pointer-events: none;
+}
+
+/* Transition */
+select-chofer:hover::after {
+  color: #ffffff;
+}
+select-chofer::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+select-user {
+  position: relative;
+  display: block;
+  width: 12em;
+  height: 3em;
+  line-height: 3;
+  background: #0d5aa7;
+  overflow: hidden;
+  border-radius: .75em;
+}
+
+
+/* Arrow */
+select-user::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: #49a4ff;
+  pointer-events: none;
+}
+
+/* Transition */
+select-user:hover::after {
+  color: #ffffff;
+}
+select-user::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+
 #map {
   height: 100%;
 }

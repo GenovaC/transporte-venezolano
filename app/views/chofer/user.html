@@ -42,10 +42,9 @@
                                 <br>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <select class="custom-select" ng-model="vm.myChofer" class="dark-label" 
-                            ng-options="chofer.fullname for chofer in vm.model" ng-click="vm.cargarCifras(vm.myChofer.id)"></select>
-                        </div> 
+                        <div class="col-md-3"> <!---->
+                            <select-chofer ng-click="vm.cargarCifras(vm.myChofer.id)"></select-chofer>
+                        </div>                        
                     </div>
                     
                     <div class="col-lg-8 col-md-7">

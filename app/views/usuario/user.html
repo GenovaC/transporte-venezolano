@@ -41,8 +41,7 @@
                         
                         
                         <div class="col-md-3">
-                                <select class="custom-select" ng-model="vm.myCliente" class="dark-label" 
-                                ng-options="cliente.fullname for cliente in vm.clientes"  ng-click="vm.cargarCifras(vm.myCliente.id)"></select>
+                                <select-user ng-click="vm.cargarCifras(vm.myCliente.id)"></select-user>
                         </div> 
                     </div>
                     <div class="col-lg-8 col-md-7">

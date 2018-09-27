@@ -28,8 +28,7 @@
                 
                 <div class="row">
                     <div class="col-md-3">
-                        <select class="custom-select" ng-model="vm.myChofer" class="dark-label" 
-                        ng-options="chofer.fullname for chofer in vm.choferes" ng-click="vm.cargarVehiculos(vm.myChofer.id)"></select>
+                        <select-chofer ng-click="vm.cargarVehiculos(vm.myChofer.id)"></select-chofer>
                     </div>  
                 </div>
                 <br>
@@ -44,7 +43,7 @@
                                 </div>
                                 <!--Deberia tener una flecha para poder desplazarse entre la galería de autos-->
                                 <ul class="galeria-automoviles flex-container">
-                                    <li class="flex-item" ng-repeat="auto in vm.model" data-toggle="modal" data-target="#modalAuto" ng-click="vm.onVehicle(auto.id)" > 
+                                    <li class="flex-item" ng-repeat="auto in vm.vehiculos" data-toggle="modal" data-target="#modalAuto" ng-click="vm.onVehicle(auto.id)" > 
                                         <img src="{{auto.img}}" alt="Imagen random"> </li>
                                 </ul> 
                             </div>

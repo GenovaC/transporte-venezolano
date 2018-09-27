@@ -36,8 +36,7 @@
 
 					<div class="row">
 						<div class="col-md-3">
-							<select class="custom-select" ng-model="myChofer" class="dark-label" 
-							ng-options="chofer.fullname for chofer in vm.choferes" ng-click="vm.cargarViajes(vm.myChofer.id)"></select>
+							<select-chofer ng-click="vm.cargarViajes(vm.myChofer.id)"></select-chofer>
 						</div>  
 					</div>
 					
@@ -62,7 +61,7 @@
 											<th>Destino</th>
 										</thead>
 										<tbody>
-											<tr ng-repeat="viaje in vm.model" >
+											<tr ng-repeat="viaje in vm.viajes" >
 												<td>{{viaje.id}}</td>
 												<td>{{viaje.cliente}}</td>
 												<td>{{viaje.vehiculo}}</td>

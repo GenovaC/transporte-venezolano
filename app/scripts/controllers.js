@@ -192,7 +192,7 @@ angular.module('app.controllers', [])
     vm.cargarVehiculos = function(id) {
         HttpVerbs.get('http://localhost:3000/lista_vehiculos?idPropietario='+id)
         .then(function (r) {
-            vm.model = r.data;
+            vm.vehiculos = r.data;
         })
         .catch(function (r){
 
@@ -213,8 +213,8 @@ angular.module('app.controllers', [])
     function cargarChoferes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            vm.choferes = r.data;
-            vm.myChofer = vm.choferes[0]; 
+            vm.model = r.data;
+            vm.myChofer = vm.model[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -232,7 +232,7 @@ angular.module('app.controllers', [])
 
       HttpVerbs.get('http://localhost:3000/viajes?longitud=Estado a otro&longitud=Ciudad a otra&idChofer='+id)        
       .then(function (r) {
-          vm.model = r.data;   
+          vm.viajes = r.data;   
       })
       .catch(function (r){
           console.log('Ha ocurrido un error:', r.status, r.data);
@@ -260,8 +260,8 @@ angular.module('app.controllers', [])
     function cargarChoferes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            vm.choferes = r.data;
-            vm.myChofer = vm.choferes[0]; 
+            vm.model = r.data;
+            vm.myChofer = vm.model[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);
@@ -516,8 +516,8 @@ angular.module('app.controllers', [])
     function cargarDatosChoferes() {
         HttpVerbs.get('http://localhost:3000/usuarios?cliente=false')
         .then(function (r) {
-            vm.choferes = r.data;
-            vm.myChofer = vm.choferes[0]; 
+            vm.model = r.data;
+            vm.myChofer = vm.model[0]; 
         })
         .catch(function (r){
             console.log('Ha ocurrido un error:', r.status, r.data);

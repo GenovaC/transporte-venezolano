@@ -75,33 +75,41 @@
                                         <input type="text" ng-show="false" class="form-control border-input" ng-model="vm.distanciaViaje" placeholder="Posible distancia">
                                        
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="dark-label">Precio</label>
                                                     <input type="text" class="form-control border-input" ng-model="vm.precio"  placeholder="Tiempo estimado"  >
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label class="dark-label">Km</label>
                                                         <input type="text" class="form-control border-input" ng-model="vm.km" placeholder="km"  >
                                                     </div>
                                                 </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="dark-label">Viajeros</label>
                                                     <input type="text" class="form-control border-input" ng-model="vm.pasajeros" placeholder="¿Con cuántas personas va a viajar?">
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="dark-label" >Cliente: </label> <br>
-                                                <select  class="custom-select"  ng-model="vm.myCliente" class="dark-label" ng-options="cliente.fullname for cliente in vm.clientes"></select>
-                                            </div>   
-                                            <div class="col-md-3">
-                                                <label class="dark-label" >Chofer:</label> <br>
-                                                <select class="custom-select" ng-model="vm.myChofer" class="dark-label" ng-options="chofer.fullname for chofer in vm.choferes"></select>
-                                            </div>                                                                                         
+                                            </div>                                                                                       
                                         </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="dark-label" >Cliente: </label> <br>
+                                                    <select-user ></select-user>
+                                                </div>
+                                            </div>   
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="dark-label" >Chofer: </label> <br>
+                                                    <select-chofer ></select-chofer>
+                                                </div>
+                                            </div>   
+                                        </div>
+
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-info btn-fill btn-wd">Planificar ahora</button>
                                         </div>

@@ -1,30 +1,30 @@
 angular.module('app.components', [])
 
  .component('footerContent', {
-    templateUrl: '../partials/footer-content.html',
+    templateUrl: '../views/partials/footer-content.html',
     controller: function footerController() {}
  })
 
  .component('navbarContent', {
-    templateUrl: '../partials/navbar-content.html'
+    templateUrl: '../views/partials/navbar-content.html'
  })
 
  .component('principalContent', {
-    templateUrl: '../partials/principal-content.html',
+    templateUrl: '../views/partials/principal-content.html',
     controller: function contentController() {}
  })
 
  .component('infoContent', {
-    templateUrl: '../partials/info-content.html',
+    templateUrl: '../views/partials/info-content.html',
     controller: function infoController() {}
  })
 
  .component('headerContent', {
-    templateUrl: '../partials/header-content.html'
+    templateUrl: '../views/partials/header-content.html'
  })
 
  .component('sidenavContent', {
-    templateUrl: '../partials/sidenav-content.html'
+    templateUrl: '../views/partials/sidenav-content.html'
  });
 
  
