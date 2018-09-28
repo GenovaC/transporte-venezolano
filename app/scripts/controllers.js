@@ -128,7 +128,7 @@ angular.module('app.controllers', [])
           });
 
           HttpVerbs.agregar('http://localhost:3000/viajes', data)
-          .success(function () {
+          .then(function () {
               //$scope.PostDataResponse = data;
               alert("Se guardo tu información 'satisfactoriamente'");
             })
