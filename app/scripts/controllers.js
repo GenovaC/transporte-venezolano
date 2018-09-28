@@ -128,7 +128,7 @@ angular.module('app.controllers', [])
           });
 
           HttpVerbs.agregar('http://localhost:3000/viajes', data)
-          .then(function () {
+          .success(function () {
               //$scope.PostDataResponse = data;
               alert("Se guardo tu información 'satisfactoriamente'");
             })
@@ -310,7 +310,7 @@ angular.module('app.controllers', [])
             console.log('Ha ocurrido un error:', r.status, r.data);
         })
         
-        HttpVerbs.get('http://localhost:3000/viajes?longitud=Misma ciudad&idUsuario='+myCliente.id)
+        HttpVerbs.get('http://localhost:3000/viajes?longitud=Misma ciudad&idUsuario='+id)
         .then(function (r1) {
             vm.model2 = r1.data;
         })
@@ -452,12 +452,12 @@ angular.module('app.controllers', [])
 
     conocerDistancia = function(){
         if ( (vm.stateOrigen).localeCompare(vm.stateDestino) != 0 ) 
-            vm.distanciaViaje = "Estado a Otro";
+            vm.distanciaViaje = "Estado a otro";
 
         else if ( (vm.cityOrigen).localeCompare(vm.cityDestino) != 0) 
             vm.distanciaViaje = "Ciudad a otra"; 
 
-        else  vm.distanciaViaje = "Misma Ciudad"; 
+        else  vm.distanciaViaje = "Misma ciudad"; 
     }
 
     vm.submitViaje= function () {    
